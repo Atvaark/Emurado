@@ -12,7 +12,8 @@ namespace HaloOnline.Server.Core.Http.Handlers
             CancellationToken cancellationToken)
         {
             Debug.WriteLine("Request: " + request.Method  + " " + request.RequestUri);
-            if (request.Content.Headers.ContentType.MediaType == "application/json")
+            var contentType = request.Content.Headers.ContentType;
+            if (contentType != null && contentType.MediaType == "application/json")
             {
                 var readAsStringAsync = request.Content.ReadAsStringAsync();
                 Debug.WriteLine(readAsStringAsync.Result);

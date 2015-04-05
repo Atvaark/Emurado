@@ -2,7 +2,6 @@
 {
     public class HaloUser : IHaloUser
     {
-        public string UserPasswordHash { get; set; }
 
         public string Id
         {
@@ -11,5 +10,6 @@
 
         public int UserId { get; set; }
         public string UserName { get; set; }
+        public string UserPasswordHash { get; set; }
     }
 }

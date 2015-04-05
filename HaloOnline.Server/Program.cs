@@ -23,7 +23,9 @@ namespace HaloOnline.Server
             {
                 Console.Clear();
                 Console.WriteLine("Halo Online Server");
-                Console.WriteLine("Listening on port " + LogServerPort);
+                Console.WriteLine("Dispatcher port: " + DispatcherServiceServerPort);
+                Console.WriteLine("Endpoint port: " + ServiceServerPort);
+                Console.WriteLine("Log port: " + LogServerPort);
                 Console.WriteLine("Press escape to exit");
                 Console.WriteLine("");
                 Console.WriteLine("Connections:");

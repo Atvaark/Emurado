@@ -53,9 +53,7 @@ namespace HaloOnline.Server.Core.Http
                 //.InstancePerRequest()
                 .SingleInstance()
                 .As<IHaloUserManager>();
-
-            // BUG: Cyclic reference. Create an option wrapper that has the isue
-
+            
             builder.Register(c => new SymmetricKeyIssuerSecurityTokenProvider(
                 validIssuer,
                 "n9stoFfd/JN6JyVCxwEXYxNSXGDEGSoOcPtd7erDtE4=")) // TODO: Place the secret in a config file

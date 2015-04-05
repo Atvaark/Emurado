@@ -17,10 +17,6 @@ namespace HaloOnline.Server.Core.Http.Handlers
             if (TryGetUserContextFromRequestHeader(request, out userContext))
             {
                 environment[HaloAuthEnvironment.UserContext] = userContext;
-                // TODO: Inject the header type and check which type is needed
-                //request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", userContext);
-
-                //SetPrincipal(request, request.GetOwinContext(), userContext);
             }
 
             var response = await base.SendAsync(request, cancellationToken);

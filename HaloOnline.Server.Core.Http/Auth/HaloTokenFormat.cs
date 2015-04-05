@@ -41,7 +41,6 @@ namespace HaloOnline.Server.Core.Http.Auth
             SecurityToken securityToken = _tokenHandler.ReadToken(protectedText);
             ;
             if (securityToken == null) throw new ArgumentException("protectedText is not a valid token");
-            // TODO: Inject TokenValidationParameters
 
             SecurityToken validatedToken;
             var claimsPrincipal = _tokenHandler.ValidateToken(protectedText, _validationParameters, out validatedToken);
