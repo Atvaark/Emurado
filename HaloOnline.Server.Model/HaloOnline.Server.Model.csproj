@@ -134,6 +134,11 @@
     <Compile Include="TitleResource\TitleProperty.cs" />
     <Compile Include="TitleResource\TitleTagsPatchConfiguration.cs" />
     <Compile Include="Unidentified\Unidentified1.cs" />
+    <Compile Include="Unidentified\Unidentified10.cs" />
+    <Compile Include="Unidentified\Unidentified11.cs" />
+    <Compile Include="Unidentified\Unidentified12.cs" />
+    <Compile Include="Unidentified\Unidentified13.cs" />
+    <Compile Include="Unidentified\Unidentified14.cs" />
     <Compile Include="Unidentified\Unidentified2.cs" />
     <Compile Include="Unidentified\Unidentified3.cs" />
     <Compile Include="Unidentified\Unidentified4.cs" />

@@ -27,3 +27,21 @@ An assembly containing the data model of the server.
 * Autofac - Inversion of Control container
 * OAuth - Authorization
 * JSON Web Tokens - Bearer token format
+
+## Getting started
+
+* Compile the solution
+* Run HaloOnline.Server
+* Open %HALODIR%\game.cfg
+  * Edit EndpointsDispatcherDomain and EndpointsDispatcherPort
+  * Edit AzureBinLogEndPoint
+* Open %HALODIR%\maps\tags.dat
+  * Swap the enum values of BACKEND_SESSION_ESTABLISHING and BACKEND_SESSION_ONLINE
+* Optional
+  * Compile a version of ElDorito that doesn't mess with account related values
+
+## Todo list
+
+* Creating an assembly for storing persistent data with Entity Framework Code First
+* Creating an assembly for non persistent data like Chat, Presence, Parties and Matchmaking
+* Waiting for a functional client

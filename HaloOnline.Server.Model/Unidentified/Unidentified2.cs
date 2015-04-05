@@ -2,6 +2,9 @@
 
 namespace HaloOnline.Server.Model.Unidentified
 {
+    /// <summary>
+    /// WriteDiagnosticsDataRequest?
+    /// </summary>
     public class Unidentified2
     {
         public string SessionId { get; set; }

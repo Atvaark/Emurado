@@ -15,8 +15,7 @@ namespace HaloOnline.Server.Model.Unidentified
         [JsonProperty("DSToken")]
         public string DsToken { get; set; }
         [JsonProperty("MMGroupId")]
-        public int MatchmakingGroupId { get; set; }
+        public int MmGroupId { get; set; }
         public int UserProfession { get; set; }
-
     }
 }
