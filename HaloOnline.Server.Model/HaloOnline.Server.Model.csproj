@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70802DE7-2C91-4D77-980E-8D2AA74B5C20}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HaloOnline.Server.Model</RootNamespace>
+    <AssemblyName>HaloOnline.Server.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArbitraryStorage\WriteADFPackRequest.cs" />
+    <Compile Include="ArbitraryStorage\WriteDiagnosticsDataRequest.cs" />
+    <Compile Include="Authorization\Signature.cs" />
+    <Compile Include="Authorization\SignIn.cs" />
+    <Compile Include="Authorization\SignInRequest.cs" />
+    <Compile Include="Clan\ClanBaseData.cs" />
+    <Compile Include="Clan\ClanBaseDataVersioned.cs" />
+    <Compile Include="Clan\ClanCreateRequest.cs" />
+    <Compile Include="Clan\ClanGetBaseDataRequest.cs" />
+    <Compile Include="Clan\ClanGetByNameRequest.cs" />
+    <Compile Include="Clan\ClanGetMembershipRequest.cs" />
+    <Compile Include="Clan\ClanId.cs" />
+    <Compile Include="Clan\ClanJoinRequest.cs" />
+    <Compile Include="Clan\ClanKickRequest.cs" />
+    <Compile Include="Clan\ClanLeaveRequest.cs" />
+    <Compile Include="Clan\ClanMember.cs" />
+    <Compile Include="Clan\ClanMembershipData.cs" />
+    <Compile Include="Clan\ClanMembershipDataVersioned.cs" />
+    <Compile Include="EndpointDispatcher\AuthorizationEndpointsAndDate.cs" />
+    <Compile Include="EndpointDispatcher\CompactEndpointInfo.cs" />
+    <Compile Include="EndpointDispatcher\EndpointInfoVersioned.cs" />
+    <Compile Include="EndpointDispatcher\GetAuthorizationEndpointsAndDateRequest.cs" />
+    <Compile Include="EndpointDispatcher\GetAuthorizationEndpointsRequest.cs" />
+    <Compile Include="Friends\GetSubscriptionsRequest.cs" />
+    <Compile Include="Friends\SubscriptionAddRequest.cs" />
+    <Compile Include="Friends\SubscriptionRemoveRequest.cs" />
+    <Compile Include="Friends\UserSubscriptionList.cs" />
+    <Compile Include="Friends\UserSubscriptions.cs" />
+    <Compile Include="Friends\VersionedUserId.cs" />
+    <Compile Include="GameStatistics\Challenge.cs" />
+    <Compile Include="GameStatistics\CheckNewUserChallengesRequest.cs" />
+    <Compile Include="GameStatistics\Counter.cs" />
+    <Compile Include="GameStatistics\GetUserChallengesRequest.cs" />
+    <Compile Include="GameStatistics\Reward.cs" />
+    <Compile Include="GameStatistics\UserChallenges.cs" />
+    <Compile Include="Heartbeat\GetServicesStatusRequest.cs" />
+    <Compile Include="Heartbeat\HeartbeatStatusContract.cs" />
+    <Compile Include="Messaging\ChannelCommands.cs" />
+    <Compile Include="Messaging\ChannelMessage.cs" />
+    <Compile Include="Messaging\Channel.cs" />
+    <Compile Include="Messaging\JoinChannelsRequest.cs" />
+    <Compile Include="Messaging\LeaveChannelsRequest.cs" />
+    <Compile Include="Messaging\ReceiveRequest.cs" />
+    <Compile Include="Messaging\SendRequest.cs" />
+    <Compile Include="Messaging\SendServiceMessageRequest.cs" />
+    <Compile Include="Serialization\AbstractDataConverter.cs" />
+    <Compile Include="Serialization\UnixEpochMillisecondsJsonConverter.cs" />
+    <Compile Include="Serialization\UnixEpochSecondsJsonConverter.cs" />
+    <Compile Include="Presence\CustomGameStartRequest.cs" />
+    <Compile Include="Presence\CustomGameStopRequest.cs" />
+    <Compile Include="Presence\GetPlaylistStatRequest.cs" />
+    <Compile Include="Presence\MatchmakeGetStatusRequest.cs" />
+    <Compile Include="Presence\MatchmakeId.cs" />
+    <Compile Include="Presence\MatchmakeMember.cs" />
+    <Compile Include="Presence\MatchmakeStartRequest.cs" />
+    <Compile Include="Presence\MatchmakeStatus.cs" />
+    <Compile Include="Presence\MatchmakeStopRequest.cs" />
+    <Compile Include="Presence\OnlineStats.cs" />
+    <Compile Include="Presence\PartyGetStatusRequest.cs" />
+    <Compile Include="Presence\PartyId.cs" />
+    <Compile Include="Presence\PartyJoinRequest.cs" />
+    <Compile Include="Presence\PartyKickRequest.cs" />
+    <Compile Include="Presence\PartyLeaveRequest.cs" />
+    <Compile Include="Presence\PartySetGameDataRequest.cs" />
+    <Compile Include="Presence\PartyStatus.cs" />
+    <Compile Include="Presence\PlaylistStat.cs" />
+    <Compile Include="Presence\PresenceConnectRequest.cs" />
+    <Compile Include="Presence\PresenceDisconnectRequest.cs" />
+    <Compile Include="Presence\PresenceGetUsersPresenceRequest.cs" />
+    <Compile Include="Presence\ReportOnlineStatsRequest.cs" />
+    <Compile Include="Presence\SessionMember.cs" />
+    <Compile Include="Presence\UserPresence.cs" />
+    <Compile Include="Presence\UserPresenceData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionControl\ClientGetStatusRequest.cs" />
+    <Compile Include="SessionControl\ClientStatus.cs" />
+    <Compile Include="SessionControl\DedicatedServer.cs" />
+    <Compile Include="SessionControl\Game.cs" />
+    <Compile Include="SessionControl\GetSessionBasicDataRequest.cs" />
+    <Compile Include="SessionControl\GetSessionChainRequest.cs" />
+    <Compile Include="SessionControl\SessionBasicData.cs" />
+    <Compile Include="SessionControl\SessionChain.cs" />
+    <Compile Include="TitleResource\GetTitleConfigRawRequest.cs" />
+    <Compile Include="TitleResource\GetTitleConfigurationRequest.cs" />
+    <Compile Include="TitleResource\GetTitleTagsPatchConfigurationRequest.cs" />
+    <Compile Include="TitleResource\Tag.cs" />
+    <Compile Include="TitleResource\TitleConfiguration.cs" />
+    <Compile Include="TitleResource\TitleInstance.cs" />
+    <Compile Include="TitleResource\TitleProperty.cs" />
+    <Compile Include="TitleResource\TitleTagsPatchConfiguration.cs" />
+    <Compile Include="Unidentified\Unidentified1.cs" />
+    <Compile Include="Unidentified\Unidentified2.cs" />
+    <Compile Include="Unidentified\Unidentified3.cs" />
+    <Compile Include="Unidentified\Unidentified4.cs" />
+    <Compile Include="Unidentified\Unidentified5.cs" />
+    <Compile Include="Unidentified\Unidentified6.cs" />
+    <Compile Include="Unidentified\Unidentified7.cs" />
+    <Compile Include="Unidentified\Unidentified8.cs" />
+    <Compile Include="Unidentified\Unidentified9.cs" />
+    <Compile Include="UserStorage\AbstractData.cs" />
+    <Compile Include="UserStorage\ArmorLoadout.cs" />
+    <Compile Include="UserStorage\ArmorLoadoutSlot.cs" />
+    <Compile Include="UserStorage\GetPrivateDataRequest.cs" />
+    <Compile Include="UserStorage\GetPublicDataRequest.cs" />
+    <Compile Include="UserStorage\PerUser.cs" />
+    <Compile Include="UserStorage\PublicDataContainerTypes.cs" />
+    <Compile Include="UserStorage\SetPrivateDataRequest.cs" />
+    <Compile Include="UserStorage\SetPublicDataRequest.cs" />
+    <Compile Include="User\ApplyExternalOfferRequest.cs" />
+    <Compile Include="User\ApplyOfferAndGetTransactionHistoryRequest.cs" />
+    <Compile Include="User\ApplyOfferListAndGetTransactionHistoryRequest.cs" />
+    <Compile Include="User\ApplyOfferListRequest.cs" />
+    <Compile Include="User\ApplyOfferRequest.cs" />
+    <Compile Include="User\BundleItem.cs" />
+    <Compile Include="User\ExtendedInfoItem.cs" />
+    <Compile Include="User\GetItemOffersRequest.cs" />
+    <Compile Include="User\GetShopRequest.cs" />
+    <Compile Include="User\GetTransactionHistoryRequest.cs" />
+    <Compile Include="User\GetUsersBaseDataRequest.cs" />
+    <Compile Include="User\GetUsersByNicknameRequest.cs" />
+    <Compile Include="User\GetUsersPrimaryStatesRequest.cs" />
+    <Compile Include="User\GetUserStatesRequest.cs" />
+    <Compile Include="User\ItemNames.cs" />
+    <Compile Include="User\ItemOffers.cs" />
+    <Compile Include="User\NicknameChangeRequest.cs" />
+    <Compile Include="User\Offer.cs" />
+    <Compile Include="User\OfferCurrency.cs" />
+    <Compile Include="User\OfferLine.cs" />
+    <Compile Include="User\PlayerRace.cs" />
+    <Compile Include="User\Sale.cs" />
+    <Compile Include="User\Shop.cs" />
+    <Compile Include="User\ShopSection.cs" />
+    <Compile Include="User\ShopSectionTypes.cs" />
+    <Compile Include="User\ShopShelfTypes.cs" />
+    <Compile Include="User\ShopShelve.cs" />
+    <Compile Include="User\ShopType.cs" />
+    <Compile Include="User\SignOutRequest.cs" />
+    <Compile Include="User\TransactionItem.cs" />
+    <Compile Include="User\UserBaseData.cs" />
+    <Compile Include="User\UserId.cs" />
+    <Compile Include="User\UserPrimaryStates.cs" />
+    <Compile Include="User\UserState.cs" />
+    <Compile Include="User\UserStatesAndTimestamp.cs" />
+    <Compile Include="User\UserTransaction.cs" />
+    <Compile Include="User\UserTransactionHistory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
