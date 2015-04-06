@@ -14,6 +14,9 @@
     <Setting Name="ClientPort" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">11774</Value>
     </Setting>
+    <Setting Name="AppPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">11700</Value>
+    </Setting>
     <Setting Name="EndpointHostname" Type="System.String" Scope="Application">
       <Value Profile="(Default)">localhost</Value>
     </Setting>

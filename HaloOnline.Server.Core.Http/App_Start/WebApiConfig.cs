@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
+using HaloOnline.Server.Common;
 
 namespace HaloOnline.Server.Core.Http
 {

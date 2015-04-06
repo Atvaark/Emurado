@@ -1,16 +1,19 @@
 ﻿using System;
+using System.Web.Http;
+using System.Web.Http.Dispatcher;
+using HaloOnline.Server.Common;
 using Microsoft.Owin.Hosting;
 using Microsoft.Owin.Hosting.Services;
 using Microsoft.Owin.Hosting.Starter;
 
 namespace HaloOnline.Server.Core.Http
 {
-    public class SelfHost
+    public class ApiSelfHost
     {
         private readonly IServerOptions _options;
         private IDisposable _app;
 
-        public SelfHost(IServerOptions options)
+        public ApiSelfHost(IServerOptions options)
         {
             _options = options;
         }

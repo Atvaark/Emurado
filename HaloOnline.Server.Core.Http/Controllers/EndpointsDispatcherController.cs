@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using HaloOnline.Server.Common;
 using HaloOnline.Server.Core.Http.Interface.Services;
 using HaloOnline.Server.Core.Http.Model;
 using HaloOnline.Server.Core.Http.Model.EndpointDispatcher;

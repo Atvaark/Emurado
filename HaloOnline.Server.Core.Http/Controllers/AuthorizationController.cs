@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using HaloOnline.Server.Common;
 using HaloOnline.Server.Core.Http.Auth;
 using HaloOnline.Server.Core.Http.Interface.Repositories;
 using HaloOnline.Server.Core.Http.Model;

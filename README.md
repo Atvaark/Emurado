@@ -31,12 +31,14 @@ An assembly containing the data model of the server.
 ## Getting started
 
 * Compile the solution
+* Deploy HaloOnline.Server.App
 * Run HaloOnline.Server
 * Open %HALODIR%\game.cfg
   * Edit EndpointsDispatcherDomain and EndpointsDispatcherPort
   * Edit AzureBinLogEndPoint
 * Open %HALODIR%\maps\tags.dat
   * Swap the enum values of BACKEND_SESSION_ESTABLISHING and BACKEND_SESSION_ONLINE
+  
 * Optional
   * Compile a version of ElDorito that doesn't mess with account related values
 

@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
+using HaloOnline.Server.Common;
 using HaloOnline.Server.Core.Http.Auth;
 using HaloOnline.Server.Core.Http.Interface.Repositories;
 using HaloOnline.Server.Core.Http.Repository;
