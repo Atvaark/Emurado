@@ -24,7 +24,17 @@ namespace HaloOnline.Server.Core.Http
                 var startOptions = new StartOptions();
                 startOptions.Urls.Add("http://+:" + _options.EndpointPort + "/");
                 startOptions.Urls.Add("https://+:" + _options.DispatcherPort + "/");
-                _app = services.GetService<IHostingStarter>().Start(startOptions);
+                try
+                {
+                    _app = services.GetService<IHostingStarter>().Start(startOptions);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(
+                        "Unable to start server. Do you have firewall enabled? Try running as administrator.");
+                    Console.WriteLine(e.ToString());
+                }
+
             }
         }
 
