@@ -26,7 +26,11 @@ namespace HaloOnline.Server.Core.Http.Handlers
             var response = await base.SendAsync(request, cancellationToken);
 
             Debug.WriteLine("Response: " + response.StatusCode);
-            Debug.WriteLine(response.Content.ReadAsStringAsync().Result);
+            if (response.Content != null)
+            {
+                Debug.WriteLine(response.Content.ReadAsStringAsync().Result);
+            }
+
             return response;
         }
     }

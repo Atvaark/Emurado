@@ -33,7 +33,7 @@ namespace HaloOnline.Server.Core.Http
                     {
                         Id = testUser1.UserId
                     },
-                    Nickname = "Atvaark",
+                    Nickname = "User1",
                     Clan = new ClanId
                     {
                         Id = 1
@@ -49,7 +49,7 @@ namespace HaloOnline.Server.Core.Http
                     {
                         Id = testUser2.UserId
                     },
-                    Nickname = "Nickname",
+                    Nickname = "User2",
                     Clan = new ClanId
                     {
                         Id = 1

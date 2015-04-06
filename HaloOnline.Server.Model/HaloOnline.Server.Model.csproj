@@ -61,6 +61,7 @@
     <Compile Include="Clan\ClanMember.cs" />
     <Compile Include="Clan\ClanMembershipData.cs" />
     <Compile Include="Clan\ClanMembershipDataVersioned.cs" />
+    <Compile Include="Custom\CreateAccountRequest.cs" />
     <Compile Include="EndpointDispatcher\AuthorizationEndpointsAndDate.cs" />
     <Compile Include="EndpointDispatcher\CompactEndpointInfo.cs" />
     <Compile Include="EndpointDispatcher\EndpointInfoVersioned.cs" />

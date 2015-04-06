@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using HaloOnline.Server.Core.Http.Auth;
+using HaloOnline.Server.Core.Http.Interface.Repositories;
 using HaloOnline.Server.Core.Http.Model;
 using HaloOnline.Server.Core.Http.Model.Authorization;
 using HaloOnline.Server.Model.Authorization;
+using HaloOnline.Server.Model.Clan;
+using HaloOnline.Server.Model.Custom;
 using HaloOnline.Server.Model.EndpointDispatcher;
+using HaloOnline.Server.Model.User;
 using Microsoft.Owin.Security;
 
 namespace HaloOnline.Server.Core.Http.Controllers
@@ -16,16 +21,60 @@ namespace HaloOnline.Server.Core.Http.Controllers
         private readonly ISecureDataFormat<AuthenticationTicket> _secureDataFormat;
         private readonly IServerOptions _serverOptions;
         private readonly IHaloUserManager _userManager;
+        private readonly IUserBaseDataRepository _userBaseDataRepository;
 
         public AuthorizationController(
             IServerOptions serverOptions,
             IHaloUserManager userManager,
+            IUserBaseDataRepository userBaseDataRepository,
             ISecureDataFormat<AuthenticationTicket> secureDataFormat)
         {
             _serverOptions = serverOptions;
             _userManager = userManager;
+            _userBaseDataRepository = userBaseDataRepository;
             _secureDataFormat = secureDataFormat;
         }
+
+        [HttpPost]
+        public async Task<IHttpActionResult> CreateAccount(CreateAccountRequest request)
+        {
+            var user = await _userManager.FindByNameAsync(request.Username);
+            if (user != null)
+            {
+                return BadRequest("Username is in use");
+            }
+            user = new HaloUser
+            {
+                UserName = request.Username
+            };
+            var creationResult = await _userManager.CreateAsync(user, request.Password);
+            if (creationResult.Succeeded == false)
+            {
+                var exception = new ApplicationException("Count not create account " + string.Join(", ", creationResult.Errors));
+                return InternalServerError(exception);
+            }
+
+            var userBaseData = new UserBaseData
+            {
+                User = new UserId
+                {
+                    Id = user.UserId
+                },
+                Nickname = request.Nickname,
+                BattleTag = "",
+                Level = 0,
+                Clan = new ClanId // TODO: Check if this property has to be set
+                {
+                    Id = 0
+                },
+                ClanTag = ""
+            };
+            await _userBaseDataRepository.CreateUserBaseDataAsync(userBaseData);
+
+            var token = AuthenticateUser(user);
+            return Ok(token);
+        }
+
 
         [HttpPost]
         public SignInResult SignIn([FromBody] SignInRequest request)
@@ -117,7 +166,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
             };
             var ticket = new AuthenticationTicket(identity, authenticationProperties);
             authenticationManager.SignIn(authenticationProperties, identity);
-            return _secureDataFormat.Protect(ticket); // TODO: Max size 451 bytes. Doesn't work again.
+            return _secureDataFormat.Protect(ticket);
         }
     }
 }

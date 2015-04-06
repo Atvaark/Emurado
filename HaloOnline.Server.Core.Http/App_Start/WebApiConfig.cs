@@ -1,11 +1,17 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace HaloOnline.Server.Core.Http
 {
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
+        public static void Register(HttpConfiguration config, IServerOptions serverOptions)
         {
+            // TODO: Only enable cors for the web app
+            //var cors = new EnableCorsAttribute(serverOptions.EndpointHostname + ":" + 11700, "*", "*");
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute("HaloServiceApi", "{controller}Service.svc/{action}/{request}",

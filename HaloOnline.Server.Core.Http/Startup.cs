@@ -20,7 +20,7 @@ namespace HaloOnline.Server.Core.Http
             config.Filters.Add(new UnhandledExceptionFilter());
             var container = AutofacConfig.Register(app, config, _serverOptions);
             AuthConfig.Register(app, container);
-            WebApiConfig.Register(config);
+            WebApiConfig.Register(config, _serverOptions);
             HaloServerConfig.Register(config);
             app.UseWebApi(config);
         }

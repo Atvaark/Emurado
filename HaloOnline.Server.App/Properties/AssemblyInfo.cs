@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+
 [assembly: AssemblyTitle("HaloOnline.Server.App")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]

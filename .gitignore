@@ -187,3 +187,8 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+
+# Web application frameworks
+HaloOnline.Server.App/Content/*
+HaloOnline.Server.App/fonts/*
+HaloOnline.Server.App/Scripts/*
