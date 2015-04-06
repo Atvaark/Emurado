@@ -1,28 +1,30 @@
 ﻿using System;
 using Microsoft.Owin.Hosting;
+using Microsoft.Owin.Hosting.Services;
+using Microsoft.Owin.Hosting.Starter;
 
 namespace HaloOnline.Server.Core.Http
 {
     public class SelfHost
     {
-        private readonly int _dispatcherPort;
-        private readonly int _servicePort;
+        private readonly IServerOptions _options;
         private IDisposable _app;
 
-        public SelfHost(int servicePort, int dispatcherPort)
+        public SelfHost(IServerOptions options)
         {
-            _servicePort = servicePort;
-            _dispatcherPort = dispatcherPort;
+            _options = options;
         }
 
         public void Start()
         {
             if (_app == null)
             {
+                var services = (ServiceProvider)ServicesFactory.Create();
+                services.AddInstance<IServerOptions>(_options);
                 var startOptions = new StartOptions();
-                startOptions.Urls.Add("http://+:" + _servicePort + "/");
-                startOptions.Urls.Add("https://+:" + _dispatcherPort + "/");
-                _app = WebApp.Start<Startup>(startOptions);
+                startOptions.Urls.Add("http://+:" + _options.EndpointPort + "/");
+                startOptions.Urls.Add("https://+:" + _options.DispatcherPort + "/");
+                _app = services.GetService<IHostingStarter>().Start(startOptions);
             }
         }
 

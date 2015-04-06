@@ -143,6 +143,8 @@
     <Compile Include="App_Start\HandlerConfig.cs" />
     <Compile Include="Auth\HaloTokenFormat.cs" />
     <Compile Include="Auth\HaloUserManager.cs" />
+    <Compile Include="IServerOptions.cs" />
+    <Compile Include="ServerOptions.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Auth\IHaloUser.cs" />
     <Compile Include="Auth\IHaloUserManager.cs" />

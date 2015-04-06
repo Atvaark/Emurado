@@ -14,11 +14,15 @@ namespace HaloOnline.Server.Core.Http.Controllers
     public class AuthorizationController : ApiController
     {
         private readonly ISecureDataFormat<AuthenticationTicket> _secureDataFormat;
+        private readonly IServerOptions _serverOptions;
         private readonly IHaloUserManager _userManager;
 
-        public AuthorizationController(IHaloUserManager userManager,
+        public AuthorizationController(
+            IServerOptions serverOptions,
+            IHaloUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> secureDataFormat)
         {
+            _serverOptions = serverOptions;
             _userManager = userManager;
             _secureDataFormat = secureDataFormat;
         }
@@ -63,8 +67,8 @@ namespace HaloOnline.Server.Core.Http.Controllers
 
             var token = AuthenticateUser(haloUser);
 
-            var ip = "localhost";
-            var port = 11705;
+            var endpointHostname = _serverOptions.EndpointHostname;
+            var endpointPort = _serverOptions.EndpointPort;
             var signInResult = new SignInResult
             {
                 ServiceResult = new ServiceResult<SignIn>
@@ -78,8 +82,8 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             new CompactEndpointInfo
                             {
                                 Name = "TitleServer",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 0,
                                 IsDefault = true
                             }
@@ -89,8 +93,8 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             new CompactEndpointInfo
                             {
                                 Name = "DiagnosticsService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 0,
                                 IsDefault = true
                             }

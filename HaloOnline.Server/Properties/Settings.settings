@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HaloOnline.Server.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DispatcherPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">44300</Value>
+    </Setting>
+    <Setting Name="EndpointPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">11705</Value>
+    </Setting>
+    <Setting Name="LogPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">27027</Value>
+    </Setting>
+    <Setting Name="ClientPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">11774</Value>
+    </Setting>
+    <Setting Name="EndpointHostname" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

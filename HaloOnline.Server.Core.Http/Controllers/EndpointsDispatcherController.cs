@@ -10,6 +10,13 @@ namespace HaloOnline.Server.Core.Http.Controllers
 {
     public class EndpointsDispatcherController : ApiController, IEndpointsDispatcherService
     {
+        private readonly IServerOptions _serverOptions;
+
+        public EndpointsDispatcherController(IServerOptions serverOptions)
+        {
+            _serverOptions = serverOptions;
+        }
+
         [HttpPost]
         public GetAuthorizationEndpointsResult GetAuthorizationEndpoints(
             [FromBody] GetAuthorizationEndpointsRequest request)
@@ -18,17 +25,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
             {
                 Result = new ServiceResult<List<CompactEndpointInfo>>
                 {
-                    Data = new List<CompactEndpointInfo>
-                    {
-                        new CompactEndpointInfo
-                        {
-                            Name = "",
-                            Ip = "",
-                            Port = 0,
-                            Protocol = 0,
-                            IsDefault = false
-                        }
-                    }
+                    Data = new List<CompactEndpointInfo>()
                 }
             };
         }
@@ -37,10 +34,10 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpGet]
         [HttpPost]
         public GetAuthorizationEndpointsAndDateResult GetAuthorizationEndpointsAndDate(
-            [FromBody] GetAuthorizationEndpointsAndDateRequest request)
+            GetAuthorizationEndpointsAndDateRequest request)
         {
-            var port = 11705;
-            var ip = "localhost";
+            var endpointHostname = _serverOptions.EndpointHostname;
+            var endpointPort = _serverOptions.EndpointPort;
             var result = new GetAuthorizationEndpointsAndDateResult
             {
                 ServiceResult = new ServiceResult<AuthorizationEndpointsAndDate>
@@ -54,96 +51,96 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             new CompactEndpointInfo
                             {
                                 Name = "AuthorizationService",
-                                Ip = ip,
-                                Port = port, // TODO: Use the secure port for the authorization service
+                                Ip = endpointHostname,
+                                Port = endpointPort, // TODO: Use the secure port for the authorization service
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "EndpointsDispatcherService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "FriendsService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "GameStatisticsService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "HeartbeatService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "MessagingService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "PresenceService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "SessionControlService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "TitleResourceService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "UserStorageService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "ClanService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             },
                             new CompactEndpointInfo
                             {
                                 Name = "ArbitraryStorageService",
-                                Ip = ip,
-                                Port = port,
+                                Ip = endpointHostname,
+                                Port = endpointPort,
                                 Protocol = 4,
                                 IsDefault = true
                             }

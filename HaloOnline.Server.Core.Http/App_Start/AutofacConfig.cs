@@ -17,9 +17,10 @@ namespace HaloOnline.Server.Core.Http
 {
     public static class AutofacConfig
     {
-        public static IContainer Register(IAppBuilder app, HttpConfiguration config)
+        public static IContainer Register(IAppBuilder app, HttpConfiguration config, IServerOptions serverOptions)
         {
             ContainerBuilder containerBuilder = new ContainerBuilder();
+            ConfigureServerOptions(containerBuilder, serverOptions);
             ConfigureRepositories(containerBuilder);
             ConfigureDependencies(containerBuilder);
             var container = containerBuilder.Build();
@@ -27,6 +28,13 @@ namespace HaloOnline.Server.Core.Http
             app.UseAutofacMiddleware(container);
             app.UseAutofacWebApi(config);
             return container;
+        }
+
+        private static void ConfigureServerOptions(ContainerBuilder containerBuilder, IServerOptions serverOptions)
+        {
+            containerBuilder.RegisterInstance(serverOptions)
+                .SingleInstance()
+                .As<IServerOptions>();
         }
 
         private static void ConfigureRepositories(ContainerBuilder builder)

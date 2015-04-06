@@ -7,15 +7,19 @@ namespace HaloOnline.Server
 {
     public class Program
     {
-        private const int ClientPort = 11774;
-        private const int LogServerPort = 27027;
-        private const int ServiceServerPort = 11705;
-        private const int DispatcherServiceServerPort = 44300;
 
         private static void Main(string[] args)
         {
-            LogListener logListener = new LogListener(LogServerPort, ClientPort);
-            SelfHost host = new SelfHost(ServiceServerPort, DispatcherServiceServerPort);
+            var options = new ServerOptions
+            {
+                DispatcherPort = Properties.Settings.Default.DispatcherPort,
+                EndpointHostname = Properties.Settings.Default.EndpointHostname,
+                EndpointPort = Properties.Settings.Default.EndpointPort,
+                LogPort = Properties.Settings.Default.LogPort,
+                ClientPort = Properties.Settings.Default.ClientPort
+            };
+            LogListener logListener = new LogListener(options.LogPort, options.ClientPort);
+            SelfHost host = new SelfHost(options);
             host.Start();
             logListener.BeginListen();
             bool listen = true;
@@ -23,9 +27,9 @@ namespace HaloOnline.Server
             {
                 Console.Clear();
                 Console.WriteLine("Halo Online Server");
-                Console.WriteLine("Dispatcher port: " + DispatcherServiceServerPort);
-                Console.WriteLine("Endpoint port: " + ServiceServerPort);
-                Console.WriteLine("Log port: " + LogServerPort);
+                Console.WriteLine("Dispatcher port: " + options.DispatcherPort);
+                Console.WriteLine("Endpoint port: " + options.EndpointPort);
+                Console.WriteLine("Log port: " + options.LogPort);
                 Console.WriteLine("Press escape to exit");
                 Console.WriteLine("");
                 Console.WriteLine("Connections:");
