@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.Owin.Diagnostics;
+﻿using Microsoft.Owin.Diagnostics;
 using Microsoft.Owin.Extensions;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
@@ -9,7 +8,7 @@ namespace HaloOnline.Server.App
 {
     public class Startup
     {
-        private const string RootDirectory = "public";
+        private const string RootDirectory = "wwwroot";
 
         public void Configuration(IAppBuilder app)
         {

@@ -4,73 +4,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Halo Online App</title>
     <base href="/app/">
-    <link rel="stylesheet" href="../Content/bootstrap.css" />
-    <script type="text/javascript" src="../Scripts/jquery-1.9.1.js"></script>
+    <link rel="stylesheet" href="../Content/bootstrap.css"/>
+    <link rel="stylesheet" href="styles/styles.css"/>
+    <script type="text/javascript" src="../Scripts/jquery-2.1.3.js"></script>
     <script type="text/javascript" src="../Scripts/angular.js"></script>
     <script type="text/javascript" src="../Scripts/angular-aria.js"></script>
     <script type="text/javascript" src="../Scripts/angular-route.js"></script>
     <script type="text/javascript" src="../Scripts/bootstrap.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/app.directives.js"></script>
+    <script type="text/javascript" src="scripts/app.constants.js"></script>
+    <script type="text/javascript" src="scripts/app.services.js"></script>
+    <script type="text/javascript" src="scripts/app.controllers.js"></script>
 </head>
 <body>
-    <!-- TODO: Create this a a directive-->
-    <div ng-controller="NavigationController">
-        <!-- Account information navbar -->
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Halo Online App</a>
-                </div>
-                <button type="button" class="btn btn-default navbar-btn navbar-right" ng-show="data.user.authenticated" ng-click="actions.logout()">Logout</button>
-                <p class="navbar-text">{{data.user.username}}</p>
-                <div ng-hide="data.user.authenticated">
-                    <button type="button" class="btn btn-default navbar-btn navbar-right" data-toggle="modal" data-target="#registerModal">Register</button>
-                    <form id="signin" class="navbar-form navbar-right" role="form">
-                        <div class="input-group" >
-                            <span class="input-group-addon "><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="username" type="text" class="form-control" name="username" value="" placeholder="Username" ng-model="data.loginuser.username" />
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="password" type="password" class="form-control" name="password" value="" placeholder="Password" ng-model="data.loginuser.password"/>
-                        </div>
-                        <button type="submit" class="btn btn-primary" ng-click="actions.login()">Login</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- Modal register dialog -->
-        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" ria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Register</h4>
-                    </div>
-                    <form>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="register-username">Username</label>
-                                <input type="text" class="form-control" id="register-username" ng-model="data.registeruser.username" />
-                            </div>
-                            <div class="form-group">
-                                <label for="register-password">Password</label>
-                                <input type="password" class="form-control" id="register-password" ng-model="data.registeruser.password" />
-                            </div>
-                            <div class="form-group">
-                                <label for="register-nickname">Nickname</label>
-                                <input type="text" class="form-control" id="register-nickname" ng-model="data.registeruser.nickname" />
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary" ng-click="actions.register()">Register</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div ho-navigation></div>
     <div ng-view></div>
 </body>
 </html>

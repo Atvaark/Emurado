@@ -99,7 +99,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\partials\navigation.html" />
+    <Content Include="app\partials\userstatistics.html" />
+    <Content Include="app\scripts\app.controllers.js" />
+    <Content Include="app\scripts\app.directives.js" />
     <Content Include="app\scripts\app.js" />
+    <Content Include="app\styles\styles.css" />
+    <Content Include="app\views\chat.html" />
+    <Content Include="app\views\config.html" />
     <Content Include="app\views\home.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -881,7 +888,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="app\scripts\app.constants.js" />
+    <Content Include="app\scripts\app.services.js" />
     <None Include="Properties\PublishProfiles\Default.pubxml" />
+    <Content Include="README.md" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -917,9 +927,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="app\styles\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\HaloOnline.Server.Common\HaloOnline.Server.Common.csproj">
       <Project>{FAEB96CC-1BB2-4B49-B04B-32C6DED17A2C}</Project>

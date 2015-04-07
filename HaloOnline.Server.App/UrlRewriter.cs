@@ -8,15 +8,16 @@ namespace HaloOnline.Server.App
     /// </summary>
     public class UrlRewriter : OwinMiddleware
     {
-        public UrlRewriter(OwinMiddleware next) : base(next)
+        public UrlRewriter(OwinMiddleware next)
+            : base(next)
         {
         }
 
         public async override Task Invoke(IOwinContext context)
         {
             PathString remainingPath;
-            if (!context.Request.Path.Value.Contains(".") && 
-                context.Request.Path.StartsWithSegments(new PathString("/app"), out remainingPath) && 
+            if (!context.Request.Path.Value.Contains(".") &&
+                context.Request.Path.StartsWithSegments(new PathString("/app"), out remainingPath) &&
                 remainingPath.HasValue &&
                 remainingPath.Value.Length > 1)
             {
