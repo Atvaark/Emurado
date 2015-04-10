@@ -5,4 +5,3 @@
 
     app.constant('endpointServer', 'http://localhost:11705');
 })();
-

@@ -103,6 +103,7 @@
     <Content Include="app\partials\userstatistics.html" />
     <Content Include="app\scripts\app.controllers.js" />
     <Content Include="app\scripts\app.directives.js" />
+    <Content Include="app\scripts\app.environment.js" />
     <Content Include="app\scripts\app.js" />
     <Content Include="app\styles\styles.css" />
     <Content Include="app\views\chat.html" />
@@ -922,6 +923,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppFileInfo.cs" />
+    <Compile Include="AppFileSystem.cs" />
     <Compile Include="AppSelfHost.cs" />
     <Compile Include="UrlRewriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Web.Http;
-using System.Web.Http.Dispatcher;
 using HaloOnline.Server.Common;
 using Microsoft.Owin.Hosting;
-using Microsoft.Owin.Hosting.Services;
-using Microsoft.Owin.Hosting.Starter;
 
 namespace HaloOnline.Server.Core.Http
 {
@@ -22,14 +18,17 @@ namespace HaloOnline.Server.Core.Http
         {
             if (_app == null)
             {
-                var services = (ServiceProvider)ServicesFactory.Create();
-                services.AddInstance<IServerOptions>(_options);
                 var startOptions = new StartOptions();
                 startOptions.Urls.Add("http://+:" + _options.EndpointPort + "/");
                 startOptions.Urls.Add("https://+:" + _options.DispatcherPort + "/");
                 try
                 {
-                    _app = services.GetService<IHostingStarter>().Start(startOptions);
+                    _app = WebApp.Start(startOptions
+                        , app =>
+                        {
+                            var startup = new Startup(_options);
+                            startup.Configuration(app);
+                        });
                 }
                 catch (Exception e)
                 {

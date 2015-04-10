@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin.Diagnostics;
+﻿using HaloOnline.Server.Common;
+using Microsoft.Owin.Diagnostics;
 using Microsoft.Owin.Extensions;
 using Microsoft.Owin.FileSystems;
 using Microsoft.Owin.StaticFiles;
@@ -8,6 +9,13 @@ namespace HaloOnline.Server.App
 {
     public class Startup
     {
+        private readonly IServerOptions _options;
+
+        public Startup(IServerOptions options)
+        {
+            _options = options;
+        }
+
         private const string RootDirectory = "wwwroot";
 
         public void Configuration(IAppBuilder app)
@@ -16,11 +24,10 @@ namespace HaloOnline.Server.App
             {
                 
             });
-            var fileSystem = new PhysicalFileSystem(RootDirectory);
             var options = new FileServerOptions
             {
                 EnableDirectoryBrowsing = false, 
-                FileSystem = fileSystem
+                FileSystem = new AppFileSystem(new PhysicalFileSystem(RootDirectory), _options)
             };
             app.Use(typeof(UrlRewriter));
             app.UseFileServer(options);

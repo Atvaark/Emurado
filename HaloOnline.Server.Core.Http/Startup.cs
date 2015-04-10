@@ -1,10 +1,8 @@
 ﻿using System.Web.Http;
 using HaloOnline.Server.Common;
 using HaloOnline.Server.Core.Http.Filters;
-using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(HaloOnline.Server.Core.Http.Startup))]
 namespace HaloOnline.Server.Core.Http
 {
     public class Startup

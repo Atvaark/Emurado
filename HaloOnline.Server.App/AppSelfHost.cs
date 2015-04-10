@@ -22,7 +22,11 @@ namespace HaloOnline.Server.App
                 startOptions.Urls.Add("http://+:" + _options.AppPort + "/");
                 try
                 {
-                    _app = WebApp.Start<Startup>(startOptions);
+                    _app = WebApp.Start(startOptions, app =>
+                    {
+                        var startup = new Startup(_options);
+                        startup.Configuration(app);
+                    });
                 }
                 catch (Exception e)
                 {
