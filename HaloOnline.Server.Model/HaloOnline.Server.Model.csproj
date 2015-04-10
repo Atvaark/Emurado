@@ -84,6 +84,7 @@
     <Compile Include="Messaging\ChannelCommands.cs" />
     <Compile Include="Messaging\ChannelMessage.cs" />
     <Compile Include="Messaging\Channel.cs" />
+    <Compile Include="Messaging\ChannelTypes.cs" />
     <Compile Include="Messaging\JoinChannelsRequest.cs" />
     <Compile Include="Messaging\LeaveChannelsRequest.cs" />
     <Compile Include="Messaging\ReceiveRequest.cs" />
