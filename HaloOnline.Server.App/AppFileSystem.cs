@@ -33,14 +33,14 @@ namespace HaloOnline.Server.App
 
         private IFileInfo GenerateEnvironmentScript(IServerOptions serverOptions)
         {
-            StringWriter scriptWriter = new StringWriter();
-            scriptWriter.Write(
-                "(function (){" +
-                "\"use strict\";" +
-                "var app = angular.module('app');" +
-                "app.constant('endpointServer', 'http://" + serverOptions.EndpointHostname + ":" + serverOptions.EndpointPort + "');" +
-                "})();");
-            return new AppFileInfo(Encoding.UTF8.GetBytes(scriptWriter.ToString()), EnvironmentScriptFileName, DateTime.Now);
+            var fileContent = string.Format(
+                "(function (){{" + 
+                "var app = angular.module('app');" + 
+                "app.constant('endpointServer', 'http://{0}:{1}');" + 
+                "}})();", 
+                serverOptions.EndpointHostname,
+                serverOptions.EndpointPort);
+            return new AppFileInfo(Encoding.UTF8.GetBytes(fileContent), EnvironmentScriptFileName, DateTime.Now);
         }
 
         public bool TryGetDirectoryContents(string subpath, out IEnumerable<IFileInfo> contents)

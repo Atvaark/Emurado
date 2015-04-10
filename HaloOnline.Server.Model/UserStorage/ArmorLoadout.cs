@@ -7,6 +7,7 @@ namespace HaloOnline.Server.Model.UserStorage
 {
     public class ArmorLoadout
     {
+        public int ActiveLoadoutSlotIndex { get; set; }
         public string PrimaryColor { get; set; }
         public string SecondaryColor { get; set; }
         public string VisorColor { get; set; }
@@ -19,6 +20,7 @@ namespace HaloOnline.Server.Model.UserStorage
         {
             MemoryStream dataStream = new MemoryStream();
             BinaryWriter writer = new BinaryWriter(dataStream);
+            writer.Write(ActiveLoadoutSlotIndex);
             WriteString(writer, PrimaryColor);
             WriteString(writer, SecondaryColor);
             WriteString(writer, VisorColor);
@@ -33,15 +35,14 @@ namespace HaloOnline.Server.Model.UserStorage
                 WriteString(writer, slot.Legs);
                 WriteString(writer, slot.Reserved);
             }
-            writer.Write(0);
-            AbstractData abstractData = new AbstractData
+            return new AbstractData
             {
                 Version = 1,
                 Layout = 1,
                 Data = dataStream.ToArray()
             };
-            return abstractData;
         }
+
 
         public static ArmorLoadout Deserialize(AbstractData abstractData)
         {
@@ -55,15 +56,13 @@ namespace HaloOnline.Server.Model.UserStorage
 
         private string ParseString(BinaryReader reader)
         {
-            reader.ReadInt32();
-            byte[] stringBuffer = reader.ReadBytes(28);
+            byte[] stringBuffer = reader.ReadBytes(32);
             return Encoding.ASCII.GetString(stringBuffer).TrimEnd('\0');
         }
 
         private void WriteString(BinaryWriter writer, string data)
         {
-            writer.Write(0);
-            var nulls = (28 - data.Length%29);
+            var nulls = (32 - data.Length%33);
             var s = data + new string(Enumerable.Repeat('\0', nulls).ToArray());
             var bytes = Encoding.ASCII.GetBytes(s);
             writer.Write(bytes);

@@ -36,13 +36,13 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             new Challenge
                             {
-                                ChallengeId = "ChallengeId",
+                                ChallengeId = "challenge_0",
                                 Progress = 1,
                                 Counters = new List<Counter>
                                 {
                                     new Counter
                                     {
-                                        CounterName = "CounterName",
+                                        CounterName = "gp_p0_engineer_kill_counter",
                                         CurrentValue = 1,
                                         MaxValue = 5
                                     }
@@ -54,7 +54,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 {
                                     new Reward
                                     {
-                                        Name = "RewardName",
+                                        Name = "tech_reward",
                                         Count = 10
                                     }
                                 }

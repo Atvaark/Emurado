@@ -70,31 +70,6 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     Data = request.Users.Select(u => _userBaseDataRepository.GetByUserIdAsync(u.Id).Result).ToList()
                 }
             };
-
-            //return new GetUsersBaseDataResult
-            //{
-            //    Result = new ServiceResult<List<UserBaseData>>
-            //    {
-            //        Data = new List<UserBaseData>
-            //        {
-            //            new UserBaseData
-            //            {
-            //                User = new UserId
-            //                {
-            //                    Id = 1
-            //                },
-            //                Nickname = "Nickname",
-            //                BattleTag = "Battletag",
-            //                Clan = new ClanId
-            //                {
-            //                    Id = 1
-            //                },
-            //                ClanTag = "ClanTag",
-            //                Level = 1
-            //            }
-            //        }
-            //    }
-            //};
         }
 
         [HttpPost]

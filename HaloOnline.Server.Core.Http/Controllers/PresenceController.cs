@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 using HaloOnline.Server.Core.Http.Interface.Services;
 using HaloOnline.Server.Core.Http.Model;
@@ -79,7 +78,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             },
                             Data = new UserPresenceData
                             {
-                                State = 0,
+                                State = 1,
                                 IsInvitable = true
                             }
                         },
@@ -91,7 +90,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             },
                             Data = new UserPresenceData
                             {
-                                State = 0,
+                                State = 1,
                                 IsInvitable = true
                             }
                         }
@@ -229,13 +228,6 @@ namespace HaloOnline.Server.Core.Http.Controllers
         public PartyGetStatusResult PartyGetStatus(PartyGetStatusRequest request)
         {
             byte[] gameData = new byte[100];
-
-            gameData = Enumerable.Repeat((byte) 0xAB, 100).ToArray();
-
-            gameData[0] = 0x34;
-            gameData[1] = 0x56;
-            gameData[2] = 0x91;
-            gameData[3] = 0x66;
             return new PartyGetStatusResult
             {
                 Result = new ServiceResult<PartyStatus>
@@ -392,9 +384,15 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     {
                         new PlaylistStat
                         {
-                            Playlist = "0",
-                            PlayersNumber = 0
-                        }
+                            Playlist = "A0937033-31C7-47BF-A739-9FCB8CF8E071",
+                            PlayersNumber = 8
+                        },
+                        new PlaylistStat
+                        {
+                            Playlist = "edge_name",
+                            PlayersNumber = 2
+                        },
+
                     }
                 }
             };

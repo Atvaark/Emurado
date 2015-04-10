@@ -31,8 +31,6 @@ namespace HaloOnline.Server.Core.Http.Controllers
             };
         }
 
-        // TODO: Remove HttpGet and instead create a PingController
-        [HttpGet]
         [HttpPost]
         public GetAuthorizationEndpointsAndDateResult GetAuthorizationEndpointsAndDate(
             GetAuthorizationEndpointsAndDateRequest request)

@@ -20,11 +20,11 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     {
                         Game = new Game
                         {
-                            Id = "GameId"
+                            Id = "7A0E225D-B2F0-4AD3-BFEA-21404AA29DC3"
                         },
                         DedicatedServer = new DedicatedServer
                         {
-                            ServerId = "ServerId",
+                            ServerId = "F461B3D8-C3BC-42B9-AE12-E8A9EBD610CE",
                             ServerAddress = "127.0.0.1",
                             Port = 12345
                         }
@@ -45,9 +45,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     {
                         new SessionBasicData
                         {
-                            SessionId = "SessionId",
-                            MapId = "MapId",
-                            ModeId = "ModeId",
+                            SessionId = "614E1ECD-9865-4A5A-905C-EB2984783300",
+                            MapId = "C867209D-F0B5-432B-98D9-DA9F9DF07A01",
+                            ModeId = "B67CF8BF-B0F2-411F-AAF9-7B165C09E782",
                             Finished = 0,
                             Started = 0
                         }
@@ -67,12 +67,12 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     {
                         new SessionChain
                         {
-                            User = "User",
+                            User = "CEFDB7DA-95A1-4F66-A1D5-529A9081A676",
                             Sessions = new List<Game>
                             {
                                 new Game
                                 {
-                                    Id = "GameId"
+                                    Id = "D99A01C5-E9B5-467F-8FBE-E3168F3DE4EC"
                                 }
                             }
                         }

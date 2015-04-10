@@ -156,12 +156,15 @@
     <Compile Include="UserStorage\AbstractData.cs" />
     <Compile Include="UserStorage\ArmorLoadout.cs" />
     <Compile Include="UserStorage\ArmorLoadoutSlot.cs" />
+    <Compile Include="UserStorage\Customization.cs" />
     <Compile Include="UserStorage\GetPrivateDataRequest.cs" />
     <Compile Include="UserStorage\GetPublicDataRequest.cs" />
     <Compile Include="UserStorage\PerUser.cs" />
     <Compile Include="UserStorage\PublicDataContainerTypes.cs" />
     <Compile Include="UserStorage\SetPrivateDataRequest.cs" />
     <Compile Include="UserStorage\SetPublicDataRequest.cs" />
+    <Compile Include="UserStorage\WeaponLoadout.cs" />
+    <Compile Include="UserStorage\WeaponLoadoutSlot.cs" />
     <Compile Include="User\ApplyExternalOfferRequest.cs" />
     <Compile Include="User\ApplyOfferAndGetTransactionHistoryRequest.cs" />
     <Compile Include="User\ApplyOfferListAndGetTransactionHistoryRequest.cs" />

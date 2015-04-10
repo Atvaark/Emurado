@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using HaloOnline.Server.Core.Http.Interface.Services;
@@ -67,14 +68,16 @@ namespace HaloOnline.Server.Core.Http.Controllers
             switch (request.ContainerName)
             {
                 case PublicDataContainerTypes.WeaponLoadouts:
+                    var weaponLoadouts = WeaponLoadout.Deserialize(request.Data);
                     break;
                 case PublicDataContainerTypes.ArmorLoadouts:
-                    var test = ArmorLoadout.Deserialize(request.Data);
+                    var armorLoadouts = ArmorLoadout.Deserialize(request.Data);
                     break;
                 case PublicDataContainerTypes.Customizations:
+                    var customizations = Customization.Deserialize(request.Data);
                     break;
                 default:
-                    break;
+                    throw new ArgumentException("ContainerName");
             }
 
             return new SetPublicDataResult
@@ -89,19 +92,32 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public GetPublicDataResult GetPublicData(GetPublicDataRequest request)
         {
-            AbstractData data = new AbstractData
-            {
-                Version = 0,
-                Layout = 12,
-                Data = new byte[0]
-            };
+            AbstractData data;
             switch (request.ContainerName)
             {
                 case PublicDataContainerTypes.WeaponLoadouts:
+                    var weaponLoadout = new WeaponLoadout
+                    {
+                        ActiveLoadoutSlotIndex = 0,
+                        LoadoutSlots = Enumerable.Repeat(new WeaponLoadoutSlot
+                        {
+                            PrimaryWeapon = "assault_rifle",
+                            SecondaryWeapon = "magnum",
+                            Grenade = "frag_grenade",
+                            Unknown1 = "",
+                            Unknown2 = "",
+                            Unknown3 = "",
+                            Unknown4 = "",
+                            Unknown5 = ""
+                        }
+                        , 5).ToList()
+                    };
+                    data = weaponLoadout.Serialize();
                     break;
                 case PublicDataContainerTypes.ArmorLoadouts:
                     var armorLoadout = new ArmorLoadout
                     {
+                        ActiveLoadoutSlotIndex = 0,
                         PrimaryColor = "color_pri_13",
                         SecondaryColor = "color_sec_13",
                         VisorColor = "color_visor_5",
@@ -120,9 +136,21 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     data = armorLoadout.Serialize();
                     break;
                 case PublicDataContainerTypes.Customizations:
+                    var customization = new Customization
+                    {
+                        Unknown1 = 0,
+                        Unknown2 = 0,
+                        Unknown3 = 0,
+                        Unknown4 = 0,
+                        Unknown5 = 0,
+                        Unknown6 = 0,
+                        Unknown7 = 0,
+                        Unknown8 = 0
+                    };
+                    data = customization.Serialize();
                     break;
                 default:
-                    break;
+                    throw new ArgumentException("ContainerName");
             }
 
 
