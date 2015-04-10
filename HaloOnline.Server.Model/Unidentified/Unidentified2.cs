@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using HaloOnline.Server.Model.Unused;
 
 namespace HaloOnline.Server.Model.Unidentified
 {
@@ -14,7 +15,7 @@ namespace HaloOnline.Server.Model.Unidentified
         public int PackNumber { get; set; }
         public int Flags { get; set; }
         public int InitTime { get; set; }
-        public List<Unidentified3> Context { get; set; }
+        public List<ContextProperty> Context { get; set; }
         public int StartTime { get; set; }
         public int EndTime { get; set; }
     }

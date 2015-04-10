@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace HaloOnline.Server.Model.Unidentified
+namespace HaloOnline.Server.Model.Unused
 {
-    public class Unidentified9
+    public class EventList
     {
         [JsonProperty("LastEventID")]
         public int LastEventId { get; set; }
 
-        public List<Unidentified7> Events { get; set; }
+        public List<Event> Events { get; set; }
     }
 }

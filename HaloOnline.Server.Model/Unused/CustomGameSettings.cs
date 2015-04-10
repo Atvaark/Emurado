@@ -1,6 +1,6 @@
-﻿namespace HaloOnline.Server.Model.Unidentified
+﻿namespace HaloOnline.Server.Model.Unused
 {
-    public class Unidentified6
+    public class CustomGameSettings
     {
         public string Mode { get; set; }
         public string Map { get; set; }

@@ -1,6 +1,6 @@
-namespace HaloOnline.Server.Model.Unidentified
+namespace HaloOnline.Server.Model.Unused
 {
-    public class Unidentified13
+    public class KeyStringValuePair
     {
         public string Key { get; set; }
         public string Value { get; set; }
