@@ -1,6 +1,5 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
-using HaloOnline.Server.Core.Http.Interface.Repositories;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
@@ -8,14 +7,14 @@ namespace HaloOnline.Server.Core.Http.Auth
 {
     public class HaloUserManager : UserManager<HaloUser>, IHaloUserManager
     {
-        private readonly IUserRepository _repository;
+        private readonly IHaloUserStore _store;
 
         public HaloUserManager(
             IdentityFactoryOptions<HaloUserManager> options,
-            IUserRepository userRepository)
-            : base(userRepository)
+            IHaloUserStore haloUserStore)
+            : base(haloUserStore)
         {
-            _repository = userRepository;
+            _store = haloUserStore;
             PasswordValidator = new PasswordValidator();
         }
 

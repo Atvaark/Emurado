@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Auth;
-using HaloOnline.Server.Core.Http.Interface.Repositories;
 using HaloOnline.Server.Core.Http.Interface.Services;
 using HaloOnline.Server.Core.Http.Model;
 using HaloOnline.Server.Core.Http.Model.User;

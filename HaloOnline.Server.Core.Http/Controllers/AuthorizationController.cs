@@ -4,8 +4,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using HaloOnline.Server.Common;
+using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Auth;
-using HaloOnline.Server.Core.Http.Interface.Repositories;
 using HaloOnline.Server.Core.Http.Model;
 using HaloOnline.Server.Core.Http.Model.Authorization;
 using HaloOnline.Server.Model.Authorization;
@@ -51,9 +51,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
             var creationResult = await _userManager.CreateAsync(user, request.Password);
             if (creationResult.Succeeded == false)
             {
-                var exception = new ApplicationException("Count not create account " + string.Join(", ", creationResult.Errors));
-                return InternalServerError(exception);
+                return BadRequest(string.Join(", ", creationResult.Errors));
             }
+            
 
             var userBaseData = new UserBaseData
             {
@@ -64,13 +64,13 @@ namespace HaloOnline.Server.Core.Http.Controllers
                 Nickname = request.Nickname,
                 BattleTag = "",
                 Level = 0,
-                Clan = new ClanId // TODO: Check if this property has to be set
+                Clan = new ClanId // TODO: Check if this property has to be set or the Id has to be set to zero
                 {
                     Id = 0
                 },
                 ClanTag = ""
             };
-            await _userBaseDataRepository.CreateUserBaseDataAsync(userBaseData);
+            await _userBaseDataRepository.SetUserBaseDataAsync(userBaseData);
 
             var token = AuthenticateUser(user);
             return Ok(token);

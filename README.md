@@ -7,13 +7,19 @@
 ## Projects
 
 ### HaloOnline.Server
-A console application that hosts the webservice and the log server.
+A console application that hosts the webserver, the webservice and the log server.
 
 ### HaloOnline.Server.App
-A single page web application for managing the server.
+An AngularJS single page web application for managing the server.
+
+### HaloOnline.Server.Common
+An assembly for storing common types.
 
 ### HaloOnline.Server.Core.Http
 An http webservice which handles authentication and gives external access to game data.
+
+### HaloOnline.Server.Core.Repository
+A database access layer for storing and retrieving data.
 
 ### HaloOnline.Server.Core.Log
 A socket based log service.
@@ -27,6 +33,8 @@ An assembly containing the data model of the server.
 * Autofac - Inversion of Control container
 * OAuth - Authorization
 * JSON Web Tokens - Bearer token format
+* SQLite - Database
+* Entity Framework - Object-relational mapper
 
 ## Getting started
 
@@ -44,6 +52,6 @@ An assembly containing the data model of the server.
 
 ## Todo list
 
-* Creating an assembly for storing persistent data with Entity Framework Code First
+* ~~Creating an assembly for storing persistent data with Entity Framework~~
 * Creating an assembly for non persistent data like Chat, Presence, Parties and Matchmaking
 * Waiting for a functional client

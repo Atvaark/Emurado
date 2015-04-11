@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
+using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Auth;
-using HaloOnline.Server.Core.Http.Interface.Repositories;
 using HaloOnline.Server.Model.Clan;
 using HaloOnline.Server.Model.User;
 
@@ -36,9 +36,9 @@ namespace HaloOnline.Server.Core.Http
                     Nickname = "User1",
                     Clan = new ClanId
                     {
-                        Id = 1
+                        Id = 0
                     },
-                    ClanTag = "ClanTag",
+                    ClanTag = "",
                     Level = 2,
                     BattleTag = "BattleTag"
                 };
@@ -52,15 +52,17 @@ namespace HaloOnline.Server.Core.Http
                     Nickname = "User2",
                     Clan = new ClanId
                     {
-                        Id = 1
+                        Id = 0
                     },
-                    ClanTag = "ClanTag",
+                    ClanTag = "",
                     Level = 10,
                     BattleTag = "BattleTag"
                 };
 
-                userBaseDataRepository.CreateUserBaseDataAsync(testUser1Data);
-                userBaseDataRepository.CreateUserBaseDataAsync(testUser2Data);
+                // TODO: Create a test clan
+
+                userBaseDataRepository.SetUserBaseDataAsync(testUser1Data);
+                userBaseDataRepository.SetUserBaseDataAsync(testUser2Data);
             }
         }
     }

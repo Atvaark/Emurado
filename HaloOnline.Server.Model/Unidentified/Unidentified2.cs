@@ -1,22 +1,17 @@
-﻿using System.Collections.Generic;
-using HaloOnline.Server.Model.Unused;
+﻿using HaloOnline.Server.Model.UserStorage;
+using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.Unidentified
 {
-    /// <summary>
-    /// WriteDiagnosticsDataRequest?
-    /// </summary>
     public class Unidentified2
     {
-        public string SessionId { get; set; }
-        public string Format { get; set; }
-        public int MajorVersion { get; set; }
-        public int MinorVersion { get; set; }
-        public int PackNumber { get; set; }
-        public int Flags { get; set; }
-        public int InitTime { get; set; }
-        public List<ContextProperty> Context { get; set; }
-        public int StartTime { get; set; }
-        public int EndTime { get; set; }
+        [JsonProperty("header")]
+        public Header Header { get; set; }
+
+        [JsonProperty("entries")]
+        public object Entries { get; set; }
+
+        [JsonProperty("data")]
+        public AbstractData Data { get; set; }
     }
 }

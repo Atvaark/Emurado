@@ -76,5 +76,15 @@ namespace HaloOnline.Server.Properties {
                 return ((string)(this["EndpointHostname"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=|DataDirectory|halodb.sqlite")]
+        public string HaloDbContext {
+            get {
+                return ((string)(this["HaloDbContext"]));
+            }
+        }
     }
 }

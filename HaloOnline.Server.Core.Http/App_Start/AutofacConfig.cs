@@ -5,9 +5,9 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
 using HaloOnline.Server.Common;
+using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Auth;
-using HaloOnline.Server.Core.Http.Interface.Repositories;
-using HaloOnline.Server.Core.Http.Repository;
+using HaloOnline.Server.Core.Repository.Repository;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Jwt;
@@ -41,12 +41,16 @@ namespace HaloOnline.Server.Core.Http
         private static void ConfigureRepositories(ContainerBuilder builder)
         {
             builder.Register(c => new UserRepository())
-                .SingleInstance()
+                .InstancePerRequest()
                 .As<IUserRepository>();
 
             builder.Register(c => new UserBaseDataRepository())
-                .SingleInstance()
+                .InstancePerRequest()
                 .As<IUserBaseDataRepository>();
+            
+            builder.Register(c => new HaloUserStore(c.Resolve<IUserRepository>()))
+                .InstancePerRequest()
+                .As<IHaloUserStore>();
         }
 
         private static void ConfigureDependencies(ContainerBuilder builder)
@@ -58,9 +62,8 @@ namespace HaloOnline.Server.Core.Http
             builder.Register(
                 c => new HaloUserManager(
                     new IdentityFactoryOptions<HaloUserManager>(),
-                    c.Resolve<IUserRepository>()))
-                //.InstancePerRequest()
-                .SingleInstance()
+                    c.Resolve<IHaloUserStore>()))
+                .InstancePerRequest()
                 .As<IHaloUserManager>();
             
             builder.Register(c => new SymmetricKeyIssuerSecurityTokenProvider(

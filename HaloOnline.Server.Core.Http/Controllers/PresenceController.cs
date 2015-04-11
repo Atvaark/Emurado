@@ -227,7 +227,6 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public PartyGetStatusResult PartyGetStatus(PartyGetStatusRequest request)
         {
-            byte[] gameData = new byte[100];
             return new PartyGetStatusResult
             {
                 Result = new ServiceResult<PartyStatus>
@@ -256,7 +255,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             }
                         },
                         MatchmakeState = 0,
-                        GameData = gameData
+                        GameData = new byte[100]
                     }
                 }
             };
@@ -321,7 +320,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     {
                         Id = new MatchmakeId
                         {
-                            Id = 1
+                            Id = "1"
                         },
                         Members = new List<MatchmakeMember>
                         {

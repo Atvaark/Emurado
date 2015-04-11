@@ -1,25 +1,27 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using HaloOnline.Server.App;
 using HaloOnline.Server.Common;
 using HaloOnline.Server.Core.Http;
 using HaloOnline.Server.Core.Log;
+using HaloOnline.Server.Properties;
 
 namespace HaloOnline.Server
 {
     public class Program
     {
-
         private static void Main(string[] args)
         {
             var options = new ServerOptions
             {
-                DispatcherPort = Properties.Settings.Default.DispatcherPort,
-                EndpointHostname = Properties.Settings.Default.EndpointHostname,
-                EndpointPort = Properties.Settings.Default.EndpointPort,
-                LogPort = Properties.Settings.Default.LogPort,
-                AppPort = Properties.Settings.Default.AppPort,
-                ClientPort = Properties.Settings.Default.ClientPort
+                DispatcherPort = Settings.Default.DispatcherPort,
+                EndpointHostname = Settings.Default.EndpointHostname,
+                EndpointPort = Settings.Default.EndpointPort,
+                LogPort = Settings.Default.LogPort,
+                AppPort = Settings.Default.AppPort,
+                ClientPort = Settings.Default.ClientPort
             };
             LogListener logListener = new LogListener(options.LogPort, options.ClientPort);
             ApiSelfHost apiHost = new ApiSelfHost(options);
@@ -27,18 +29,13 @@ namespace HaloOnline.Server
             apiHost.Start();
             appHost.Start();
             logListener.BeginListen();
+            FixDebugListeners();
+            string infoText = GetInfoText(options);
             bool listen = true;
             while (listen)
             {
                 Console.Clear();
-                Console.WriteLine("Halo Online Server");
-                Console.WriteLine("Dispatcher port: " + options.DispatcherPort);
-                Console.WriteLine("Endpoint port: " + options.EndpointPort);
-                Console.WriteLine("App port: " + options.AppPort);
-                Console.WriteLine("Log port: " + options.LogPort);
-                Console.WriteLine("Press escape to exit");
-                Console.WriteLine("");
-                Console.WriteLine("Connections:");
+                Console.Write(infoText);
                 foreach (var connection in logListener.GetConnectionList())
                 {
                     string connectionState = connection.Connected ? "connected" : "disconnected";
@@ -56,6 +53,31 @@ namespace HaloOnline.Server
             appHost.End();
             apiHost.End();
             logListener.EndListen();
+        }
+
+        [Conditional("DEBUG")]
+        private static void FixDebugListeners()
+        {
+            foreach (var listerner in Debug.Listeners.OfType<TextWriterTraceListener>().ToList())
+            {
+                Debug.Listeners.Remove(listerner);
+            }
+        }
+
+        private static string GetInfoText(ServerOptions options)
+        {
+            var infoText = string.Format("Halo Online Server\n" +
+                                            "Dispatcher port: {0}\n" +
+                                            "Endpoint port: {1}\n" +
+                                            "App port: {2}\n" +
+                                            "Log port: {3}\n" +
+                                            "Press escape to exit\n\n" +
+                                            "Connections:\n",
+                options.DispatcherPort,
+                options.EndpointPort,
+                options.AppPort,
+                options.LogPort);
+            return infoText;
         }
     }
 }

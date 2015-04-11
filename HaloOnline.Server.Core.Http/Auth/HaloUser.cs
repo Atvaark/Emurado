@@ -1,15 +1,12 @@
-﻿namespace HaloOnline.Server.Core.Http.Auth
-{
-    public class HaloUser : IHaloUser
-    {
+﻿using HaloOnline.Server.Model.User;
 
-        public string Id
+namespace HaloOnline.Server.Core.Http.Auth
+{
+    public class HaloUser : User, IHaloUser
+    {
+        public string Id 
         {
             get { return UserId.ToString(); }
         }
-
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        public string UserPasswordHash { get; set; }
     }
 }
