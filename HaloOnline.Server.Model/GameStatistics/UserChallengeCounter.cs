@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.GameStatistics
 {
-    public class Counter
+    public class UserChallengeCounter
     {
         public string CounterName { get; set; }
 

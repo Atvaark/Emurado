@@ -2,7 +2,7 @@
 
 namespace HaloOnline.Server.Model.User
 {
-    public class TransactionItem
+    public class UserTransactionItem
     {
         [JsonProperty("stateName")]
         public string StateName { get; set; }

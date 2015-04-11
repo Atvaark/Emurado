@@ -17,6 +17,6 @@ namespace HaloOnline.Server.Core.Repository.Model
         public string Tag { get; set; }
 
         [InverseProperty("Clan")]
-        public virtual IEnumerable<ClanMembership> ClanMembers { get; set; }
+        public virtual ICollection<ClanMembership> ClanMembers { get; set; }
     }
 }

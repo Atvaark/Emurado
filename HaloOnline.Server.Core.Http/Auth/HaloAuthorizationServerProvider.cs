@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.OAuth;
 
 namespace HaloOnline.Server.Core.Http.Auth
 {
+    // BUG: Not called anywhere
     public class HaloAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
         public override Task AuthorizeEndpoint(OAuthAuthorizeEndpointContext context)

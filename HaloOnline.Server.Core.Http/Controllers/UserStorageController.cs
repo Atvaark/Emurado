@@ -27,19 +27,18 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public GetPrivateDataResult GetPrivateData(GetPrivateDataRequest request)
         {
-            if (request.ContainerName == PublicDataContainerTypes.ArmorLoadouts)
+            if (request.ContainerName == DataContainerTypes.ArmorLoadouts)
             {
                 return new GetPrivateDataResult
                 {
                     Result = new ServiceResult<AbstractData>
                     {
+                        // TODO: Create a preference class
                         Data = new AbstractData
                         {
                             Version = 0,
-                            Layout = 0,
-                            Data = new byte[]
-                            {
-                            }
+                            Layout = 1,
+                            Data = new byte[33292]
                         }
                     }
                 };
@@ -67,13 +66,13 @@ namespace HaloOnline.Server.Core.Http.Controllers
         {
             switch (request.ContainerName)
             {
-                case PublicDataContainerTypes.WeaponLoadouts:
+                case DataContainerTypes.WeaponLoadouts:
                     var weaponLoadouts = WeaponLoadout.Deserialize(request.Data);
                     break;
-                case PublicDataContainerTypes.ArmorLoadouts:
+                case DataContainerTypes.ArmorLoadouts:
                     var armorLoadouts = ArmorLoadout.Deserialize(request.Data);
                     break;
-                case PublicDataContainerTypes.Customizations:
+                case DataContainerTypes.Customizations:
                     var customizations = Customization.Deserialize(request.Data);
                     break;
                 default:
@@ -95,7 +94,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
             AbstractData data;
             switch (request.ContainerName)
             {
-                case PublicDataContainerTypes.WeaponLoadouts:
+                case DataContainerTypes.WeaponLoadouts:
                     var weaponLoadout = new WeaponLoadout
                     {
                         ActiveLoadoutSlotIndex = 0,
@@ -114,7 +113,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     };
                     data = weaponLoadout.Serialize();
                     break;
-                case PublicDataContainerTypes.ArmorLoadouts:
+                case DataContainerTypes.ArmorLoadouts:
                     var armorLoadout = new ArmorLoadout
                     {
                         ActiveLoadoutSlotIndex = 0,
@@ -135,7 +134,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     };
                     data = armorLoadout.Serialize();
                     break;
-                case PublicDataContainerTypes.Customizations:
+                case DataContainerTypes.Customizations:
                     var customization = new Customization
                     {
                         Unknown1 = 0,

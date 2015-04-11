@@ -2,7 +2,7 @@
 
 namespace HaloOnline.Server.Model.User
 {
-    public class ShopShelve
+    public class ShopSectionShelve
     {
         public string Name { get; set; }
         public bool IsHot { get; set; }

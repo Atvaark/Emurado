@@ -32,15 +32,15 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     Data = new UserChallenges
                     {
                         Version = 0,
-                        Challenges = new List<Challenge>
+                        Challenges = new List<UserChallenge>
                         {
-                            new Challenge
+                            new UserChallenge
                             {
                                 ChallengeId = "challenge_0",
                                 Progress = 1,
-                                Counters = new List<Counter>
+                                Counters = new List<UserChallengeCounter>
                                 {
-                                    new Counter
+                                    new UserChallengeCounter
                                     {
                                         CounterName = "gp_p0_engineer_kill_counter",
                                         CurrentValue = 1,
@@ -50,9 +50,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 FinishedAtUnixMilliseconds = DateTime.Now,
                                 StartDateUnixMilliseconds = DateTime.Now,
                                 EndDateUnixMilliseconds = DateTime.Now,
-                                Rewards = new List<Reward>
+                                Rewards = new List<ChallengeReward>
                                 {
-                                    new Reward
+                                    new ChallengeReward
                                     {
                                         Name = "tech_reward",
                                         Count = 10

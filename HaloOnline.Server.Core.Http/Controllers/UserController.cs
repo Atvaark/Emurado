@@ -148,9 +148,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             new UserTransaction
                             {
-                                TransactionItems = new List<TransactionItem>
+                                TransactionItems = new List<UserTransactionItem>
                                 {
-                                    new TransactionItem
+                                    new UserTransactionItem
                                     {
                                         StateName = "StateName",
                                         StateType = 0,
@@ -209,9 +209,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             new UserTransaction
                             {
-                                TransactionItems = new List<TransactionItem>
+                                TransactionItems = new List<UserTransactionItem>
                                 {
-                                    new TransactionItem
+                                    new UserTransactionItem
                                     {
                                         StateName = "StateName",
                                         StateType = 0,
@@ -258,9 +258,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             new UserTransaction
                             {
-                                TransactionItems = new List<TransactionItem>
+                                TransactionItems = new List<UserTransactionItem>
                                 {
-                                    new TransactionItem
+                                    new UserTransactionItem
                                     {
                                         StateName = "StateName",
                                         StateType = 0,
@@ -393,9 +393,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 new ShopSection
                                 {
                                     Name = ShopSectionTypes.Loadouts,
-                                    Shelves = new List<ShopShelve>
+                                    Shelves = new List<ShopSectionShelve>
                                     {
-                                        new ShopShelve
+                                        new ShopSectionShelve
                                         {
                                             Name = ShopShelfTypes.WeaponLoadouts,
                                             IsHot = true,

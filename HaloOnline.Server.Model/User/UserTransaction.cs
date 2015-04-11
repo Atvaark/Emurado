@@ -8,7 +8,7 @@ namespace HaloOnline.Server.Model.User
     public class UserTransaction
     {
         [JsonProperty("transactionItems")]
-        public List<TransactionItem> TransactionItems { get; set; }
+        public List<UserTransactionItem> TransactionItems { get; set; }
 
         [JsonProperty("sessionId")]
         public string SessionId { get; set; }
