@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Interface.Services;
 using HaloOnline.Server.Core.Http.Model;
 using HaloOnline.Server.Core.Http.Model.Clan;
@@ -8,11 +9,31 @@ using HaloOnline.Server.Model.User;
 
 namespace HaloOnline.Server.Core.Http.Controllers
 {
+    // TODO: Change hard coded return values to calls to the clan repository
     public class ClanController : ApiController, IClanService
     {
+        private readonly IClanRepository _clanRepository;
+
+        public ClanController(IClanRepository clanRepository)
+        {
+            _clanRepository = clanRepository;
+        }
+
         [HttpPost]
         public ClanCreateResult ClanCreate(ClanCreateRequest request)
         {
+            Clan clan = new Clan
+            {
+                Name = request.Name,
+                Tag = request.Tag,
+                Description = request.Description
+            };
+
+            _clanRepository.CreateAsync(clan).Wait();
+
+
+
+            // TODO: Add current user as clan leader
             return new ClanCreateResult
             {
                 Result = new ServiceResult<UserBaseData>

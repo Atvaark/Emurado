@@ -7,7 +7,7 @@ namespace HaloOnline.Server.Common.Repositories
     {
         Task CreateAsync(User user);
         Task UpdateAsync(User user);
-        Task DelteAsync(User user);
+        Task DeleteAsync(User user);
         Task<User> FindByIdAsync(string userId);
         Task<User> FindByNameAsync(string userName);
     }

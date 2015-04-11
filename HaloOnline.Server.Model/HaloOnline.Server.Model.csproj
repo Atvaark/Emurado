@@ -57,6 +57,7 @@
     <Compile Include="Authorization\Signature.cs" />
     <Compile Include="Authorization\SignIn.cs" />
     <Compile Include="Authorization\SignInRequest.cs" />
+    <Compile Include="Clan\Clan.cs" />
     <Compile Include="Clan\ClanBaseData.cs" />
     <Compile Include="Clan\ClanBaseDataVersioned.cs" />
     <Compile Include="Clan\ClanCreateRequest.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Clan\ClanKickRequest.cs" />
     <Compile Include="Clan\ClanLeaveRequest.cs" />
     <Compile Include="Clan\ClanMember.cs" />
+    <Compile Include="Clan\ClanMembership.cs" />
     <Compile Include="Clan\ClanMembershipData.cs" />
     <Compile Include="Clan\ClanMembershipDataVersioned.cs" />
     <Compile Include="Custom\CreateAccountRequest.cs" />

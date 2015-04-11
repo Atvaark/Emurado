@@ -17,7 +17,7 @@ namespace HaloOnline.Server.Core.Repository
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<UserBaseData> UsersBaseData { get; set; }
         public DbSet<Clan> Clans { get; set; }
+        public DbSet<ClanMembership> ClanMemberships { get; set; }
     }
 }

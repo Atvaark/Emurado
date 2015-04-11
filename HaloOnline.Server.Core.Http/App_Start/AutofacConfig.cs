@@ -7,7 +7,7 @@ using Autofac.Integration.WebApi;
 using HaloOnline.Server.Common;
 using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Auth;
-using HaloOnline.Server.Core.Repository.Repository;
+using HaloOnline.Server.Core.Repository.Repositories;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Jwt;
@@ -38,6 +38,7 @@ namespace HaloOnline.Server.Core.Http
                 .As<IServerOptions>();
         }
 
+        // TODO: Move this in a module class
         private static void ConfigureRepositories(ContainerBuilder builder)
         {
             builder.Register(c => new UserRepository())
@@ -47,7 +48,15 @@ namespace HaloOnline.Server.Core.Http
             builder.Register(c => new UserBaseDataRepository())
                 .InstancePerRequest()
                 .As<IUserBaseDataRepository>();
-            
+
+            builder.Register(c => new ClanRepository())
+                .InstancePerRequest()
+                .As<IClanRepository>();
+
+            builder.Register(c => new ClanMembershipRepository())
+                .InstancePerRequest()
+                .As<IClanMembershipRepository>();
+
             builder.Register(c => new HaloUserStore(c.Resolve<IUserRepository>()))
                 .InstancePerRequest()
                 .As<IHaloUserStore>();
@@ -65,7 +74,7 @@ namespace HaloOnline.Server.Core.Http
                     c.Resolve<IHaloUserStore>()))
                 .InstancePerRequest()
                 .As<IHaloUserManager>();
-            
+
             builder.Register(c => new SymmetricKeyIssuerSecurityTokenProvider(
                 validIssuer,
                 "n9stoFfd/JN6JyVCxwEXYxNSXGDEGSoOcPtd7erDtE4=")) // TODO: Place the secret in a config file

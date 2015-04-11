@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Model.User;
 
-namespace HaloOnline.Server.Core.Repository.Repository
+namespace HaloOnline.Server.Core.Repository.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -39,7 +39,7 @@ namespace HaloOnline.Server.Core.Repository.Repository
             return Task.FromResult(0);
         }
 
-        public Task DelteAsync(User user)
+        public Task DeleteAsync(User user)
         {
             var foundUser = _context.Users.Find(user.UserId);
             if (foundUser != null)

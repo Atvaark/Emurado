@@ -1,7 +1,5 @@
 ﻿namespace HaloOnline.Server.Common
 {
-    // TODO: Move to HaloOnline.Server.Common
-
     public class ServerOptions : IServerOptions
     {
         public string EndpointHostname { get; set; }

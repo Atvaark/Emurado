@@ -52,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repositories\IClanMembershipRepository.cs" />
+    <Compile Include="Repositories\IClanRepository.cs" />
     <Compile Include="Repositories\IUserBaseDataRepository.cs" />
     <Compile Include="IServerOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

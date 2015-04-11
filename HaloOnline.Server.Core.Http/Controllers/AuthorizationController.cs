@@ -39,12 +39,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> CreateAccount(CreateAccountRequest request)
         {
-            var user = await _userManager.FindByNameAsync(request.Username);
-            if (user != null)
-            {
-                return BadRequest("Username is in use");
-            }
-            user = new HaloUser
+            var user = new HaloUser
             {
                 UserName = request.Username
             };
