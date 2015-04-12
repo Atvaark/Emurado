@@ -8,7 +8,6 @@ namespace HaloOnline.Server.Core.Http.Controllers
 {
     public class ArbitraryStorageController : ApiController, IArbitraryStorageService
     {
-        // TODO: Check if this WriteDiagnosticsDataRequest is JSON
         [HttpPost]
         public WriteDiagnosticsDataResult WriteDiagnosticsData(WriteDiagnosticsDataRequest request)
         {

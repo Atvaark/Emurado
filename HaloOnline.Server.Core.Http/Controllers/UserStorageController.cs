@@ -102,12 +102,12 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             PrimaryWeapon = "assault_rifle",
                             SecondaryWeapon = "magnum",
-                            Grenade = "frag_grenade",
-                            Unknown1 = "",
-                            Unknown2 = "",
-                            Unknown3 = "",
-                            Unknown4 = "",
-                            Unknown5 = ""
+                            Grenades = "frag_grenade",
+                            Booster = "",
+                            ConsumableFirst = "",
+                            ConsumableSecond = "",
+                            ConsumableThird = "",
+                            ConsumableFourth = ""
                         }
                         , 5).ToList()
                     };
@@ -129,7 +129,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             Torso = "chest_air_assault",
                             Hands = "arms_air_assault",
                             Legs = "legs_air_assault",
-                            Reserved = ""
+                            Accessory = ""
                         }, 5).ToList()
                     };
                     data = armorLoadout.Serialize();
@@ -137,14 +137,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                 case DataContainerTypes.Customizations:
                     var customization = new Customization
                     {
-                        Unknown1 = 0,
-                        Unknown2 = 0,
-                        Unknown3 = 0,
-                        Unknown4 = 0,
-                        Unknown5 = 0,
-                        Unknown6 = 0,
-                        Unknown7 = 0,
-                        Unknown8 = 0
+                        AccountLabel = "account_label"
                     };
                     data = customization.Serialize();
                     break;

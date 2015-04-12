@@ -7,6 +7,6 @@
         public string Torso { get; set; }
         public string Hands { get; set; }
         public string Legs { get; set; }
-        public string Reserved { get; set; }
+        public string Accessory { get; set; }
     }
 }

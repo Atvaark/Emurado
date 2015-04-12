@@ -3,7 +3,10 @@
     public class ClanMembership
     {
         public int UserId { get; set; }
+
         public int ClanId { get; set; }
-        public int Role { get; set; }
+
+        // TODO: Analyze which roles are available
+        public int Role { get; set; } 
     }
 }

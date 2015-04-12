@@ -1,6 +1,6 @@
 ﻿namespace HaloOnline.Server.Model.ArbitraryStorage
 {
-    public class WriteDiagnosticsDataRequest
+    public class WriteDiagnosticsDataRequest : XHydraBinaryData
     {
     }
 }

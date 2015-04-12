@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Cors;
 using HaloOnline.Server.Common;
+using HaloOnline.Server.Core.Http.Formatters;
 
 namespace HaloOnline.Server.Core.Http
 {
@@ -16,8 +17,10 @@ namespace HaloOnline.Server.Core.Http
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute("HaloServiceApi", "{controller}Service.svc/{action}/{request}",
-                new {action = RouteParameter.Optional, request = RouteParameter.Optional}
+                new { action = RouteParameter.Optional, request = RouteParameter.Optional }
                 );
+
+            config.Formatters.Add(new XHydraBinaryFormatter());
         }
     }
 }

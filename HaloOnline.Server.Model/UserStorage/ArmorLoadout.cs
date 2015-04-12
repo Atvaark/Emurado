@@ -33,7 +33,7 @@ namespace HaloOnline.Server.Model.UserStorage
                 WriteString(writer, slot.Torso);
                 WriteString(writer, slot.Hands);
                 WriteString(writer, slot.Legs);
-                WriteString(writer, slot.Reserved);
+                WriteString(writer, slot.Accessory);
             }
             return new AbstractData
             {
@@ -97,7 +97,7 @@ namespace HaloOnline.Server.Model.UserStorage
                 Torso = ParseString(reader),
                 Hands = ParseString(reader),
                 Legs = ParseString(reader),
-                Reserved = ParseString(reader)
+                Accessory = ParseString(reader)
             };
 
             return slot;

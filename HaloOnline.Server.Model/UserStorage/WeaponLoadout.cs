@@ -24,12 +24,12 @@ namespace HaloOnline.Server.Model.UserStorage
             {
                 WriteString(writer, slot.PrimaryWeapon);
                 WriteString(writer, slot.SecondaryWeapon);
-                WriteString(writer, slot.Grenade);
-                WriteString(writer, slot.Unknown1);
-                WriteString(writer, slot.Unknown2);
-                WriteString(writer, slot.Unknown3);
-                WriteString(writer, slot.Unknown4);
-                WriteString(writer, slot.Unknown5);
+                WriteString(writer, slot.Grenades);
+                WriteString(writer, slot.Booster);
+                WriteString(writer, slot.ConsumableFirst);
+                WriteString(writer, slot.ConsumableSecond);
+                WriteString(writer, slot.ConsumableThird);
+                WriteString(writer, slot.ConsumableFourth);
             }
             return new AbstractData
             {
@@ -67,9 +67,9 @@ namespace HaloOnline.Server.Model.UserStorage
             {
                 PrimaryWeapon = ParseString(reader),
                 SecondaryWeapon = ParseString(reader),
-                Grenade = ParseString(reader),
-                Unknown1 = ParseString(reader),
-                Unknown2 = ParseString(reader)
+                Grenades = ParseString(reader),
+                Booster = ParseString(reader),
+                ConsumableFirst = ParseString(reader)
             };
         }
 

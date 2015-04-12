@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="ArbitraryStorage\WriteADFPackRequest.cs" />
     <Compile Include="ArbitraryStorage\WriteDiagnosticsDataRequest.cs" />
+    <Compile Include="ArbitraryStorage\XHydraBinaryData.cs" />
     <Compile Include="Authorization\Signature.cs" />
     <Compile Include="Authorization\SignIn.cs" />
     <Compile Include="Authorization\SignInRequest.cs" />

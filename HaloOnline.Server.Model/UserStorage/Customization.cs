@@ -1,31 +1,18 @@
 ﻿using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace HaloOnline.Server.Model.UserStorage
 {
     public class Customization
     {
-        public int Unknown1 { get; set; }
-        public int Unknown2 { get; set; }
-        public int Unknown3 { get; set; }
-        public int Unknown4 { get; set; }
-        public int Unknown5 { get; set; }
-        public int Unknown6 { get; set; }
-        public int Unknown7 { get; set; }
-        public int Unknown8 { get; set; }
-
-
+        public string AccountLabel { get; set; }
+        
         public AbstractData Serialize()
         {
             MemoryStream dataStream = new MemoryStream();
             BinaryWriter writer = new BinaryWriter(dataStream);
-            writer.Write(Unknown1);
-            writer.Write(Unknown2);
-            writer.Write(Unknown3);
-            writer.Write(Unknown4);
-            writer.Write(Unknown5);
-            writer.Write(Unknown6);
-            writer.Write(Unknown7);
-            writer.Write(Unknown8);
+            WriteString(writer, AccountLabel);
             return new AbstractData
             {
                 Version = 0,
@@ -46,15 +33,22 @@ namespace HaloOnline.Server.Model.UserStorage
 
         private void ParseCustomization(BinaryReader reader)
         {
-            Unknown1 = reader.ReadInt32();
-            Unknown2 = reader.ReadInt32();
-            Unknown3 = reader.ReadInt32();
-            Unknown4 = reader.ReadInt32();
-            Unknown5 = reader.ReadInt32();
-            Unknown6 = reader.ReadInt32();
-            Unknown7 = reader.ReadInt32();
-            Unknown8 = reader.ReadInt32();
+            AccountLabel = ParseString(reader);
         }
 
+
+        private string ParseString(BinaryReader reader)
+        {
+            byte[] stringBuffer = reader.ReadBytes(32);
+            return Encoding.ASCII.GetString(stringBuffer).TrimEnd('\0');
+        }
+
+        private void WriteString(BinaryWriter writer, string data)
+        {
+            var nulls = (32 - data.Length % 33);
+            var s = data + new string(Enumerable.Repeat('\0', nulls).ToArray());
+            var bytes = Encoding.ASCII.GetBytes(s);
+            writer.Write(bytes);
+        }
     }
 }

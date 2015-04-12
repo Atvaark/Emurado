@@ -51,14 +51,13 @@ namespace HaloOnline.Server.Core.Repository.Repositories
         {
             var foundClan = _context.Clans.Find(clanId);
             if (foundClan == null) return Task.FromResult<Clan>(null);
-            Task.FromResult(new Clan
+            return Task.FromResult(new Clan
             {
                 ClanId = foundClan.Id,
                 Name = foundClan.Name,
                 Tag = foundClan.Tag,
                 Description = foundClan.Description
             });
-            return Task.FromResult<Clan>(null);
         }
 
         public Task<IEnumerable<Clan>> FindByNameAsync(string namePrefix)
