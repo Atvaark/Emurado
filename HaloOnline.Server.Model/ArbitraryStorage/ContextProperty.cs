@@ -1,4 +1,4 @@
-namespace HaloOnline.Server.Model.Unused
+namespace HaloOnline.Server.Model.ArbitraryStorage
 {
     public class ContextProperty
     {

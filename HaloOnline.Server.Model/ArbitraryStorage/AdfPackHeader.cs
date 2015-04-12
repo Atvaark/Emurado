@@ -1,12 +1,9 @@
 ﻿using System.Collections.Generic;
 using HaloOnline.Server.Model.Unused;
 
-namespace HaloOnline.Server.Model.Unidentified
+namespace HaloOnline.Server.Model.ArbitraryStorage
 {
-    /// <summary>
-    /// WriteDiagnosticsDataRequest?
-    /// </summary>
-    public class Header
+    public class AdfPackHeader
     {
         public string SessionId { get; set; }
         public string Format { get; set; }

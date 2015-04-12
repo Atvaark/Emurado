@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArbitraryStorage\WriteADFPackRequest.cs" />
     <Compile Include="ArbitraryStorage\WriteDiagnosticsDataRequest.cs" />
     <Compile Include="ArbitraryStorage\XHydraBinaryData.cs" />
     <Compile Include="Authorization\Signature.cs" />
@@ -149,7 +148,7 @@
     <Compile Include="TitleResource\TitleProperty.cs" />
     <Compile Include="TitleResource\TitleTagsPatchConfiguration.cs" />
     <Compile Include="Unidentified\Unidentified1.cs" />
-    <Compile Include="Unidentified\Unidentified2.cs" />
+    <Compile Include="ArbitraryStorage\WriteADFPackRequest.cs" />
     <Compile Include="Unused\TaskId.cs" />
     <Compile Include="Unused\UserTaskFilter.cs" />
     <Compile Include="Unused\UserTaskList.cs" />
@@ -160,8 +159,8 @@
     <Compile Include="Unused\PropertyList.cs" />
     <Compile Include="Unused\KeyStringValuePair.cs" />
     <Compile Include="Unused\UserTask.cs" />
-    <Compile Include="Unidentified\Header.cs" />
-    <Compile Include="Unused\ContextProperty.cs" />
+    <Compile Include="ArbitraryStorage\AdfPackHeader.cs" />
+    <Compile Include="ArbitraryStorage\ContextProperty.cs" />
     <Compile Include="Unused\SessionSettings.cs" />
     <Compile Include="Unused\MatchmakeSettings.cs" />
     <Compile Include="Unused\CustomGameSettings.cs" />
