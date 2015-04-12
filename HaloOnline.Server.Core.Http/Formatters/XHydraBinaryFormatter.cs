@@ -23,12 +23,12 @@ namespace HaloOnline.Server.Core.Http.Formatters
 
         public override bool CanReadType(Type type)
         {
-            return type == XHydraBinaryDataType;
+            return XHydraBinaryDataType.IsAssignableFrom(type);
         }
 
         public override bool CanWriteType(Type type)
         {
-            return type == XHydraBinaryDataType;
+            return false;
         }
 
         public override Task<object> ReadFromStreamAsync(Type type, Stream readStream, HttpContent content, IFormatterLogger formatterLogger)
@@ -36,7 +36,7 @@ namespace HaloOnline.Server.Core.Http.Formatters
             var taskCompletionSource = new TaskCompletionSource<object>();
             try
             {
-                XHydraBinaryData xHydraBinaryData = ReadXHydraBinaryData(readStream, formatterLogger);
+                XHydraBinaryData xHydraBinaryData = ReadXHydraBinaryData(type, readStream, formatterLogger);
                 taskCompletionSource.SetResult(xHydraBinaryData);
             }
             catch (Exception e)
@@ -53,13 +53,13 @@ namespace HaloOnline.Server.Core.Http.Formatters
             return base.WriteToStreamAsync(type, value, writeStream, content, transportContext);
         }
 
-        private XHydraBinaryData ReadXHydraBinaryData(Stream readStream, IFormatterLogger formatterLogger)
+        private XHydraBinaryData ReadXHydraBinaryData(Type type, Stream readStream, IFormatterLogger formatterLogger)
         {
             BinaryReader reader = new BinaryReader(readStream, Encoding.ASCII, true);
             int unknown = reader.ReadInt32();
             int requestSize = reader.ReadInt32();
             int payloadSize = reader.ReadInt32();
-            var xHydraBinaryData = (XHydraBinaryData)_jsonFormatter.ReadFromStream(XHydraBinaryDataType, readStream, Encoding.ASCII, formatterLogger);
+            var xHydraBinaryData = (XHydraBinaryData)_jsonFormatter.ReadFromStream(type, readStream, Encoding.ASCII, formatterLogger);
             xHydraBinaryData.Payload = reader.ReadBytes(payloadSize);
             return xHydraBinaryData;
         }

@@ -13,7 +13,10 @@ namespace HaloOnline.Server.Core.Http.Controllers
         {
             return new WriteDiagnosticsDataResult
             {
-                Result = new ServiceResult<bool>()
+                Result = new ServiceResult<bool>
+                {
+                    Data = true
+                }
             };
         }
 
@@ -22,7 +25,10 @@ namespace HaloOnline.Server.Core.Http.Controllers
         {
             return new WriteAdfPackResult
             {
-                Result = new ServiceResult<bool>()
+                Result = new ServiceResult<bool>
+                {
+                    Data = true
+                }
             };
         }
     }
