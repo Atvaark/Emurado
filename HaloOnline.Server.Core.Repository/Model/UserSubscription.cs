@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HaloOnline.Server.Core.Repository.Model
 {
+    [Table("UserSubscription")]
     public class UserSubscription
     {
         [Key, Column(Order = 0)]

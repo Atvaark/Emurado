@@ -176,6 +176,7 @@
     <Compile Include="Auth\IHaloUserStore.cs" />
     <Compile Include="Auth\HaloAuthEnvironment.cs" />
     <Compile Include="App_Start\HaloServerConfig.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="Filters\UnhandledExceptionFilter.cs" />
     <Compile Include="Model\Messaging\LeaveChannelsResult.cs" />
     <Compile Include="Model\Messaging\ReceiveResult.cs" />

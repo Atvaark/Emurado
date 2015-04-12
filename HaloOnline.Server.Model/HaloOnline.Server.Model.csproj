@@ -81,6 +81,7 @@
     <Compile Include="Friends\GetSubscriptionsRequest.cs" />
     <Compile Include="Friends\SubscriptionAddRequest.cs" />
     <Compile Include="Friends\SubscriptionRemoveRequest.cs" />
+    <Compile Include="Friends\UserSubscription.cs" />
     <Compile Include="Friends\UserSubscriptionList.cs" />
     <Compile Include="Friends\UserSubscriptions.cs" />
     <Compile Include="Friends\VersionedUserId.cs" />

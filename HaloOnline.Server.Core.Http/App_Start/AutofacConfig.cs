@@ -49,6 +49,10 @@ namespace HaloOnline.Server.Core.Http
                 .InstancePerRequest()
                 .As<IUserBaseDataRepository>();
 
+            builder.Register(c => new UserSubscriptionRepository())
+                .InstancePerRequest()
+                .As<IUserSubscriptionRepository>();
+            
             builder.Register(c => new ClanRepository())
                 .InstancePerRequest()
                 .As<IClanRepository>();

@@ -7,7 +7,13 @@ namespace HaloOnline.Server.Core.Repository.Model
     [Table("Clan")]
     public class Clan
     {
+        public Clan()
+        {
+            ClanMemberships = new HashSet<ClanMembership>();
+        }
+
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -17,6 +23,6 @@ namespace HaloOnline.Server.Core.Repository.Model
         public string Tag { get; set; }
 
         [InverseProperty("Clan")]
-        public virtual ICollection<ClanMembership> ClanMembers { get; set; }
+        public virtual ICollection<ClanMembership> ClanMemberships { get; set; }
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="IServerOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\IUserSubscriptionRepository.cs" />
     <Compile Include="ServerOptions.cs" />
   </ItemGroup>
   <ItemGroup>

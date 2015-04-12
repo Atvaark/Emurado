@@ -5,6 +5,7 @@ using System.Web.Http.Dependencies;
 using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Auth;
 using HaloOnline.Server.Model.Clan;
+using HaloOnline.Server.Model.Friends;
 using HaloOnline.Server.Model.User;
 
 namespace HaloOnline.Server.Core.Http
@@ -23,7 +24,8 @@ namespace HaloOnline.Server.Core.Http
         {
             var userManager = (IHaloUserManager) scope.GetService(typeof (IHaloUserManager));
             var userBaseDataRepository = (IUserBaseDataRepository) scope.GetService(typeof (IUserBaseDataRepository));
-            var clanRepository = (IClanRepository) scope.GetService(typeof (IClanRepository));
+            var userSubscriptionRepository = (IUserSubscriptionRepository)scope.GetService(typeof(IUserSubscriptionRepository));
+            var clanRepository = (IClanRepository)scope.GetService(typeof(IClanRepository));
             var clanMembershipRepository = (IClanMembershipRepository) scope.GetService(typeof (IClanMembershipRepository));
 
             try
@@ -60,7 +62,7 @@ namespace HaloOnline.Server.Core.Http
                     },
                     ClanTag = "",
                     Level = 2,
-                    BattleTag = "BattleTag"
+                    BattleTag = "BattleTag1"
                 };
 
                 UserBaseData testUser2Data = new UserBaseData
@@ -76,7 +78,7 @@ namespace HaloOnline.Server.Core.Http
                     },
                     ClanTag = "",
                     Level = 10,
-                    BattleTag = "BattleTag"
+                    BattleTag = "BattleTag2"
                 };
 
                 userBaseDataRepository.SetUserBaseDataAsync(testUser1Data);
@@ -90,6 +92,15 @@ namespace HaloOnline.Server.Core.Http
                 };
 
                 clanMembershipRepository.CreateAsync(testUser1ClanMembership).Wait();
+
+                var testUser1Subscription = new UserSubscription
+                {
+                    UserId = testUser1.UserId,
+                    FriendUserId = testUser2.UserId
+                };
+                userSubscriptionRepository.CreateAsync(testUser1Subscription).Wait();
+
+
             }
             catch (Exception)
             {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Web.Http;
 using HaloOnline.Server.Core.Http.Interface.Services;
 using HaloOnline.Server.Core.Http.Model;
@@ -107,7 +106,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
         public SendResult Send(SendRequest request)
         {
             int userId;
-            TryGetUserId(out userId);
+            this.TryGetUserId(out userId);
 
             var channel = Channels.FirstOrDefault(c => c.Name == request.ChannelName);
             bool sent = false;
@@ -176,19 +175,6 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     Data = requestedChannels
                 }
             };
-        }
-
-        private bool TryGetUserId(out int userId)
-        {
-            userId = 0;
-            var user = Request.GetOwinContext().Authentication.User;
-            if (user == null)
-            {
-                return false;
-            }
-
-            var userIdClaim = user.Claims.FirstOrDefault(c => c.Type == "id"); // TODO: Create claims extension methods 
-            return userIdClaim != null && int.TryParse(userIdClaim.Value, out userId);
         }
     }
 }
