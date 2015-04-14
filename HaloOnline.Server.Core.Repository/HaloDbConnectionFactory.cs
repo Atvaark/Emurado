@@ -8,9 +8,6 @@ namespace HaloOnline.Server.Core.Repository
     {
         public DbConnection CreateConnection(string nameOrConnectionString)
         {
-            // BUG: EF can't find the Connection string of HaloOnline.Server.Core.Repository.HaloDbContext
-            //nameOrConnectionString = "HaloDbContext";
-            //nameOrConnectionString = "Data Source=|DataDirectory|halodb.sqlite";
             return new SQLiteConnection(nameOrConnectionString);
         }
     }

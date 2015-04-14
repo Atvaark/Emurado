@@ -37,6 +37,9 @@ namespace HaloOnline.Server.Core.Repository.Model
         public virtual ICollection<UserData> UserDatas { get; set; }
 
         [InverseProperty("User")]
+        public virtual UserPresence UserPresence { get; set; }
+
+        [InverseProperty("User")]
         public virtual UserPrimaryState UserPrimaryState { get; set; }
 
         [InverseProperty("User")]
@@ -47,6 +50,6 @@ namespace HaloOnline.Server.Core.Repository.Model
 
         [InverseProperty("Subscribee")]
         public virtual ICollection<UserSubscription> Subscribers { get; set; }
-
+        
     }
 }

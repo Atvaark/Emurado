@@ -168,7 +168,7 @@
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\HandlerConfig.cs" />
-    <Compile Include="Formatters\XHydraBinaryFormatter.cs" />
+    <Compile Include="Formatters\HydraBinaryFormatter.cs" />
     <Compile Include="Auth\HaloTokenFormat.cs" />
     <Compile Include="Auth\HaloUserManager.cs" />
     <Compile Include="Auth\HaloUserStore.cs" />

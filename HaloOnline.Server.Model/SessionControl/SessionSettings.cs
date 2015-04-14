@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using HaloOnline.Server.Model.Unused;
+using Newtonsoft.Json;
 
-namespace HaloOnline.Server.Model.Unused
+namespace HaloOnline.Server.Model.SessionControl
 {
     public class SessionSettings
     {

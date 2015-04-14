@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using HaloOnline.Server.Model.Unused;
 
 namespace HaloOnline.Server.Model.ArbitraryStorage
 {

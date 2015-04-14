@@ -54,9 +54,13 @@
   <ItemGroup>
     <Compile Include="Repositories\IClanMembershipRepository.cs" />
     <Compile Include="Repositories\IClanRepository.cs" />
+    <Compile Include="Repositories\IPartyMemberRepository.cs" />
+    <Compile Include="Repositories\IPartyRepository.cs" />
+    <Compile Include="Repositories\ISessionRepository.cs" />
     <Compile Include="Repositories\IUserBaseDataRepository.cs" />
     <Compile Include="IServerOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IUserPresenceRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\IUserSubscriptionRepository.cs" />
     <Compile Include="ServerOptions.cs" />

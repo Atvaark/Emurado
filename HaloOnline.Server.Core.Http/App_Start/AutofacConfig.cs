@@ -53,6 +53,10 @@ namespace HaloOnline.Server.Core.Http
                 .InstancePerRequest()
                 .As<IUserSubscriptionRepository>();
             
+            builder.Register(c => new UserPresenceRepository())
+                .InstancePerRequest()
+                .As<IUserPresenceRepository>();
+
             builder.Register(c => new ClanRepository())
                 .InstancePerRequest()
                 .As<IClanRepository>();
@@ -60,7 +64,19 @@ namespace HaloOnline.Server.Core.Http
             builder.Register(c => new ClanMembershipRepository())
                 .InstancePerRequest()
                 .As<IClanMembershipRepository>();
+            
+            builder.Register(c => new PartyRepository())
+                .InstancePerRequest()
+                .As<IPartyRepository>();
 
+            builder.Register(c => new PartyMemberRepository())
+                .InstancePerRequest()
+                .As<IPartyMemberRepository>();
+
+            builder.Register(c => new SessionRepository())
+                .InstancePerRequest()
+                .As<ISessionRepository>();
+            
             builder.Register(c => new HaloUserStore(c.Resolve<IUserRepository>()))
                 .InstancePerRequest()
                 .As<IHaloUserStore>();

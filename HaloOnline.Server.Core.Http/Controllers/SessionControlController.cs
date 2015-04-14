@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Interface.Services;
 using HaloOnline.Server.Core.Http.Model;
 using HaloOnline.Server.Core.Http.Model.SessionControl;
@@ -9,6 +11,13 @@ namespace HaloOnline.Server.Core.Http.Controllers
 {
     public class SessionControlController : ApiController, ISessionControlService
     {
+        private readonly ISessionRepository _sessionRepository;
+
+        public SessionControlController(ISessionRepository sessionRepository)
+        {
+            _sessionRepository = sessionRepository;
+        }
+        
         [HttpPost]
         public ClientGetStatusResult ClientGetStatus(ClientGetStatusRequest request)
         {
@@ -18,7 +27,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                 {
                     Data = new ClientStatus
                     {
-                        Game = new Game
+                        Game = new SessionId
                         {
                             Id = "7A0E225D-B2F0-4AD3-BFEA-21404AA29DC3"
                         },
@@ -36,22 +45,16 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public GetSessionBasicDataResult GetSessionBasicData(GetSessionBasicDataRequest request)
         {
+            IEnumerable<SessionBasicData> sessionBasicData = request.Sessions
+                .Select(session => _sessionRepository.FindBySessionIdAsync(session.Id).Result)
+                .Where(basicData => basicData != null);
+
             return new GetSessionBasicDataResult
             {
                 Result = new ServiceResult<List<SessionBasicData>>
                 {
                     ReturnCode = 0,
-                    Data = new List<SessionBasicData>
-                    {
-                        new SessionBasicData
-                        {
-                            SessionId = "614E1ECD-9865-4A5A-905C-EB2984783300",
-                            MapId = "C867209D-F0B5-432B-98D9-DA9F9DF07A01",
-                            ModeId = "B67CF8BF-B0F2-411F-AAF9-7B165C09E782",
-                            Finished = 0,
-                            Started = 0
-                        }
-                    }
+                    Data = sessionBasicData.ToList()
                 }
             };
         }
@@ -68,9 +71,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         new SessionChain
                         {
                             User = "CEFDB7DA-95A1-4F66-A1D5-529A9081A676",
-                            Sessions = new List<Game>
+                            Sessions = new List<SessionId>
                             {
-                                new Game
+                                new SessionId
                                 {
                                     Id = "D99A01C5-E9B5-467F-8FBE-E3168F3DE4EC"
                                 }

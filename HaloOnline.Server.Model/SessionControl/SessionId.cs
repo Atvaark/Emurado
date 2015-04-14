@@ -1,6 +1,6 @@
 ﻿namespace HaloOnline.Server.Model.SessionControl
 {
-    public class Game
+    public class SessionId
     {
         public string Id { get; set; }
     }

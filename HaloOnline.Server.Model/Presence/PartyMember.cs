@@ -2,7 +2,7 @@
 
 namespace HaloOnline.Server.Model.Presence
 {
-    public class SessionMember
+    public class PartyMember
     {
         public UserId User { get; set; }
         public bool IsOwner { get; set; }

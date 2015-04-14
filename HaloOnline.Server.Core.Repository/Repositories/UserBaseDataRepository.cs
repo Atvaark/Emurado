@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Model.Clan;
 using HaloOnline.Server.Model.User;
-using Clan = HaloOnline.Server.Core.Repository.Model.Clan;
 
 namespace HaloOnline.Server.Core.Repository.Repositories
 {

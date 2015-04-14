@@ -9,6 +9,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
 {
     public class TitleResourceController : ApiController, ITitleResourceService
     {
+        // Gets called every 10 minutes by each client
         [HttpPost]
         public TitleConfigurationResult GetTitleConfiguration(GetTitleConfigurationRequest request)
         {
@@ -28,15 +29,35 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 ClassName = "InstanceClassName",
                                 Parents = new List<string>
                                 {
-                                    "Parent"
+                                    "Parent1",
+                                    "Parent2",
+                                    "Parent3",
                                 },
                                 Properties = new List<TitleProperty>
                                 {
                                     new TitleProperty
                                     {
-                                        Name = "PropertyName",
+                                        Name = "PropertyName1",
                                         Type = 0,
                                         StringValue = "StringPropertyValue"
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = "PropertyName2",
+                                        Type = 0,
+                                        FloatValue = 123.45f
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = "PropertyName3",
+                                        Type = 0,
+                                        IntegerValue = int.MaxValue
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = "PropertyName4",
+                                        Type = 0,
+                                        LongValue = long.MaxValue
                                     }
                                 }
                             }

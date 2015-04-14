@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Interface.Services;
 using HaloOnline.Server.Core.Http.Model;
 using HaloOnline.Server.Core.Http.Model.Presence;
@@ -10,6 +11,21 @@ namespace HaloOnline.Server.Core.Http.Controllers
 {
     public class PresenceController : ApiController, IPresenceService
     {
+        private readonly ISessionRepository _sessionRepository;
+        private readonly IPartyRepository _partyRepository;
+        private readonly IPartyMemberRepository _partyMemberRepository;
+
+        public PresenceController(
+            ISessionRepository sessionRepository,
+            IPartyRepository partyRepository,
+            IPartyMemberRepository partyMemberRepository)
+        {
+            _sessionRepository = sessionRepository;
+            _partyRepository = partyRepository;
+            _partyMemberRepository = partyMemberRepository;
+        }
+
+
         [HttpPost]
         public PresenceDisconnectResult PresenceDisconnect(PresenceDisconnectRequest request)
         {
@@ -35,9 +51,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             Id = "1"
                         },
-                        SessionMembers = new List<SessionMember>
+                        SessionMembers = new List<PartyMember>
                         {
-                            new SessionMember
+                            new PartyMember
                             {
                                 User = new UserId
                                 {
@@ -45,7 +61,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 },
                                 IsOwner = true
                             },
-                            new SessionMember
+                            new PartyMember
                             {
                                 User = new UserId
                                 {
@@ -112,9 +128,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             Id = "1"
                         },
-                        SessionMembers = new List<SessionMember>
+                        SessionMembers = new List<PartyMember>
                         {
-                            new SessionMember
+                            new PartyMember
                             {
                                 User = new UserId
                                 {
@@ -122,7 +138,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 },
                                 IsOwner = true
                             },
-                            new SessionMember
+                            new PartyMember
                             {
                                 User = new UserId
                                 {
@@ -151,16 +167,16 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             Id = "1"
                         },
-                        SessionMembers = new List<SessionMember>
+                        SessionMembers = new List<PartyMember>
                         {
-                            new SessionMember
+                            new PartyMember
                             {
                                 User = new UserId
                                 {
                                     Id = 1
                                 }
                             },
-                            new SessionMember
+                            new PartyMember
                             {
                                 User = new UserId
                                 {
@@ -188,16 +204,16 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             Id = "1"
                         },
-                        SessionMembers = new List<SessionMember>
+                        SessionMembers = new List<PartyMember>
                         {
-                            new SessionMember
+                            new PartyMember
                             {
                                 User = new UserId
                                 {
                                     Id = 1
                                 }
                             },
-                            new SessionMember
+                            new PartyMember
                             {
                                 User = new UserId
                                 {
@@ -237,16 +253,16 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             Id = "1"
                         },
-                        SessionMembers = new List<SessionMember>
+                        SessionMembers = new List<PartyMember>
                         {
-                            new SessionMember
+                            new PartyMember
                             {
                                 User = new UserId
                                 {
                                     Id = 1
                                 }
                             },
-                            new SessionMember
+                            new PartyMember
                             {
                                 User = new UserId
                                 {

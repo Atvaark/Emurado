@@ -10,12 +10,12 @@ using HaloOnline.Server.Model.ArbitraryStorage;
 
 namespace HaloOnline.Server.Core.Http.Formatters
 {
-    public class XHydraBinaryFormatter : MediaTypeFormatter
+    public class HydraBinaryFormatter : MediaTypeFormatter
     {
-        private static readonly Type XHydraBinaryDataType = typeof(XHydraBinaryData);
+        private static readonly Type HydraBinaryDataType = typeof(XHydraBinaryData);
         private readonly JsonMediaTypeFormatter _jsonFormatter;
 
-        public XHydraBinaryFormatter()
+        public HydraBinaryFormatter()
         {
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/x-hydra-binary"));
             _jsonFormatter = new JsonMediaTypeFormatter();
@@ -23,12 +23,12 @@ namespace HaloOnline.Server.Core.Http.Formatters
 
         public override bool CanReadType(Type type)
         {
-            return XHydraBinaryDataType.IsAssignableFrom(type);
+            return HydraBinaryDataType.IsAssignableFrom(type);
         }
 
         public override bool CanWriteType(Type type)
         {
-            return false;
+            return HydraBinaryDataType.IsAssignableFrom(type);
         }
 
         public override Task<object> ReadFromStreamAsync(Type type, Stream readStream, HttpContent content, IFormatterLogger formatterLogger)
@@ -36,8 +36,7 @@ namespace HaloOnline.Server.Core.Http.Formatters
             var taskCompletionSource = new TaskCompletionSource<object>();
             try
             {
-                XHydraBinaryData xHydraBinaryData = ReadXHydraBinaryData(type, readStream, formatterLogger);
-                taskCompletionSource.SetResult(xHydraBinaryData);
+                taskCompletionSource.SetResult(ReadXHydraBinaryData(type, readStream, formatterLogger));
             }
             catch (Exception e)
             {
@@ -50,18 +49,33 @@ namespace HaloOnline.Server.Core.Http.Formatters
         public override Task WriteToStreamAsync(Type type, object value, Stream writeStream, HttpContent content,
             TransportContext transportContext)
         {
-            return base.WriteToStreamAsync(type, value, writeStream, content, transportContext);
+            return Task.Factory.StartNew(() =>
+            {
+                WriteXHydraBinaryData(type, value as XHydraBinaryData, writeStream);
+            });
         }
 
         private XHydraBinaryData ReadXHydraBinaryData(Type type, Stream readStream, IFormatterLogger formatterLogger)
         {
-            BinaryReader reader = new BinaryReader(readStream, Encoding.ASCII, true);
+            BinaryReader reader = new BinaryReader(readStream, Encoding.UTF8, true);
             int unknown = reader.ReadInt32();
-            int requestSize = reader.ReadInt32();
+            int dataSize = reader.ReadInt32();
             int payloadSize = reader.ReadInt32();
             var xHydraBinaryData = (XHydraBinaryData)_jsonFormatter.ReadFromStream(type, readStream, Encoding.ASCII, formatterLogger);
             xHydraBinaryData.Payload = reader.ReadBytes(payloadSize);
             return xHydraBinaryData;
+        }
+
+        private void WriteXHydraBinaryData(Type type, XHydraBinaryData value, Stream writeStream)
+        {
+            var dataStream = new MemoryStream();
+            _jsonFormatter.WriteToStream(type, value, dataStream, Encoding.UTF8);
+            BinaryWriter writer = new BinaryWriter(writeStream, Encoding.UTF8, true);
+            writer.Write(5);
+            writer.Write((int)dataStream.Length);
+            writer.Write(value.Payload.Length);
+            dataStream.CopyTo(writeStream);
+            writer.Write(value.Payload);
         }
     }
 }

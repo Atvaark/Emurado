@@ -20,7 +20,7 @@ namespace HaloOnline.Server.Core.Http
                 new { action = RouteParameter.Optional, request = RouteParameter.Optional }
                 );
 
-            config.Formatters.Add(new XHydraBinaryFormatter());
+            config.Formatters.Add(new HydraBinaryFormatter());
         }
     }
 }

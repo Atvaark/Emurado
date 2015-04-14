@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
 using HaloOnline.Server.Common;
 using Microsoft.Owin.FileSystems;

@@ -2,7 +2,7 @@
 {
     public class ClientStatus
     {
-        public Game Game { get; set; }
+        public SessionId Game { get; set; }
         public DedicatedServer DedicatedServer { get; set; }
     }
 }

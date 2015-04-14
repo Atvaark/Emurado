@@ -21,6 +21,9 @@ namespace HaloOnline.Server.Core.Repository
         public virtual DbSet<ChallengeReward> ChallengeRewards { get; set; }
         public virtual DbSet<Clan> Clans { get; set; }
         public virtual DbSet<ClanMembership> ClanMemberships { get; set; }
+        public virtual DbSet<Party> Parties { get; set; }
+        public virtual DbSet<PartyMember> PartyMembers { get; set; }
+        public virtual DbSet<Session> Sessions { get; set; }
         public virtual DbSet<Shop> Shops { get; set; }
         public virtual DbSet<ShopSection> ShopSections { get; set; }
         public virtual DbSet<ShopSectionShelve> ShopSectionShelves { get; set; }
@@ -30,6 +33,7 @@ namespace HaloOnline.Server.Core.Repository
         public virtual DbSet<UserChallengeCounter> UserChallengeCounters { get; set; }
         public virtual DbSet<UserData> UserDatas { get; set; }
         public virtual DbSet<UserDataContainerType> UserDataContainerTypes { get; set; }
+        public virtual DbSet<UserPresence> UserPresences { get; set; } 
         public virtual DbSet<UserPrimaryState> UserPrimaryState { get; set; }
         public virtual DbSet<UserState> UserStates { get; set; }
         public virtual DbSet<UserSubscription> UserSubscriptions { get; set; } 
