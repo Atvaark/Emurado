@@ -7,7 +7,7 @@ using Autofac.Integration.WebApi;
 using HaloOnline.Server.Common;
 using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Auth;
-using HaloOnline.Server.Core.Repository.Repositories;
+using HaloOnline.Server.Core.Repository;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Jwt;
@@ -38,45 +38,9 @@ namespace HaloOnline.Server.Core.Http
                 .As<IServerOptions>();
         }
 
-        // TODO: Move this in a module class
         private static void ConfigureRepositories(ContainerBuilder builder)
         {
-            builder.Register(c => new UserRepository())
-                .InstancePerRequest()
-                .As<IUserRepository>();
-
-            builder.Register(c => new UserBaseDataRepository())
-                .InstancePerRequest()
-                .As<IUserBaseDataRepository>();
-
-            builder.Register(c => new UserSubscriptionRepository())
-                .InstancePerRequest()
-                .As<IUserSubscriptionRepository>();
-            
-            builder.Register(c => new UserPresenceRepository())
-                .InstancePerRequest()
-                .As<IUserPresenceRepository>();
-
-            builder.Register(c => new ClanRepository())
-                .InstancePerRequest()
-                .As<IClanRepository>();
-
-            builder.Register(c => new ClanMembershipRepository())
-                .InstancePerRequest()
-                .As<IClanMembershipRepository>();
-            
-            builder.Register(c => new PartyRepository())
-                .InstancePerRequest()
-                .As<IPartyRepository>();
-
-            builder.Register(c => new PartyMemberRepository())
-                .InstancePerRequest()
-                .As<IPartyMemberRepository>();
-
-            builder.Register(c => new SessionRepository())
-                .InstancePerRequest()
-                .As<ISessionRepository>();
-            
+            builder.RegisterModule(new RepositoryModule());
             builder.Register(c => new HaloUserStore(c.Resolve<IUserRepository>()))
                 .InstancePerRequest()
                 .As<IHaloUserStore>();

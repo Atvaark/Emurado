@@ -5,7 +5,7 @@ namespace HaloOnline.Server.Core.Http.Interface.Services
 {
     public interface ITitleResourceService
     {
-        TitleConfigurationResult GetTitleConfiguration(GetTitleConfigurationRequest request);
+        GetTitleConfigurationResult GetTitleConfiguration(GetTitleConfigurationRequest request);
         GetTitleConfigRawResult GetTitleConfigRaw(GetTitleConfigRawRequest request);
 
         GetTitleTagsPatchConfigurationResult GetTitleTagsPatchConfiguration(

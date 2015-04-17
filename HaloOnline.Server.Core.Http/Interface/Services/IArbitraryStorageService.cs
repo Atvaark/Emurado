@@ -1,5 +1,4 @@
 ﻿using HaloOnline.Server.Core.Http.Model.ArbitraryStorage;
-using HaloOnline.Server.Model.ArbitraryStorage;
 
 namespace HaloOnline.Server.Core.Http.Interface.Services
 {

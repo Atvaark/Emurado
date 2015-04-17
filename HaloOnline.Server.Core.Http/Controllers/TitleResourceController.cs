@@ -11,9 +11,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
     {
         // Gets called every 10 minutes by each client
         [HttpPost]
-        public TitleConfigurationResult GetTitleConfiguration(GetTitleConfigurationRequest request)
+        public GetTitleConfigurationResult GetTitleConfiguration(GetTitleConfigurationRequest request)
         {
-            return new TitleConfigurationResult
+            return new GetTitleConfigurationResult
             {
                 Result = new ServiceResult<TitleConfiguration>
                 {
@@ -26,7 +26,8 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             new TitleInstance
                             {
                                 Name = "Motd1",
-                                ClassName = "MOTD",
+                                //ClassName = "MOTD",
+                                ClassName = "ClassName",
                                 Parents = new List<string>
                                 {
                                 },

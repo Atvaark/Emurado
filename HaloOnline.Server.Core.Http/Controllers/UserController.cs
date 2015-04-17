@@ -195,10 +195,10 @@ namespace HaloOnline.Server.Core.Http.Controllers
         }
 
         [HttpPost]
-        public ApplyOfferAndGetTransactionHistory ApplyOfferAndGetTransactionHistory(
+        public ApplyOfferAndGetTransactionHistoryResult ApplyOfferAndGetTransactionHistory(
             ApplyOfferAndGetTransactionHistoryRequest request)
         {
-            return new ApplyOfferAndGetTransactionHistory
+            return new ApplyOfferAndGetTransactionHistoryResult
             {
                 Result = new ServiceResult<UserTransactionHistory>
                 {

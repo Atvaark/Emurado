@@ -1,5 +1,4 @@
 ﻿using HaloOnline.Server.Core.Http.Model.Clan;
-using HaloOnline.Server.Model.Clan;
 
 namespace HaloOnline.Server.Core.Http.Interface.Services
 {

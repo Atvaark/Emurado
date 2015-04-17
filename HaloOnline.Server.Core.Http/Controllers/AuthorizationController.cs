@@ -10,7 +10,6 @@ using HaloOnline.Server.Core.Http.Model;
 using HaloOnline.Server.Core.Http.Model.Authorization;
 using HaloOnline.Server.Model.Authorization;
 using HaloOnline.Server.Model.Clan;
-using HaloOnline.Server.Model.Custom;
 using HaloOnline.Server.Model.EndpointDispatcher;
 using HaloOnline.Server.Model.User;
 using Microsoft.Owin.Security;
@@ -59,7 +58,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                 Nickname = request.Nickname,
                 BattleTag = "",
                 Level = 0,
-                Clan = new ClanId // TODO: Check if this property has to be set or the Id has to be set to zero
+                Clan = new ClanId
                 {
                     Id = 0
                 },

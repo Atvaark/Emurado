@@ -14,7 +14,7 @@ namespace HaloOnline.Server.Core.Http.Interface.Services
         GetTransactionHistoryResult GetTransactionHistory(GetTransactionHistoryRequest request);
         ApplyExternalOfferResult ApplyExternalOffer(ApplyExternalOfferRequest request);
 
-        ApplyOfferAndGetTransactionHistory ApplyOfferAndGetTransactionHistory(
+        ApplyOfferAndGetTransactionHistoryResult ApplyOfferAndGetTransactionHistory(
             ApplyOfferAndGetTransactionHistoryRequest request);
 
         ApplyOfferListAndGetTransactionHistoryResult ApplyOfferListAndGetTransactionHistory(
