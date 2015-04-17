@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArbitraryStorage\WriteDiagnosticsDataRequest.cs" />
-    <Compile Include="ArbitraryStorage\XHydraBinaryData.cs" />
+    <Compile Include="ArbitraryStorage\HydraBinaryData.cs" />
     <Compile Include="Authorization\Signature.cs" />
     <Compile Include="Authorization\SignIn.cs" />
     <Compile Include="Authorization\SignInRequest.cs" />
@@ -103,6 +103,8 @@
     <Compile Include="Messaging\SendRequest.cs" />
     <Compile Include="Messaging\SendServiceMessageRequest.cs" />
     <Compile Include="Presence\Party.cs" />
+    <Compile Include="Presence\PartyMember.cs" />
+    <Compile Include="Presence\UserPresenceStats.cs" />
     <Compile Include="Serialization\AbstractDataConverter.cs" />
     <Compile Include="Serialization\UnixEpochMillisecondsJsonConverter.cs" />
     <Compile Include="Serialization\UnixEpochSecondsJsonConverter.cs" />
@@ -128,7 +130,7 @@
     <Compile Include="Presence\PresenceDisconnectRequest.cs" />
     <Compile Include="Presence\PresenceGetUsersPresenceRequest.cs" />
     <Compile Include="Presence\ReportOnlineStatsRequest.cs" />
-    <Compile Include="Presence\PartyMember.cs" />
+    <Compile Include="Presence\PartyMemberDto.cs" />
     <Compile Include="Presence\UserPresence.cs" />
     <Compile Include="Presence\UserPresenceData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +149,7 @@
     <Compile Include="TitleResource\Tag.cs" />
     <Compile Include="TitleResource\TitleConfiguration.cs" />
     <Compile Include="TitleResource\TitleInstance.cs" />
+    <Compile Include="TitleResource\TitleInstanceConstants.cs" />
     <Compile Include="TitleResource\TitleProperty.cs" />
     <Compile Include="TitleResource\TitleTagsPatchConfiguration.cs" />
     <Compile Include="Unidentified\Unidentified1.cs" />
@@ -154,7 +157,7 @@
     <Compile Include="Unused\TaskId.cs" />
     <Compile Include="Unused\UserTaskFilter.cs" />
     <Compile Include="Unused\UserTaskList.cs" />
-    <Compile Include="Unidentified\Unidentified3.cs" />
+    <Compile Include="Unidentified\Unidentified2.cs" />
     <Compile Include="Unused\UserTaskScope.cs" />
     <Compile Include="Unused\UserScoreboardStats.cs" />
     <Compile Include="Unused\KeyIntegerValuePair.cs" />

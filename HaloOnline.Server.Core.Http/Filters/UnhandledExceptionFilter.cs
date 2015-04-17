@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using System.Web.Http.Filters;
 
 namespace HaloOnline.Server.Core.Http.Filters
@@ -8,13 +7,8 @@ namespace HaloOnline.Server.Core.Http.Filters
     {
         public override void OnException(HttpActionExecutedContext actionExecutedContext)
         {
+            Debug.WriteLine("Unhandled exception: " + actionExecutedContext.Exception);
             base.OnException(actionExecutedContext);
-        }
-
-        public override Task OnExceptionAsync(HttpActionExecutedContext actionExecutedContext,
-            CancellationToken cancellationToken)
-        {
-            return base.OnExceptionAsync(actionExecutedContext, cancellationToken);
         }
     }
 }

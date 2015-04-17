@@ -25,40 +25,19 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             new TitleInstance
                             {
-                                Name = "InstanceName",
-                                ClassName = "InstanceClassName",
+                                Name = "Motd1",
+                                ClassName = "MOTD",
                                 Parents = new List<string>
                                 {
-                                    "Parent1",
-                                    "Parent2",
-                                    "Parent3",
                                 },
                                 Properties = new List<TitleProperty>
                                 {
                                     new TitleProperty
                                     {
-                                        Name = "PropertyName1",
-                                        Type = 0,
-                                        StringValue = "StringPropertyValue"
+                                        Name = "motd_friday",
+                                        Type = 1,
+                                        StringValue = "StringPropertyValue",
                                     },
-                                    new TitleProperty
-                                    {
-                                        Name = "PropertyName2",
-                                        Type = 0,
-                                        FloatValue = 123.45f
-                                    },
-                                    new TitleProperty
-                                    {
-                                        Name = "PropertyName3",
-                                        Type = 0,
-                                        IntegerValue = int.MaxValue
-                                    },
-                                    new TitleProperty
-                                    {
-                                        Name = "PropertyName4",
-                                        Type = 0,
-                                        LongValue = long.MaxValue
-                                    }
                                 }
                             }
                         }

@@ -18,8 +18,8 @@ namespace HaloOnline.Server.Core.Repository.Repositories
         {
             var newParty = new Model.Party
             {
-                PartyId = party.Party.Id,
-                MatchmakeType = party.MatchmakeState,
+                Id = party.Id,
+                MatchmakeState = party.MatchmakeState,
                 GameData = party.GameData
             };
             _context.Parties.Add(newParty);
@@ -29,10 +29,10 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 
         public Task UpdateAsync(Party party)
         {
-            var foundParty = _context.Parties.FirstOrDefault(p => p.PartyId == party.Party.Id);
+            var foundParty = _context.Parties.FirstOrDefault(p => p.Id == party.Id);
             if (foundParty != null)
             {
-                foundParty.MatchmakeType = party.MatchmakeState;
+                foundParty.MatchmakeState = party.MatchmakeState;
                 foundParty.GameData = party.GameData;
                 _context.SaveChanges();
             }
@@ -41,7 +41,7 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 
         public Task DeleteAsync(Party party)
         {
-            var foundParty = _context.Parties.FirstOrDefault(p => p.PartyId == party.Party.Id);
+            var foundParty = _context.Parties.FirstOrDefault(p => p.Id == party.Id);
             if (foundParty != null)
             {
                 _context.Parties.Remove(foundParty);
@@ -52,14 +52,13 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 
         public Task<Party> FindByPartyIdAsync(string partyId)
         {
-            var foundParty = _context.Parties.FirstOrDefault(p => p.PartyId == partyId);
+            var foundParty = _context.Parties.FirstOrDefault(p => p.Id == partyId);
             if (foundParty != null)
             {
                 return Task.FromResult(new Party
                 {
                     Id = foundParty.Id,
-                    Party = new PartyId(foundParty.PartyId),
-                    MatchmakeState = foundParty.MatchmakeType,
+                    MatchmakeState = foundParty.MatchmakeState,
                     GameData = foundParty.GameData
                 });
             }

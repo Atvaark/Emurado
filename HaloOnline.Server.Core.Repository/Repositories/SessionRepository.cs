@@ -18,7 +18,7 @@ namespace HaloOnline.Server.Core.Repository.Repositories
         {
             var newSession = new Model.Session
             {
-                SessionId = session.SessionId,
+                Id = session.Id,
                 MapId = session.MapId,
                 ModeId = session.ModeId,
                 Started = session.Started,
@@ -35,7 +35,7 @@ namespace HaloOnline.Server.Core.Repository.Repositories
             var foundSession = _context.Sessions.Find(session.Id);
             if (foundSession != null)
             {
-                foundSession.SessionId = session.SessionId;
+                foundSession.Id = session.Id;
                 foundSession.MapId = session.MapId;
                 foundSession.ModeId = session.ModeId;
                 foundSession.Started = session.Started;
@@ -58,13 +58,12 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 
         public Task<Session> FindBySessionIdAsync(string sessionId)
         {
-            var foundSession = _context.Sessions.FirstOrDefault(s => s.SessionId == sessionId);
+            var foundSession = _context.Sessions.FirstOrDefault(s => s.Id == sessionId);
             if (foundSession != null)
             {
                 return Task.FromResult(new Session
                 {
                     Id = foundSession.Id,
-                    SessionId = foundSession.SessionId,
                     MapId = foundSession.MapId,
                     ModeId = foundSession.ModeId,
                     Started = foundSession.Started,

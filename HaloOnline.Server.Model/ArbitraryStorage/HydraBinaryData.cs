@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.ArbitraryStorage
 {
-    public class XHydraBinaryData
+    public class HydraBinaryData
     {
         [JsonIgnore]
         public byte[] Payload { get; set; }

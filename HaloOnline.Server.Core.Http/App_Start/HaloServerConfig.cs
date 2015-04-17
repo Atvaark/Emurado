@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
 using HaloOnline.Server.Common.Repositories;
@@ -30,13 +31,17 @@ namespace HaloOnline.Server.Core.Http
 
             try
             {
-                var clan = new Clan
+                var clan = clanRepository.FindByNamePrefixAsync("Clan1").Result.FirstOrDefault();
+                if (clan == null)
                 {
-                    Name = "Clan1",
-                    Description = "First clan",
-                    Tag = "TAG"
-                };
-                clanRepository.CreateAsync(clan).Wait();
+                    clan = new Clan
+                    {
+                        Name = "Clan1",
+                        Description = "First clan",
+                        Tag = "TAG"
+                    };
+                    clanRepository.CreateAsync(clan).Wait();
+                }
 
                 HaloUser testUser1 = new HaloUser
                 {

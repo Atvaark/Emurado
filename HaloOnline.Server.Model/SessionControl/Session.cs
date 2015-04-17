@@ -1,7 +1,15 @@
 ﻿namespace HaloOnline.Server.Model.SessionControl
 {
-    public class Session : SessionBasicData
+    public class Session
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
+
+        public string MapId { get; set; }
+
+        public string ModeId { get; set; }
+
+        public int Started { get; set; }
+
+        public int Finished { get; set; }
     }
 }

@@ -1,7 +1,11 @@
 ﻿namespace HaloOnline.Server.Model.Presence
 {
-    public class Party : PartyStatus
+    public class Party
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
+
+        public int MatchmakeState { get; set; }
+
+        public byte[] GameData { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Model.Presence;
 using HaloOnline.Server.Model.User;
@@ -65,6 +66,20 @@ namespace HaloOnline.Server.Core.Repository.Repositories
                 });
             }
             return Task.FromResult<UserPresence>(null);
+        }
+
+        public Task<UserPresenceStats> GetUserPresenceStats()
+        {
+            var usersOnline = _context.UserPresences.Count(u => u.State == 1);
+            var usersIngame = _context.UserPresences.Count(u => u.State == 2);
+
+            UserPresenceStats userPresenceStats = new UserPresenceStats
+            {
+                UsersIngame = usersIngame,
+                UsersOnline = usersOnline
+            };
+
+            return Task.FromResult(userPresenceStats);
         }
     }
 }

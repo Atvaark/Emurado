@@ -7,11 +7,11 @@ namespace HaloOnline.Server.Core.Repository.Model
     public class PartyMember
     {
         [Key, Column(Order = 0)]
-        public int PartyId { get; set; }
+        public string PartyId { get; set; }
         [Key, Column(Order = 1)]
         public int UserId { get; set; }
         [Column(Order = 2)]
-        public int SessionId { get; set; }
+        public string SessionId { get; set; }
         [Column(Order = 3)]
         public bool IsOwner { get; set; }
 

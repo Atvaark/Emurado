@@ -8,10 +8,8 @@ namespace HaloOnline.Server.Core.Repository.Model
     public class Session
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
 
-        public string SessionId { get; set; }
+        public string Id { get; set; }
         
         public string MapId { get; set; }
         

@@ -10,6 +10,6 @@ namespace HaloOnline.Server.Common.Repositories
         Task UpdateAsync(Clan clan);
         Task DeleteAsync(Clan clan);
         Task<Clan> FindByIdAsync(int clanId);
-        Task<IEnumerable<Clan>> FindByNameAsync(string namePrefix);
+        Task<IEnumerable<Clan>> FindByNamePrefixAsync(string namePrefix);
     }
 }

@@ -12,7 +12,7 @@ namespace HaloOnline.Server.Core.Http.Formatters
 {
     public class HydraBinaryFormatter : MediaTypeFormatter
     {
-        private static readonly Type HydraBinaryDataType = typeof(XHydraBinaryData);
+        private static readonly Type HydraBinaryDataType = typeof(HydraBinaryData);
         private readonly JsonMediaTypeFormatter _jsonFormatter;
 
         public HydraBinaryFormatter()
@@ -51,22 +51,22 @@ namespace HaloOnline.Server.Core.Http.Formatters
         {
             return Task.Factory.StartNew(() =>
             {
-                WriteXHydraBinaryData(type, value as XHydraBinaryData, writeStream);
+                WriteXHydraBinaryData(type, value as HydraBinaryData, writeStream);
             });
         }
 
-        private XHydraBinaryData ReadXHydraBinaryData(Type type, Stream readStream, IFormatterLogger formatterLogger)
+        private HydraBinaryData ReadXHydraBinaryData(Type type, Stream readStream, IFormatterLogger formatterLogger)
         {
             BinaryReader reader = new BinaryReader(readStream, Encoding.UTF8, true);
             int unknown = reader.ReadInt32();
             int dataSize = reader.ReadInt32();
             int payloadSize = reader.ReadInt32();
-            var xHydraBinaryData = (XHydraBinaryData)_jsonFormatter.ReadFromStream(type, readStream, Encoding.ASCII, formatterLogger);
+            var xHydraBinaryData = (HydraBinaryData)_jsonFormatter.ReadFromStream(type, readStream, Encoding.ASCII, formatterLogger);
             xHydraBinaryData.Payload = reader.ReadBytes(payloadSize);
             return xHydraBinaryData;
         }
 
-        private void WriteXHydraBinaryData(Type type, XHydraBinaryData value, Stream writeStream)
+        private void WriteXHydraBinaryData(Type type, HydraBinaryData value, Stream writeStream)
         {
             var dataStream = new MemoryStream();
             _jsonFormatter.WriteToStream(type, value, dataStream, Encoding.UTF8);

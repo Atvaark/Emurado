@@ -1,10 +1,13 @@
-﻿using HaloOnline.Server.Model.User;
-
-namespace HaloOnline.Server.Model.Presence
+﻿namespace HaloOnline.Server.Model.Presence
 {
     public class PartyMember
     {
-        public UserId User { get; set; }
-        public bool IsOwner { get; set; }
+        public string PartyId { get; set; }
+
+        public int UserId { get; set; }
+
+        public string SessionId { get; set; }
+
+        public bool IsOwner { get; set; } 
     }
 }

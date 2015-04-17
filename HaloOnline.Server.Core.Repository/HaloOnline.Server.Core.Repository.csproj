@@ -63,6 +63,9 @@
     <Compile Include="HaloDbContext.cs" />
     <Compile Include="Model\Challenge.cs" />
     <Compile Include="Model\ChallengeReward.cs" />
+    <Compile Include="Model\Channel.cs" />
+    <Compile Include="Model\ChannelMessage.cs" />
+    <Compile Include="Model\ChannelUser.cs" />
     <Compile Include="Model\Clan.cs" />
     <Compile Include="Model\ClanMembership.cs" />
     <Compile Include="Model\Party.cs" />

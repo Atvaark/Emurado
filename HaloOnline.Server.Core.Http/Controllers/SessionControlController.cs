@@ -47,7 +47,15 @@ namespace HaloOnline.Server.Core.Http.Controllers
         {
             IEnumerable<SessionBasicData> sessionBasicData = request.Sessions
                 .Select(session => _sessionRepository.FindBySessionIdAsync(session.Id).Result)
-                .Where(basicData => basicData != null);
+                .Where(basicData => basicData != null)
+                .Select(session => new SessionBasicData
+                {
+                    SessionId = session.Id,
+                    MapId = session.MapId,
+                    ModeId = session.ModeId,
+                    Started = session.Started,
+                    Finished = session.Finished
+                });
 
             return new GetSessionBasicDataResult
             {

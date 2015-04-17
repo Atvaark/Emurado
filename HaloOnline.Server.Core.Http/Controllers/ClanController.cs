@@ -201,7 +201,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public ClanGetByNameResult ClanGetByName(ClanGetByNameRequest request)
         {
-            var foundClans = _clanRepository.FindByNameAsync(request.NamePrefix)
+            var foundClans = _clanRepository.FindByNamePrefixAsync(request.NamePrefix)
                 .Result
                 .Select(c => new ClanId(c.ClanId));
             

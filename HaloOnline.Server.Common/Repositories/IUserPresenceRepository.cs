@@ -9,5 +9,6 @@ namespace HaloOnline.Server.Common.Repositories
         Task UpdateAsync(UserPresence userPresence);
         Task DeleteAsync(UserPresence userPresence);
         Task<UserPresence> FindByUserIdAsync(int userId);
+        Task<UserPresenceStats> GetUserPresenceStats();
     }
 }

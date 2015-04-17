@@ -60,7 +60,7 @@ namespace HaloOnline.Server.Core.Repository.Repositories
             });
         }
 
-        public Task<IEnumerable<Clan>> FindByNameAsync(string namePrefix)
+        public Task<IEnumerable<Clan>> FindByNamePrefixAsync(string namePrefix)
         {
             var foundClans = _context.Clans.Where(c => c.Name.StartsWith(namePrefix))
                 .Select(c => new Clan

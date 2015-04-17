@@ -8,9 +8,8 @@ namespace HaloOnline.Server.Core.Repository.Model
     public class Party
     {
         [Key]
-        public int Id { get; set; }
-        public string PartyId { get; set; }
-        public int MatchmakeType { get; set; }
+        public string Id { get; set; }
+        public int MatchmakeState { get; set; }
         public byte[] GameData { get; set; }
 
         [InverseProperty("Party")]

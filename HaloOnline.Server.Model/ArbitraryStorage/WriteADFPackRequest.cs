@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.ArbitraryStorage
 {
-    public class WriteADFPackRequest : XHydraBinaryData
+    public class WriteADFPackRequest : HydraBinaryData
     {
         [JsonProperty("header")]
         public AdfPackHeader Header { get; set; }

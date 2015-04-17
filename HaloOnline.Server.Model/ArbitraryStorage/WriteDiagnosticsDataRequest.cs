@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.ArbitraryStorage
 {
-    public class WriteDiagnosticsDataRequest : XHydraBinaryData
+    public class WriteDiagnosticsDataRequest : HydraBinaryData
     {
         [JsonProperty("type")]
         public int Type { get; set; }

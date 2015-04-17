@@ -6,7 +6,7 @@ namespace HaloOnline.Server.Model.Presence
     {
         public PartyId Party { get; set; }
 
-        public List<PartyMember> SessionMembers { get; set; }
+        public List<PartyMemberDto> SessionMembers { get; set; }
 
         /// <summary>
         /// 0 None
