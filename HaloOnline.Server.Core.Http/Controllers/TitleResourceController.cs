@@ -25,6 +25,106 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             new TitleInstance
                             {
+                                Name = "slayer mode",
+                                ClassName = TitleInstanceConstants.GameModeClassName,
+                                Parents = new List<string>(),
+                                Properties = new List<TitleProperty>
+                                {
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.TitleInstanceName,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = "slayer"
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.GameModeId,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = "slayer"
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.GameModeSecondaryId,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = "slayer"
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.GameModeRoundTimeLimit,
+                                        Type = TitlePropertyType.Integer,
+                                        IntegerValue = 60
+                                    },
+                                }
+                            },
+                            new TitleInstance
+                            {
+                                Name = "guardian map",
+                                ClassName = TitleInstanceConstants.MapInfoClassName,
+                                Parents = new List<string>(),
+                                Properties = new List<TitleProperty>
+                                {
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.TitleInstanceName,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = "guardian"
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.MapInfoId,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = "guardian"
+                                    },
+                                }
+                            },
+                            new TitleInstance
+                            {
+                              Name  = "pink color",
+                              ClassName = TitleInstanceConstants.ColorClassName,
+                              Parents = new List<string>(),
+                              Properties = new List<TitleProperty>
+                              {
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.TitleInstanceName,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = "color_pri_13"
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.ColorType,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = TitleInstanceConstants.ColorTypePrimary,
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.ColorR,
+                                        Type = TitlePropertyType.Integer,
+                                        IntegerValue = 255
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.ColorG,
+                                        Type = TitlePropertyType.Integer,
+                                        IntegerValue = 20
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.ColorB,
+                                        Type = TitlePropertyType.Integer,
+                                        IntegerValue = 147
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.ColorUiListId,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = ""
+                                    }
+
+                              }
+                            },
+                            new TitleInstance
+                            {
                                 Name = "MOTD Saturday",
                                 ClassName = TitleInstanceConstants.MotdClassName,
                                 Parents = new List<string>(),
@@ -43,6 +143,97 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                         StringValue = "This is the message of the day."
                                     }
                                 }
+                            },
+                            new TitleInstance
+                            {
+                                Name = "Test player level", // TODO: Fix or remove this, since it has no effects at the moment.
+                                ClassName = TitleInstanceConstants.PlayerLevelClassName,
+                                Parents = new List<string>(),
+                                Properties = new List<TitleProperty>
+                                {
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.TitleInstanceName,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = ""
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.PlayerLevelLevelIndex,
+                                        Type = TitlePropertyType.Integer,
+                                        IntegerValue = 1
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.PlayerLevelXpUnlock,
+                                        Type = TitlePropertyType.Integer,
+                                        IntegerValue = 2
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.PlayerLevelItemsRecieved,
+                                        Type = TitlePropertyType.StringList,
+                                        StringList = new List<string>()
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.PlayerLevelItemsUnlocked,
+                                        Type = TitlePropertyType.StringList,
+                                        StringList = new List<string>()
+                                    },
+                                }
+                            },
+                            new TitleInstance()
+                            {
+                              Name  = "playlist",
+                              ClassName = TitleInstanceConstants.PlaylistClassName,
+                              Parents = new List<string>(),
+                              Properties = new List<TitleProperty>
+                              {
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.TitleInstanceName,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = "playlist1"
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.PlaylistGameModeCollection,
+                                        Type = TitlePropertyType.String, // TODO: Valdiate type. (Is probably a string list.)
+                                        StringValue = "" 
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.PlaylistMapCollection,
+                                        Type = TitlePropertyType.String, // TODO: Valdiate type. (Is probably a string list.)
+                                        StringValue = ""
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.PlaylistMinPlayers,
+                                        Type = TitlePropertyType.Integer,
+                                        IntegerValue = 1
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.PlaylistMaxPlayers,
+                                        Type = TitlePropertyType.Integer,
+                                        IntegerValue = 2
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.PlaylistMaxParty,
+                                        Type = TitlePropertyType.Integer,
+                                        IntegerValue = 2
+                                    },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.PlaylistIsTeamPlaylist,
+                                        Type = TitlePropertyType.Integer,
+                                        IntegerValue = 1
+                                    },
+                                    
+                              }
                             }
                         }
                     }

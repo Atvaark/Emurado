@@ -221,6 +221,7 @@
         public const string PlaylistMinPlayers = "MIN_PLAYERS";
         public const string PlaylistMaxPlayers = "MAX_PLAYERS";
         public const string PlaylistMaxParty = "MAX_PARTY";
+        public const string PlaylistIsTeamPlaylist = "IS_TEAM_PLAYLIST";
 
         // MP_DEFAULTS
         public const string MpDefaultsDefaultPlaylist = "DEFAULT_PLAYLIST";

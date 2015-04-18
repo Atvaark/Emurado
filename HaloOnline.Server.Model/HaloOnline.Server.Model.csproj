@@ -79,6 +79,7 @@
     <Compile Include="Messaging\ChannelMessage.cs" />
     <Compile Include="Messaging\Channel.cs" />
     <Compile Include="Messaging\ChannelTypes.cs" />
+    <Compile Include="Presence\GameData.cs" />
     <Compile Include="Presence\Party.cs" />
     <Compile Include="Presence\PartyMember.cs" />
     <Compile Include="Presence\UserPresenceStats.cs" />

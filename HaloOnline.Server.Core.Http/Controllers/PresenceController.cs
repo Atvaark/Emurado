@@ -241,7 +241,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
             {
                 party = new Party
                 {
-                    Id = "",
+                    Id = "1",
                     MatchmakeState = 0,
                     GameData = new byte[0]
                 };
@@ -383,15 +383,9 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     {
                         new PlaylistStat
                         {
-                            Playlist = "A0937033-31C7-47BF-A739-9FCB8CF8E071",
-                            PlayersNumber = 8
-                        },
-                        new PlaylistStat
-                        {
-                            Playlist = "edge_name",
-                            PlayersNumber = 2
-                        },
-
+                            Playlist = "playlist1",
+                            PlayersNumber = 1
+                        }
                     }
                 }
             };
