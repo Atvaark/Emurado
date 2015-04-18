@@ -107,6 +107,7 @@
     <Compile Include="TitleResource\TitleInstance.cs" />
     <Compile Include="TitleResource\TitleInstanceConstants.cs" />
     <Compile Include="TitleResource\TitleProperty.cs" />
+    <Compile Include="TitleResource\TitlePropertyType.cs" />
     <Compile Include="TitleResource\TitleTagsPatchConfiguration.cs" />
     <Compile Include="Unidentified\Unidentified1.cs" />
     <Compile Include="Unused\TaskId.cs" />

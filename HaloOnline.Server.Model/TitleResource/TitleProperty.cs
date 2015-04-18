@@ -3,13 +3,14 @@ using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.TitleResource
 {
+    // TODO: Make this class abstract and create a subclass for each type in TitlePropertyType
     public class TitleProperty
     {
         [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("type")]
-        public int Type { get; set; }
+        public TitlePropertyType Type { get; set; }
 
         [JsonProperty("strVal", NullValueHandling = NullValueHandling.Ignore)]
         public string StringValue { get; set; }
@@ -32,7 +33,8 @@ namespace HaloOnline.Server.Model.TitleResource
         [JsonProperty("floatList", NullValueHandling = NullValueHandling.Ignore)]
         public List<float> FloatList { get; set; }
 
+        // TODO: Validate type of ObjectList
         [JsonProperty("objList", NullValueHandling = NullValueHandling.Ignore)]
-        public List<object> ObjectList { get; set; }
+        public List<TitleInstance> ObjectList { get; set; }
     }
 }

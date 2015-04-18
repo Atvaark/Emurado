@@ -25,20 +25,23 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             new TitleInstance
                             {
-                                Name = "Motd1",
-                                //ClassName = "MOTD",
-                                ClassName = "ClassName",
-                                Parents = new List<string>
-                                {
-                                },
+                                Name = "MOTD Saturday",
+                                ClassName = TitleInstanceConstants.MotdClassName,
+                                Parents = new List<string>(),
                                 Properties = new List<TitleProperty>
                                 {
                                     new TitleProperty
                                     {
-                                        Name = "motd_friday",
-                                        Type = 1,
-                                        StringValue = "StringPropertyValue",
+                                        Name = TitleInstanceConstants.TitleInstanceName,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = TitleInstanceConstants.MotdSaturday
                                     },
+                                    new TitleProperty
+                                    {
+                                        Name = TitleInstanceConstants.MotdUiDescId,
+                                        Type = TitlePropertyType.String,
+                                        StringValue = "This is the message of the day."
+                                    }
                                 }
                             }
                         }

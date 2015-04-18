@@ -3,6 +3,8 @@
     public static class TitleInstanceConstants
     {
         // Class names
+        public const string TitleInstanceName = "NAME";
+
         public const string UiDescClassName = "UI_DESC";
         public const string GameModeClassName = "GAME_MODE";
         public const string MapInfoClassName = "MAP_INFO";
@@ -35,11 +37,9 @@
         public const string PlaylistClassName = "PLAYLIST";
         public const string MpDefaultsClassName = "MP_DEFAULTS";
 
+
         // Properties
-
-        // Common properties
-        public const string PropertyName = "NAME";
-
+        
         // UI_DESC
         public const string UiDescUiNameId = "UI_NAME_ID";
         public const string UiDescUiDescId = "UI_DESC_ID";
