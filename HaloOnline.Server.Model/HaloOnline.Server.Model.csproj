@@ -109,6 +109,7 @@
     <Compile Include="TitleResource\TitleConfigurations\GameMode.cs" />
     <Compile Include="TitleResource\TitleConfigurations\MapInfo.cs" />
     <Compile Include="TitleResource\TitleConfigurations\MessageOfTheDay.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\News.cs" />
     <Compile Include="TitleResource\TitleConfigurations\PlayerLevel.cs" />
     <Compile Include="TitleResource\TitleConfigurations\Playlist.cs" />
     <Compile Include="TitleResource\TitleConfigurations\SuitColor.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="TitleResource\TitleInstanceImpl.cs" />
     <Compile Include="TitleResource\TitlePropertLong.cs" />
     <Compile Include="TitleResource\TitleProperty.cs" />
+    <Compile Include="TitleResource\TitlePropertyDateTime.cs" />
     <Compile Include="TitleResource\TitlePropertyFloat.cs" />
     <Compile Include="TitleResource\TitlePropertyFloatList.cs" />
     <Compile Include="TitleResource\TitlePropertyInteger.cs" />
@@ -146,6 +148,7 @@
     <Compile Include="Unused\CustomGameSettings.cs" />
     <Compile Include="Unused\Event.cs" />
     <Compile Include="Unused\EventList.cs" />
+    <Compile Include="UserStorage\Preferences.cs" />
     <Compile Include="User\User.cs" />
     <Compile Include="UserStorage\AbstractData.cs" />
     <Compile Include="UserStorage\ArmorLoadout.cs" />

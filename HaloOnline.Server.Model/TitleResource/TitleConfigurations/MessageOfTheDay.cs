@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
 {
@@ -10,8 +11,10 @@ namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
         {
         }
 
+        [JsonIgnore]
         public DayOfWeek Day { get; set; }
 
+        [JsonIgnore]
         public string MotdUiDescId { get; set; }
 
         public override string ClassName

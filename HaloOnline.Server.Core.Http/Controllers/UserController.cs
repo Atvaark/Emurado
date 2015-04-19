@@ -115,11 +115,116 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     {
                         UserStateList = new List<UserState>
                         {
+                            new UserState // Level progress
+                            {
+                                OwnType = 0,
+                                Value = 2,
+                                StateName = "",
+                                StateType = 1
+                            },
+                            new UserState // Credits
+                            {
+                                OwnType = 0,
+                                Value = 123,
+                                StateName = "",
+                                StateType = 2
+                            },
+                            new UserState // Gold
+                            {
+                                OwnType = 0,
+                                Value = 321,
+                                StateName = "",
+                                StateType = 3
+                            },
+                            new UserState // Level
+                            {
+                                OwnType = 0,
+                                Value = 2,
+                                StateName = "",
+                                StateType = 9
+                            },
+                            new UserState // Account rename tokens
+                            {
+                                OwnType = 0,
+                                Value = 0,
+                                StateName = "account_rename_token",
+                                StateType = 12
+                            },
+                            new UserState // Class select tokens
+                            {
+                                OwnType = 0,
+                                Value = 2,
+                                StateName = "class_select_token",
+                                StateType = 12
+                            },
+                            new UserState 
+                            {
+                                OwnType = 0,
+                                Value = 0,
+                                StateName = "armor_loadout_0",
+                                StateType = 0
+                            },
+                            new UserState
+                            {
+                                OwnType = 2,
+                                Value = 1,
+                                StateName = "armor_loadout_1",
+                                StateType = 0
+                            },
+                            new UserState
+                            {
+                                OwnType = 1,
+                                Value = 0,
+                                StateName = "armor_loadout_2",
+                                StateType = 0
+                            },
+                            new UserState
+                            {
+                                OwnType = 2,
+                                Value = 0,
+                                StateName = "armor_loadout_3",
+                                StateType = 0
+                            },
                             new UserState
                             {
                                 OwnType = 0,
                                 Value = 0,
-                                StateName = "StateName",
+                                StateName = "armor_loadout_4",
+                                StateType = 0
+                            },
+                            new UserState
+                            {
+                                OwnType = 0,
+                                Value = 0,
+                                StateName = "weapon_loadout_0",
+                                StateType = 0
+                            },
+                            new UserState
+                            {
+                                OwnType = 0,
+                                Value = 0,
+                                StateName = "weapon_loadout_1",
+                                StateType = 0
+                            },
+                            new UserState
+                            {
+                                OwnType = 0,
+                                Value = 0,
+                                StateName = "weapon_loadout_2",
+                                StateType = 0
+                            },
+                            new UserState
+                            {
+                                OwnType = 0,
+                                Value = 0,
+                                StateName = "weapon_loadout_3",
+                                StateType = 0
+                            },
+                            new UserState
+                            {
+                                OwnType = 0,
+                                Value = 0,
+                                StateName = "weapon_loadout_4",
                                 StateType = 0
                             }
                         },

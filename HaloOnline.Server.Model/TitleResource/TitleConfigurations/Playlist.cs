@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
 {
@@ -16,18 +17,25 @@ namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
             IsTeamPlaylist = false;
         }
 
+        [JsonIgnore]
         public string Name { get; set; }
 
+        [JsonIgnore]
         public List<string> GameModeCollection { get; set; }
 
+        [JsonIgnore]
         public List<string> MapCollection { get; set; }
 
+        [JsonIgnore]
         public int? MinPlayers { get; set; }
 
+        [JsonIgnore]
         public int? MaxPlayers { get; set; }
 
+        [JsonIgnore]
         public int? MaxParty { get; set; }
 
+        [JsonIgnore]
         public bool IsTeamPlaylist { get; set; }
 
         public override string ClassName

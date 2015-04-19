@@ -101,7 +101,17 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 MaxPlayers = 8,
                                 MaxParty = 2,
                                 IsTeamPlaylist = false
-                            }
+                            },
+                            //// Disabled because it's an annoying popup after logging in
+                            //new News("test news")
+                            //{
+                            //    Name = "news1",
+                            //    SortIndex = 5,
+                            //    Poster = "poster1",
+                            //    TimeStamp = DateTime.Now,
+                            //    Text = "text1"
+                            //},
+
                         }
                     }
                 }

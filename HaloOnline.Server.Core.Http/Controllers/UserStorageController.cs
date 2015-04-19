@@ -15,11 +15,19 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public SetPrivateDataResult SetPrivateData(SetPrivateDataRequest request)
         {
+            switch (request.ContainerName)
+            {
+                case DataContainerTypes.Preferences:
+                    var preferences = Preferences.Deserialize(request.Data);
+                    break;
+                default:
+                    throw new ArgumentException("ContainerName");
+            }
             return new SetPrivateDataResult
             {
                 Result = new ServiceResult<bool>
                 {
-                    Data = false
+                    Data = true
                 }
             };
         }

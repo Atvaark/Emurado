@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
 {
@@ -18,22 +19,31 @@ namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
             ItemQuality = "";
         }
 
+        [JsonIgnore]
         public string Name { get; set; }
 
+        [JsonIgnore]
         public string NameId { get; set; }
 
+        [JsonIgnore]
         public string DescriptionId { get; set; }
 
+        [JsonIgnore]
         public string DescriptionShortId { get; set; }
 
+        [JsonIgnore]
         public string Icon { get; set; }
 
+        [JsonIgnore]
         public string IconMedium { get; set; }
 
+        [JsonIgnore]
         public string IconBig { get; set; }
 
+        [JsonIgnore]
         public string Video { get; set; }
 
+        [JsonIgnore]
         public string ItemQuality { get; set; }
 
         public override string ClassName

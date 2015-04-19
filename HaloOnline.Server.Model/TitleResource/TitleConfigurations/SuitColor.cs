@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
 {
@@ -15,12 +16,16 @@ namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
             UiListId = "";
         }
 
+        [JsonIgnore]
         public string Name { get; set; }
 
+        [JsonIgnore]
         public Color Color { get; set; }
 
+        [JsonIgnore]
         public SuitColorType ColorType { get; set; }
 
+        [JsonIgnore]
         public string UiListId { get; set; }
 
         public override string ClassName

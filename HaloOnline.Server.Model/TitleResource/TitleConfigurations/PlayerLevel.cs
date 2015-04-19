@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
 {
@@ -14,14 +15,19 @@ namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
             ItemsUnlocked = new List<string>();
         }
 
+        [JsonIgnore]
         public string Name { get; set; }
 
+        [JsonIgnore]
         public int? LevelIndex { get; set; }
 
+        [JsonIgnore]
         public int? XpUnlock { get; set; }
 
+        [JsonIgnore]
         public List<string> ItemsRecieved { get; set; }
 
+        [JsonIgnore]
         public List<string> ItemsUnlocked { get; set; }
 
         public override string ClassName

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
 {
@@ -13,12 +14,16 @@ namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
             GameModeRoundTimeLimit = 0;
         }
 
+        [JsonIgnore]
         public string Name { get; set; }
 
+        [JsonIgnore]
         public string GameModeId { get; set; }
 
+        [JsonIgnore]
         public string GameModeSecondaryId { get; set; }
 
+        [JsonIgnore]
         public int? GameModeRoundTimeLimit { get; set; }
 
         public override string ClassName
