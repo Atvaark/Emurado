@@ -6,6 +6,9 @@ namespace HaloOnline.Server.Model.UserStorage
 {
     public class Customization
     {
+        /// <summary>
+        /// Big icon next to the username.
+        /// </summary>
         public string AccountLabel { get; set; }
         
         public AbstractData Serialize()

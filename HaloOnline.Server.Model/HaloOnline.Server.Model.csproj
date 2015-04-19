@@ -107,7 +107,15 @@
     <Compile Include="TitleResource\TitleConfiguration.cs" />
     <Compile Include="TitleResource\TitleInstance.cs" />
     <Compile Include="TitleResource\TitleInstanceConstants.cs" />
+    <Compile Include="TitleResource\TitlePropertLong.cs" />
     <Compile Include="TitleResource\TitleProperty.cs" />
+    <Compile Include="TitleResource\TitlePropertyFloat.cs" />
+    <Compile Include="TitleResource\TitlePropertyFloatList.cs" />
+    <Compile Include="TitleResource\TitlePropertyInteger.cs" />
+    <Compile Include="TitleResource\TitlePropertyIntegerList.cs" />
+    <Compile Include="TitleResource\TitlePropertyObjectList.cs" />
+    <Compile Include="TitleResource\TitlePropertyString.cs" />
+    <Compile Include="TitleResource\TitlePropertyStringList.cs" />
     <Compile Include="TitleResource\TitlePropertyType.cs" />
     <Compile Include="TitleResource\TitleTagsPatchConfiguration.cs" />
     <Compile Include="Unidentified\Unidentified1.cs" />
