@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Web.Http;
 using HaloOnline.Server.Core.Http.Interface.Services;
 using HaloOnline.Server.Core.Http.Model;
 using HaloOnline.Server.Core.Http.Model.TitleResource;
 using HaloOnline.Server.Model.TitleResource;
+using HaloOnline.Server.Model.TitleResource.TitleConfigurations;
 
 namespace HaloOnline.Server.Core.Http.Controllers
 {
@@ -23,402 +26,81 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         CombinationHash = "",
                         Instances = new List<TitleInstance>
                         {
-                            new TitleInstance
+                            new UiDescription("playlist1 uidesc")
                             {
-                              Name  = "playlist1 uidesc",
-                              ClassName = TitleInstanceConstants.UiDescClassName,
-                              Properties = new List<TitleProperty>
-                              {
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.TitleInstanceName,
-                                      Value = "playlist1"
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiNameId,
-                                      Value = "playlist_unknown"
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiDescId,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiDescShortId,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIcon,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIconMed,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIconBig,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiVideo,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescItemQuality,
-                                      Value = ""
-                                  },
-                              }
+                                Name = "playlist1",
+                                NameId = "playlist_unknown"
                             },
-                            new TitleInstance
+                            new UiDescription("helmet_air_assault uidesc")
                             {
-                              Name  = "helmet_air_assault uidesc",
-                              ClassName = TitleInstanceConstants.UiDescClassName,
-                              Properties = new List<TitleProperty>
-                              {
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.TitleInstanceName,
-                                      Value = "helmet_air_assault"
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiNameId,
-                                      Value = "air_assault_name"
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiDescId,
-                                      Value = "air_assault_desc_short"
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiDescShortId,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIcon,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIconMed,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIconBig,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiVideo,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescItemQuality,
-                                      Value = ""
-                                  },
-                              }
+                                Name = "helmet_air_assault",
+                                NameId = "air_assault_name",
+                                DescriptionId = "air_assault_desc",
+                                DescriptionShortId = "air_assault_desc_short"
                             },
-                            new TitleInstance
+                            new UiDescription("slayer uidesc")
                             {
-                              Name  = "slayer uidesc",
-                              ClassName = TitleInstanceConstants.UiDescClassName,
-                              Properties = new List<TitleProperty>
-                              {
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.TitleInstanceName,
-                                      Value = "slayer"
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiNameId,
-                                      Value = "Slayer"
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiDescId,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiDescShortId,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIcon,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIconMed,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIconBig,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiVideo,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescItemQuality,
-                                      Value = ""
-                                  },
-                              }
+                                Name = "slayer",
+                                NameId = "Slayer"
                             },
-                            new TitleInstance
+                            new UiDescription("guardian uidesc")
                             {
-                              Name  = "guardian uidesc",
-                              ClassName = TitleInstanceConstants.UiDescClassName,
-                              Properties = new List<TitleProperty>
-                              {
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.TitleInstanceName,
-                                      Value = "guardian"
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiNameId,
-                                      Value = "Guardian"
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiDescId,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiDescShortId,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIcon,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIconMed,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiIconBig,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescUiVideo,
-                                      Value = ""
-                                  },
-                                  new TitlePropertyString
-                                  {
-                                      Name = TitleInstanceConstants.UiDescItemQuality,
-                                      Value = ""
-                                  },
-                              }
+                                Name = "guardian",
+                                NameId = "Guardian"
                             },
-                            new TitleInstance
+                            new GameMode("slayer mode")
                             {
-                                Name = "slayer mode",
-                                ClassName = TitleInstanceConstants.GameModeClassName,
-                                Properties = new List<TitleProperty>
+                                Name = "slayer",
+                                GameModeId = "slayer",
+                                GameModeSecondaryId = "slayer",
+                                GameModeRoundTimeLimit = 60
+                            },
+                            new MapInfo("guardian map info")
+                            {
+                                Name = "guardian",
+                                MapInfoId = "guardian"
+                            },
+                            new SuitColor("pink primary color")
+                            {
+                                Name = "color_pri_13",
+                                ColorType = SuitColorType.Primary,
+                                Color = Color.DeepPink
+                            },
+                            new MessageOfTheDay("MOTD Saturday")
+                            {
+                                Day = DayOfWeek.Saturday,
+                                MotdUiDescId = "This is the message of the day."
+                            },
+                            // TODO: Fix or remove this, since it has no effects at the moment.
+                            new PlayerLevel("Test player level")
+                            {
+                                Name = "",
+                                LevelIndex = 1,
+                                XpUnlock = 2,
+                                ItemsRecieved =
                                 {
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.TitleInstanceName,
-                                        Value = "slayer"
-                                    },
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.GameModeId,
-                                        Value = "slayer"
-                                    },
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.GameModeSecondaryId,
-                                        Value = "slayer"
-                                    },
-                                    new TitlePropertyInteger
-                                    {
-                                        Name = TitleInstanceConstants.GameModeRoundTimeLimit,
-                                        Value = 60
-                                    },
+                                    
+                                },
+                                ItemsUnlocked =
+                                {
+                                    
                                 }
                             },
-                            new TitleInstance
+                            new Playlist("test playlist")
                             {
-                                Name = "guardian map",
-                                ClassName = TitleInstanceConstants.MapInfoClassName,
-                                Properties = new List<TitleProperty>
+                                Name = "playlist1",
+                                GameModeCollection =
                                 {
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.TitleInstanceName,
-                                        Value = "guardian"
-                                    },
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.MapInfoId,
-                                        Value = "guardian"
-                                    },
-                                }
-                            },
-                            new TitleInstance
-                            {
-                              Name  = "pink color",
-                              ClassName = TitleInstanceConstants.ColorClassName,
-                              Properties = new List<TitleProperty>
-                              {
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.TitleInstanceName,
-                                        Value = "color_pri_13"
-                                    },
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.ColorType,
-                                        Value = TitleInstanceConstants.ColorTypePrimary,
-                                    },
-                                    new TitlePropertyInteger
-                                    {
-                                        Name = TitleInstanceConstants.ColorR,
-                                        Value = 255
-                                    },
-                                    new TitlePropertyInteger
-                                    {
-                                        Name = TitleInstanceConstants.ColorG,
-                                        Value = 20
-                                    },
-                                    new TitlePropertyInteger
-                                    {
-                                        Name = TitleInstanceConstants.ColorB,
-                                        Value = 147
-                                    },
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.ColorUiListId,
-                                        Value = ""
-                                    }
-
-                              }
-                            },
-                            new TitleInstance
-                            {
-                                Name = "MOTD Saturday",
-                                ClassName = TitleInstanceConstants.MotdClassName,
-                                Properties = new List<TitleProperty>
+                                    "slayer"
+                                },
+                                MapCollection =
                                 {
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.TitleInstanceName,
-                                        Value = TitleInstanceConstants.MotdSaturday
-                                    },
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.MotdUiDescId,
-                                        Value = "This is the message of the day."
-                                    }
-                                }
-                            },
-                            new TitleInstance
-                            {
-                                Name = "Test player level", // TODO: Fix or remove this, since it has no effects at the moment.
-                                ClassName = TitleInstanceConstants.PlayerLevelClassName,
-                                Properties = new List<TitleProperty>
-                                {
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.TitleInstanceName,
-                                        Value = ""
-                                    },
-                                    new TitlePropertyInteger
-                                    {
-                                        Name = TitleInstanceConstants.PlayerLevelLevelIndex,
-                                        Value = 1
-                                    },
-                                    new TitlePropertyInteger
-                                    {
-                                        Name = TitleInstanceConstants.PlayerLevelXpUnlock,
-                                        Value = 2
-                                    },
-                                    new TitlePropertyStringList()
-                                    {
-                                        Name = TitleInstanceConstants.PlayerLevelItemsRecieved,
-                                        Value = new List<string>()
-                                    },
-                                    new TitlePropertyStringList
-                                    {
-                                        Name = TitleInstanceConstants.PlayerLevelItemsUnlocked,
-                                        Value = new List<string>()
-                                    },
-                                }
-                            },
-                            new TitleInstance()
-                            {
-                              Name  = "playlist",
-                              ClassName = TitleInstanceConstants.PlaylistClassName,
-                              Properties = new List<TitleProperty>
-                              {
-                                    new TitlePropertyString
-                                    {
-                                        Name = TitleInstanceConstants.TitleInstanceName,
-                                        Value = "playlist1"
-                                    },
-                                    new TitlePropertyStringList
-                                    {
-                                        Name = TitleInstanceConstants.PlaylistGameModeCollection,
-                                        Value = new List<string>
-                                        {
-                                            "slayer"
-                                        }
-                                    },
-                                    new TitlePropertyStringList()
-                                    {
-                                        Name = TitleInstanceConstants.PlaylistMapCollection,
-                                        Value = new List<string>
-                                        {
-                                            "guardian"
-                                        }
-                                    },
-                                    new TitlePropertyInteger
-                                    {
-                                        Name = TitleInstanceConstants.PlaylistMinPlayers,
-                                        Value = 1
-                                    },
-                                    new TitlePropertyInteger
-                                    {
-                                        Name = TitleInstanceConstants.PlaylistMaxPlayers,
-                                        Value = 2
-                                    },
-                                    new TitlePropertyInteger
-                                    {
-                                        Name = TitleInstanceConstants.PlaylistMaxParty,
-                                        Value = 2
-                                    },
-                                    new TitlePropertyInteger
-                                    {
-                                        Name = TitleInstanceConstants.PlaylistIsTeamPlaylist,
-                                        Value = 0
-                                    }
-                              }
+                                    "guardian"
+                                },
+                                MinPlayers = 1,
+                                MaxPlayers = 8,
+                                MaxParty = 2,
+                                IsTeamPlaylist = false
                             }
                         }
                     }

@@ -45,6 +45,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -105,8 +106,17 @@
     <Compile Include="SessionControl\SessionChain.cs" />
     <Compile Include="TitleResource\Tag.cs" />
     <Compile Include="TitleResource\TitleConfiguration.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\GameMode.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\MapInfo.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\MessageOfTheDay.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\PlayerLevel.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\Playlist.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\SuitColor.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\SuitColorType.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\UiDescription.cs" />
     <Compile Include="TitleResource\TitleInstance.cs" />
     <Compile Include="TitleResource\TitleInstanceConstants.cs" />
+    <Compile Include="TitleResource\TitleInstanceImpl.cs" />
     <Compile Include="TitleResource\TitlePropertLong.cs" />
     <Compile Include="TitleResource\TitleProperty.cs" />
     <Compile Include="TitleResource\TitlePropertyFloat.cs" />

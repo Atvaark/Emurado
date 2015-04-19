@@ -3,24 +3,27 @@ using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.TitleResource
 {
-    public class TitleInstance
+    public abstract class TitleInstance
     {
-        public TitleInstance()
+        private readonly string _instanceName;
+
+        public TitleInstance(string instanceName)
         {
+            _instanceName = instanceName;
             Parents = new List<string>();
-            Properties = new List<TitleProperty>();
         }
 
+        // TODO: Check if InstanceName and the Name property are always the same
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string InstanceName { get { return _instanceName; } }
 
         [JsonProperty("className")]
-        public string ClassName { get; set; }
+        public abstract string ClassName { get; }
 
         [JsonProperty("parents")]
         public List<string> Parents { get; set; }
 
         [JsonProperty("props")]
-        public List<TitleProperty> Properties { get; set; }
+        public abstract List<TitleProperty> Properties { get; }
     }
 }
