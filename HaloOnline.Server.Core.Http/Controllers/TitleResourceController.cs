@@ -29,7 +29,17 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             new UiDescription("playlist1 uidesc")
                             {
                                 Name = "playlist1",
-                                NameId = "playlist_unknown"
+                                NameId = "playlist_1"
+                            },
+                            new UiDescription("playlist2 uidesc")
+                            {
+                                Name = "playlist2",
+                                NameId = "playlist_2"
+                            },
+                            new UiDescription("playlist3 uidesc")
+                            {
+                                Name = "playlist3",
+                                NameId = "playlist_3"
                             },
                             new UiDescription("helmet_air_assault uidesc")
                             {
@@ -41,24 +51,70 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             new UiDescription("slayer uidesc")
                             {
                                 Name = "slayer",
-                                NameId = "Slayer"
+                                NameId = "slayer"
+                            },
+                            new UiDescription("team_slayer uidesc")
+                            {
+                                Name = "team_slayer",
+                                NameId = "team_slayer"
+                            },
+                            new UiDescription("ctf uidesc")
+                            {
+                                Name = "ctf",
+                                NameId = "ctf"
                             },
                             new UiDescription("guardian uidesc")
                             {
                                 Name = "guardian",
-                                NameId = "Guardian"
+                                NameId = "guardian"
+                            },
+                            new UiDescription("s3d_turf uidesc")
+                            {
+                                Name = "s3d_turf",
+                                NameId = "s3d_turf"
+                            },
+                            new UiDescription("s3d_avalanche uidesc")
+                            {
+                                Name = "s3d_avalanche",
+                                NameId = "s3d_avalanche"
+                            },
+                            new UiDescription("advertisement1 uidesc")
+                            {
+                                Name = "advertisement1", // TODO: Fix icon displaying
+                                NameId = ""
                             },
                             new GameMode("slayer mode")
                             {
                                 Name = "slayer",
                                 GameModeId = "slayer",
-                                GameModeSecondaryId = "slayer",
-                                GameModeRoundTimeLimit = 60
+                                GameModeRoundTimeLimit = 7
+                            },
+                            new GameMode("team_slayer mode") // TODO: Does this really exist?
+                            {
+                                Name = "team_slayer",
+                                GameModeId = "team_slayer",
+                                GameModeRoundTimeLimit = 7
+                            },
+                            new GameMode("ctf mode")
+                            {
+                                Name = "ctf",
+                                GameModeId = "ctf",
+                                GameModeRoundTimeLimit = 7
                             },
                             new MapInfo("guardian map info")
                             {
                                 Name = "guardian",
                                 MapInfoId = "guardian"
+                            },
+                            new MapInfo("s3d_turf map info")
+                            {
+                                Name = "s3d_turf",
+                                MapInfoId = "s3d_turf"
+                            },
+                            new MapInfo("s3d_avalanche map info")
+                            {
+                                Name = "s3d_avalanche",
+                                MapInfoId = "s3d_avalanche"
                             },
                             new SuitColor("pink primary color")
                             {
@@ -71,22 +127,31 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 Day = DayOfWeek.Saturday,
                                 MotdUiDescId = "This is the message of the day."
                             },
-                            // TODO: Fix or remove this, since it has no effects at the moment.
-                            new PlayerLevel("Test player level")
+                            new PlayerLevel("player level 0")
                             {
-                                Name = "",
-                                LevelIndex = 1,
-                                XpUnlock = 2,
-                                ItemsRecieved =
-                                {
-                                    
-                                },
-                                ItemsUnlocked =
-                                {
-                                    
-                                }
+                                Name = "rank_0",
+                                LevelIndex = 0,
+                                XpUnlock = 100,
                             },
-                            new Playlist("test playlist")
+                            new PlayerLevel("player level 1")
+                            {
+                                Name = "rank_1",
+                                LevelIndex = 1,
+                                XpUnlock = 200,
+                            },
+                            new PlayerLevel("player level 2")
+                            {
+                                Name = "rank_2",
+                                LevelIndex = 2,
+                                XpUnlock = 400,
+                            },
+                            new PlayerLevel("player level 3")
+                            {
+                                Name = "rank_3",
+                                LevelIndex = 3,
+                                XpUnlock = 800,
+                            },
+                            new Playlist("test playlist1")
                             {
                                 Name = "playlist1",
                                 GameModeCollection =
@@ -102,6 +167,38 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 MaxParty = 2,
                                 IsTeamPlaylist = false
                             },
+                            new Playlist("test playlist2")
+                            {
+                                Name = "playlist2",
+                                GameModeCollection =
+                                {
+                                    "team_slayer"
+                                },
+                                MapCollection =
+                                {
+                                    "s3d_turf"
+                                },
+                                MinPlayers = 1,
+                                MaxPlayers = 8,
+                                MaxParty = 4,
+                                IsTeamPlaylist = true
+                            },
+                            new Playlist("test playlist3")
+                            {
+                                Name = "playlist3",
+                                GameModeCollection =
+                                {
+                                    "ctf"
+                                },
+                                MapCollection =
+                                {
+                                    "s3d_avalanche"
+                                },
+                                MinPlayers = 1,
+                                MaxPlayers = 8,
+                                MaxParty = 4,
+                                IsTeamPlaylist = true
+                            },
                             //// Disabled because it's an annoying popup after logging in
                             //new News("test news")
                             //{
@@ -111,7 +208,13 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             //    TimeStamp = DateTime.Now,
                             //    Text = "text1"
                             //},
-
+                            new Advertisement("test advertisement")
+                            {
+                                Name = "advertisement1",
+                                SortIndex = 0,
+                                Url = "http://www.google.com/",
+                                Timer = 20
+                            }
                         }
                     }
                 }

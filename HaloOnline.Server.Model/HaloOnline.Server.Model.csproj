@@ -106,6 +106,7 @@
     <Compile Include="SessionControl\SessionChain.cs" />
     <Compile Include="TitleResource\Tag.cs" />
     <Compile Include="TitleResource\TitleConfiguration.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\Advertisement.cs" />
     <Compile Include="TitleResource\TitleConfigurations\GameMode.cs" />
     <Compile Include="TitleResource\TitleConfigurations\MapInfo.cs" />
     <Compile Include="TitleResource\TitleConfigurations\MessageOfTheDay.cs" />

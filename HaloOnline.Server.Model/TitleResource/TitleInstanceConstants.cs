@@ -181,9 +181,9 @@
         public const string MotdSaturday = "motd_saturday";
 
         // ADVERTISMENT
-        public const string AdvertismentSortIndex = "SORT_INDEX";
-        public const string AdvertismentUrl = "ADVERTISMENT_URL";
-        public const string AdvertismentTimer = "ADVERTISMENT_TIMER";
+        public const string AdvertisementSortIndex = "SORT_INDEX";
+        public const string AdvertisementUrl = "ADVERTISMENT_URL";
+        public const string AdvertisementTimer = "ADVERTISMENT_TIMER";
 
         // NEWS
         public const string NewsSortIndex = "SORT_INDEX";

@@ -35,36 +35,25 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public GetPrivateDataResult GetPrivateData(GetPrivateDataRequest request)
         {
-            if (request.ContainerName == DataContainerTypes.ArmorLoadouts)
+            AbstractData data;
+            switch (request.ContainerName)
             {
-                return new GetPrivateDataResult
-                {
-                    Result = new ServiceResult<AbstractData>
+                case  DataContainerTypes.Preferences:
+                    var preference = new Preferences
                     {
-                        // TODO: Create a preference class
-                        Data = new AbstractData
-                        {
-                            Version = 0,
-                            Layout = 1,
-                            Data = new byte[33292]
-                        }
-                    }
-                };
+                        LastReadNewsUnknownValue = 1,
+                        LastReadNewsName = "news1"
+                    };
+                    data = preference.Serialize();
+                    break;
+                default:
+                    throw new ArgumentException("ContainerName");
             }
-
-
             return new GetPrivateDataResult
             {
                 Result = new ServiceResult<AbstractData>
                 {
-                    Data = new AbstractData
-                    {
-                        Version = 0,
-                        Layout = 0,
-                        Data = new byte[]
-                        {
-                        }
-                    }
+                    Data = data
                 }
             };
         }

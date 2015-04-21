@@ -118,21 +118,21 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             new UserState // Level progress
                             {
                                 OwnType = 0,
-                                Value = 2,
+                                Value = 20, // TODO: Increasing this will make a broken research panel pop up.
                                 StateName = "",
                                 StateType = 1
                             },
                             new UserState // Credits
                             {
                                 OwnType = 0,
-                                Value = 123,
+                                Value = 9999,
                                 StateName = "",
                                 StateType = 2
                             },
                             new UserState // Gold
                             {
                                 OwnType = 0,
-                                Value = 321,
+                                Value = 9999,
                                 StateName = "",
                                 StateType = 3
                             },
@@ -290,6 +290,15 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public ApplyExternalOfferResult ApplyExternalOffer(ApplyExternalOfferRequest request)
         {
+            switch (request.ExternalOfferId)
+            {
+                case "Gold100":
+                    break;
+                default:
+                    break;
+            }
+            // TODO: Analyze what the return message should contain.
+
             return new ApplyExternalOfferResult
             {
                 Result = new ServiceResult<string>

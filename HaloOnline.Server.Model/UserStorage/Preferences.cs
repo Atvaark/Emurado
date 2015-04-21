@@ -7,11 +7,16 @@ namespace HaloOnline.Server.Model.UserStorage
     {
         public int LastReadNewsUnknownValue { get; set; }
         public string LastReadNewsName { get; set; }
-
-
+        
         public AbstractData Serialize()
         {
-            return new AbstractData();
+            // TODO: Serialize Preference
+            return new AbstractData
+            {
+                Version = 0,
+                Layout = 1,
+                Data = new byte[33292]
+            };
         }
 
         public static Preferences Deserialize(AbstractData abstractData)
@@ -29,9 +34,7 @@ namespace HaloOnline.Server.Model.UserStorage
             LastReadNewsUnknownValue = reader.ReadInt32();
             LastReadNewsName = ParseString(reader);
         }
-
-
-
+        
         private string ParseString(BinaryReader reader)
         {
             byte[] stringBuffer = reader.ReadBytes(32);
