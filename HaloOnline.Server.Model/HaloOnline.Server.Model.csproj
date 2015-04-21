@@ -116,6 +116,7 @@
     <Compile Include="TitleResource\TitleConfigurations\SuitColor.cs" />
     <Compile Include="TitleResource\TitleConfigurations\SuitColorType.cs" />
     <Compile Include="TitleResource\TitleConfigurations\UiDescription.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\Weapon.cs" />
     <Compile Include="TitleResource\TitleInstance.cs" />
     <Compile Include="TitleResource\TitleInstanceConstants.cs" />
     <Compile Include="TitleResource\TitleInstanceImpl.cs" />

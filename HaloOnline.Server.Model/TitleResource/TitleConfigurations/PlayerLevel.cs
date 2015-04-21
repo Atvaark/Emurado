@@ -19,7 +19,7 @@ namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
         public string Name { get; set; }
 
         [JsonIgnore]
-        public int? LevelIndex { get; set; }
+        public int LevelIndex { get; set; }
 
         [JsonIgnore]
         public int? XpUnlock { get; set; }

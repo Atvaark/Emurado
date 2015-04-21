@@ -29,7 +29,8 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             new UiDescription("playlist1 uidesc")
                             {
                                 Name = "playlist1",
-                                NameId = "playlist_1"
+                                NameId = "playlist_1",
+                                Icon = "Guardian_300x200"
                             },
                             new UiDescription("playlist2 uidesc")
                             {
@@ -51,37 +52,108 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             new UiDescription("slayer uidesc")
                             {
                                 Name = "slayer",
-                                NameId = "slayer"
+                                NameId = "slayer",
+                                Icon = "slayerMode"
                             },
                             new UiDescription("team_slayer uidesc")
                             {
                                 Name = "team_slayer",
-                                NameId = "team_slayer"
+                                NameId = "team_slayer",
+                                Icon = "slayerMode"
                             },
                             new UiDescription("ctf uidesc")
                             {
                                 Name = "ctf",
-                                NameId = "ctf"
+                                NameId = "ctf",
+                                Icon = "dominionMode"
                             },
                             new UiDescription("guardian uidesc")
                             {
                                 Name = "guardian",
-                                NameId = "guardian"
+                                NameId = "guardian",
+                                Icon = "Guardian_300x200"
                             },
                             new UiDescription("s3d_turf uidesc")
                             {
                                 Name = "s3d_turf",
-                                NameId = "s3d_turf"
+                                NameId = "s3d_turf",
+                                Icon = "turf_300x200"
                             },
                             new UiDescription("s3d_avalanche uidesc")
                             {
                                 Name = "s3d_avalanche",
-                                NameId = "s3d_avalanche"
+                                NameId = "s3d_avalanche",
+                                Icon = "Avalanche_300x200"
                             },
-                            new UiDescription("advertisement1 uidesc")
+                            new UiDescription("ad1 uidesc")
                             {
-                                Name = "advertisement1", // TODO: Fix icon displaying
-                                NameId = ""
+                                Name = "ad1",
+                                NameId = "ad1",
+                                Icon = "ad1",
+                                IconMedium = "ad1",
+                                IconBig = "ad1"
+                            },
+                            new UiDescription("ad2 uidesc")
+                            {
+                                Name = "ad2",
+                                NameId = "ad2",
+                                Icon = "ad2",
+                                IconMedium = "ad2",
+                                IconBig = "ad2"
+                            },
+                            new UiDescription("ad3 uidesc")
+                            {
+                                Name = "ad3",
+                                NameId = "ad3",
+                                Icon = "ad3",
+                                IconMedium = "ad3",
+                                IconBig = "ad3"
+                            },
+                            new UiDescription("ad4 uidesc")
+                            {
+                                Name = "ad4",
+                                NameId = "ad4",
+                                Icon = "ad4",
+                                IconMedium = "ad4",
+                                IconBig = "ad4"
+                            },
+                            new UiDescription("ad5 uidesc")
+                            {
+                                Name = "ad5",
+                                NameId = "ad5",
+                                Icon = "ad5",
+                                IconMedium = "ad5",
+                                IconBig = "ad5"
+                            },
+                            new UiDescription("assault_rifle uidesc")
+                            {
+                                Name = "assault_rifle",
+                                NameId = "assault_rifle",
+                                Icon = "weapon_primary_assault_rifle"
+                            },
+                            new UiDescription("weapon_secondary_magnum uidesc")
+                            {
+                                Name = "magnum",
+                                NameId = "magnum",
+                                Icon = "weapon_secondary_magnum"
+                            },
+                            new UiDescription("rank_0 uidesc")
+                            {
+                                Name = "rank_0",
+                                NameId = "rank_0",
+                                Icon = "rank001_private_4"
+                            },
+                            new UiDescription("rank_1 uidesc")
+                            {
+                                Name = "rank_1",
+                                NameId = "rank_1",
+                                Icon = "rank002_private_3"
+                            },
+                            new UiDescription("rank_2 uidesc")
+                            {
+                                Name = "rank_2",
+                                NameId = "rank_2",
+                                Icon = "rank003_private_2"
                             },
                             new GameMode("slayer mode")
                             {
@@ -115,6 +187,18 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             {
                                 Name = "s3d_avalanche",
                                 MapInfoId = "s3d_avalanche"
+                            },
+                            new Weapon("assault_rifle weapon")
+                            {
+                                Name  = "assault_rifle",
+                                SecondaryId = "",
+                                Type = "weapon_primary"
+                            },
+                            new Weapon("magnum weapon")
+                            {
+                                Name  = "magnum",
+                                SecondaryId = "",
+                                Type = "weapon_secondary"
                             },
                             new SuitColor("pink primary color")
                             {
@@ -208,13 +292,41 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             //    TimeStamp = DateTime.Now,
                             //    Text = "text1"
                             //},
-                            new Advertisement("test advertisement")
+                            new Advertisement("ad1")
                             {
-                                Name = "advertisement1",
+                                Name = "ad1",
                                 SortIndex = 0,
-                                Url = "http://www.google.com/",
-                                Timer = 20
-                            }
+                                Url = "http://www.google.com/?q=ad1",
+                                Timer = 2.0f
+                            },
+                            new Advertisement("ad2")
+                            {
+                                Name = "ad2",
+                                SortIndex = 1,
+                                Url = "http://www.google.com/?q=ad2",
+                                Timer = 2.0f
+                            },
+                            new Advertisement("ad3")
+                            {
+                                Name = "ad3",
+                                SortIndex = 2,
+                                Url = "http://www.google.com/?q=ad3",
+                                Timer = 2.0f
+                            },
+                            new Advertisement("ad4")
+                            {
+                                Name = "ad4",
+                                SortIndex = 3,
+                                Url = "http://www.google.com/?q=ad4",
+                                Timer = 2.0f
+                            },
+                            new Advertisement("ad5")
+                            {
+                                Name = "ad5",
+                                SortIndex = 4,
+                                Url = "http://www.google.com/?q=ad5",
+                                Timer = 2.0f
+                            },
                         }
                     }
                 }

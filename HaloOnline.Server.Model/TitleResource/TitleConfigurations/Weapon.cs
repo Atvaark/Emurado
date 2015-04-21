@@ -4,33 +4,29 @@ using Newtonsoft.Json;
 
 namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
 {
-    public class Advertisement : TitleInstance
+    public class Weapon : TitleInstance
     {
-        public Advertisement(string instanceName) : base(instanceName)
+        public Weapon(string instanceName) : base(instanceName)
         {
             Name = "";
-            SortIndex = 0;
-            Url = "";
-            Timer = 0;
+            SecondaryId = "";
+            Type = "";
         }
 
         [JsonIgnore]
         public string Name { get; set; }
 
         [JsonIgnore]
-        public int SortIndex { get; set; }
+        public string SecondaryId { get; set; }
 
         [JsonIgnore]
-        public string Url { get; set; }
-
-        [JsonIgnore]
-        public float Timer { get; set; }
+        public string Type { get; set; }
 
         public override string ClassName
         {
-            get { return TitleInstanceConstants.AdvertismentClassName; }
+            get { return TitleInstanceConstants.WeaponClassName; }
         }
-        
+
         public override List<TitleProperty> Properties
         {
             get { return GetProperties().ToList(); }
@@ -43,20 +39,15 @@ namespace HaloOnline.Server.Model.TitleResource.TitleConfigurations
                 Name = TitleInstanceConstants.TitleInstanceName,
                 Value = Name
             };
-            yield return new TitlePropertyInteger
+            yield return new TitlePropertyString
             {
-                Name = TitleInstanceConstants.AdvertisementSortIndex,
-                Value = SortIndex
+                Name = TitleInstanceConstants.WeaponId,
+                Value = SecondaryId
             };
             yield return new TitlePropertyString
             {
-                Name = TitleInstanceConstants.AdvertisementUrl,
-                Value = Url
-            };
-            yield return new TitlePropertyFloat
-            {
-                Name = TitleInstanceConstants.AdvertisementTimer,
-                Value = Timer
+                Name = TitleInstanceConstants.WeaponType,
+                Value = Type
             };
         }
 
