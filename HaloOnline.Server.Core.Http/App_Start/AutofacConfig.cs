@@ -40,7 +40,7 @@ namespace HaloOnline.Server.Core.Http
 
         private static void ConfigureRepositories(ContainerBuilder builder)
         {
-            builder.RegisterModule(new RepositoryModule());
+            builder.RegisterModule<RepositoryPerRequestModule>();
             builder.Register(c => new HaloUserStore(c.Resolve<IUserRepository>()))
                 .InstancePerRequest()
                 .As<IHaloUserStore>();

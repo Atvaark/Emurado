@@ -6,6 +6,7 @@ using HaloOnline.Server.App;
 using HaloOnline.Server.Common;
 using HaloOnline.Server.Core.Http;
 using HaloOnline.Server.Core.Log;
+using HaloOnline.Server.Core.Scheduler;
 using HaloOnline.Server.Properties;
 
 namespace HaloOnline.Server
@@ -23,12 +24,14 @@ namespace HaloOnline.Server
                 AppPort = Settings.Default.AppPort,
                 ClientPort = Settings.Default.ClientPort
             };
-            LogListener logListener = new LogListener(options.LogPort, options.ClientPort);
+            LogListener logHost = new LogListener(options.LogPort, options.ClientPort);
             ApiSelfHost apiHost = new ApiSelfHost(options);
             AppSelfHost appHost = new AppSelfHost(options);
+            JobScheduler jobScheduler = new JobScheduler();
             apiHost.Start();
             appHost.Start();
-            logListener.BeginListen();
+            logHost.Start();
+            jobScheduler.Start();
             FixDebugListeners();
             string infoText = GetInfoText(options);
             bool listen = true;
@@ -36,7 +39,7 @@ namespace HaloOnline.Server
             {
                 Console.Clear();
                 Console.Write(infoText);
-                foreach (var connection in logListener.GetConnectionList())
+                foreach (var connection in logHost.GetConnectionList())
                 {
                     string connectionState = connection.Connected ? "connected" : "disconnected";
                     Console.WriteLine("#{0} {1} {2} {3} {4}",
@@ -50,9 +53,10 @@ namespace HaloOnline.Server
                     listen = false;
                 Thread.Sleep(100);
             }
-            appHost.End();
-            apiHost.End();
-            logListener.EndListen();
+            jobScheduler.Stop();
+            logHost.Stop();
+            appHost.Stop();
+            apiHost.Stop();
         }
 
         [Conditional("DEBUG")]

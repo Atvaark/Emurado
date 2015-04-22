@@ -48,7 +48,6 @@ namespace HaloOnline.Server.Core.Http.Controllers
                 return BadRequest(string.Join(", ", creationResult.Errors));
             }
             
-
             var userBaseData = new UserBaseData
             {
                 User = new UserId

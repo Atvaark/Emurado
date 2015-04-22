@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Model.Presence;
@@ -63,6 +64,19 @@ namespace HaloOnline.Server.Core.Repository.Repositories
                 });
             }
             return Task.FromResult<Party>(null);
+        }
+
+        public Task<IEnumerable<Party>> FindByMatchmakeStateAsync(int matchmakeState)
+        {
+            var foundParties = _context.Parties.Where(p => p.MatchmakeState == matchmakeState)
+                .Select(p => new Party
+                {
+                    Id = p.Id,
+                    MatchmakeState = p.MatchmakeState,
+                    GameData = p.GameData
+                })
+                .AsEnumerable();
+            return Task.FromResult(foundParties);
         }
     }
 }

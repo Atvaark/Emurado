@@ -117,7 +117,8 @@
     <Compile Include="Repositories\UserPresenceRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Repositories\UserSubscriptionRepository.cs" />
-    <Compile Include="RepositoryModule.cs" />
+    <Compile Include="RepositoryPerLifetimeScopeModule.cs" />
+    <Compile Include="RepositoryPerRequestModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="halodb.sqlite">

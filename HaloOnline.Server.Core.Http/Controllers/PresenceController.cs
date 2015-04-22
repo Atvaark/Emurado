@@ -285,6 +285,8 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public MatchmakeStartResult MatchmakeStart(MatchmakeStartRequest request)
         {
+            // TODO: Set requested playlist for party and change the state to InQueue
+
             return new MatchmakeStartResult
             {
                 Result = new ServiceResult<bool>
@@ -297,6 +299,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
         [HttpPost]
         public MatchmakeStopResult MatchmakeStop(MatchmakeStopRequest request)
         {
+            // TODO: Reset state to none or forming
             return new MatchmakeStopResult
             {
                 Result = new ServiceResult<bool>
@@ -354,8 +357,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
         public ReportOnlineStatsResult ReportOnlineStats(ReportOnlineStatsRequest request)
         {
             var userPresenceStats = _userPresenceRepository.GetUserPresenceStats().Result;
-
-
+            
             return new ReportOnlineStatsResult
             {
                 Result = new ServiceResult<OnlineStats>
@@ -385,7 +387,17 @@ namespace HaloOnline.Server.Core.Http.Controllers
                         {
                             Playlist = "playlist1",
                             PlayersNumber = 1
-                        }
+                        },
+                        new PlaylistStat
+                        {
+                            Playlist = "playlist2",
+                            PlayersNumber = 2
+                        },
+                        new PlaylistStat
+                        {
+                            Playlist = "playlist3",
+                            PlayersNumber = 3
+                        },
                     }
                 }
             };

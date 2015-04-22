@@ -40,7 +40,7 @@ namespace HaloOnline.Server.Core.Http
             }
         }
 
-        public void End()
+        public void Stop()
         {
             if (_app != null)
             {

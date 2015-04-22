@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaloOnline.Server.Common", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaloOnline.Server.Core.Repository", "HaloOnline.Server.Core.Repository\HaloOnline.Server.Core.Repository.csproj", "{113F3ED0-3884-41B7-8F64-2B566085C6E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaloOnline.Server.Core.Scheduler", "HaloOnline.Server.Core.Scheduler\HaloOnline.Server.Core.Scheduler.csproj", "{89AB9D85-2A7E-440D-A1B6-73F44F59819C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{113F3ED0-3884-41B7-8F64-2B566085C6E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{113F3ED0-3884-41B7-8F64-2B566085C6E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{113F3ED0-3884-41B7-8F64-2B566085C6E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89AB9D85-2A7E-440D-A1B6-73F44F59819C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89AB9D85-2A7E-440D-A1B6-73F44F59819C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89AB9D85-2A7E-440D-A1B6-73F44F59819C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89AB9D85-2A7E-440D-A1B6-73F44F59819C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

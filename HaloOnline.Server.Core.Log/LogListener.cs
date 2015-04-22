@@ -24,7 +24,7 @@ namespace HaloOnline.Server.Core.Log
             _connections = new Dictionary<int, IConnection>();
         }
 
-        public void BeginListen()
+        public void Start()
         {
             _tcpListener.Start();
             BeginAccept();
@@ -71,7 +71,7 @@ namespace HaloOnline.Server.Core.Log
             }
         }
 
-        public void EndListen()
+        public void Stop()
         {
             _tcpListener.Stop();
         }

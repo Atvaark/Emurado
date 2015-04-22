@@ -39,7 +39,7 @@ namespace HaloOnline.Server.App
             }
         }
 
-        public void End()
+        public void Stop()
         {
             if (_app != null)
             {
