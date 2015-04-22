@@ -106,10 +106,14 @@
     <Compile Include="SessionControl\SessionChain.cs" />
     <Compile Include="TitleResource\Tag.cs" />
     <Compile Include="TitleResource\TitleConfiguration.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\AccountLabel.cs" />
     <Compile Include="TitleResource\TitleConfigurations\Advertisement.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\Challenge.cs" />
     <Compile Include="TitleResource\TitleConfigurations\GameMode.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\Grenade.cs" />
     <Compile Include="TitleResource\TitleConfigurations\MapInfo.cs" />
     <Compile Include="TitleResource\TitleConfigurations\MessageOfTheDay.cs" />
+    <Compile Include="TitleResource\TitleConfigurations\MultiplayerDefaults.cs" />
     <Compile Include="TitleResource\TitleConfigurations\News.cs" />
     <Compile Include="TitleResource\TitleConfigurations\PlayerLevel.cs" />
     <Compile Include="TitleResource\TitleConfigurations\Playlist.cs" />

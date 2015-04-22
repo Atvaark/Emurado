@@ -137,6 +137,18 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 NameId = "magnum",
                                 Icon = "weapon_secondary_magnum"
                             },
+                            new UiDescription("frag_grenade uidesc")
+                            {
+                                Name = "frag_grenade",
+                                NameId = "frag_grenade",
+                                Icon = "grenade_frag_grenade"
+                            },
+                            new UiDescription("plasma_grenade uidesc")
+                            {
+                                Name = "plasma_grenade",
+                                NameId = "plasma_grenade",
+                                Icon = "grenade_plasma_grenade"
+                            },
                             new UiDescription("rank_0 uidesc")
                             {
                                 Name = "rank_0",
@@ -200,6 +212,16 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 SecondaryId = "",
                                 Type = "weapon_secondary"
                             },
+                            new Grenade("frag_grenade grenade")
+                            {
+                                Name = "frag_grenade",
+                                Id = ""
+                            },
+                            new Grenade("plasma_grenade grenade")
+                            {
+                                Name = "plasma_grenade",
+                                Id = ""
+                            },
                             new SuitColor("pink primary color")
                             {
                                 Name = "color_pri_13",
@@ -234,6 +256,14 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 Name = "rank_3",
                                 LevelIndex = 3,
                                 XpUnlock = 800,
+                            },
+                            new Challenge("challenge1")
+                            {
+                                Name = "challenge1"
+                            },
+                            new AccountLabel("accountLabel1")
+                            {
+                                Name = "accountLabel1"
                             },
                             new Playlist("test playlist1")
                             {
@@ -327,6 +357,13 @@ namespace HaloOnline.Server.Core.Http.Controllers
                                 Url = "http://www.google.com/?q=ad5",
                                 Timer = 2.0f
                             },
+                            new MultiplayerDefaults("mpdefaults")
+                            {
+                                Name = "mpdefaults",
+                                DefaultPlaylist = "playlist1",
+                                DefaultMap = "guardian",
+                                DefaultGameMode = "slayer"
+                            }
                         }
                     }
                 }

@@ -1,5 +1,4 @@
 ﻿using HaloOnline.Server.Core.Http.Model.EndpointDispatcher;
-using HaloOnline.Server.Model.EndpointDispatcher;
 
 namespace HaloOnline.Server.Core.Http.Interface.Services
 {

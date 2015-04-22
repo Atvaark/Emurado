@@ -122,7 +122,7 @@
         // ARMOR_ITEM
         public const string ArmorItemRaceId = "RACE_ID";
         public const string ArmorItemType = "TYPE";
-        public const string ArmorItemAromrObjRegion = "OBJ_REGION";
+        public const string ArmorItemObjRegion = "OBJ_REGION";
         public const string ArmorItemObjPermutation = "OBJ_PERMUTATION";
         public const string ArmorItemArmorBodyRegion = "ARMOR_BODY_REGION";
         public const string ArmorItemArmorBodyId = "ARMOR_BODY_ID";

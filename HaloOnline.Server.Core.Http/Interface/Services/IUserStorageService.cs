@@ -1,5 +1,4 @@
 ﻿using HaloOnline.Server.Core.Http.Model.UserStorage;
-using HaloOnline.Server.Model.UserStorage;
 
 namespace HaloOnline.Server.Core.Http.Interface.Services
 {

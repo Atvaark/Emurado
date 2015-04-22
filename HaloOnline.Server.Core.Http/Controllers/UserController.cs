@@ -125,14 +125,14 @@ namespace HaloOnline.Server.Core.Http.Controllers
                             new UserState // Credits
                             {
                                 OwnType = 0,
-                                Value = 9999,
+                                Value = 999999,
                                 StateName = "",
                                 StateType = 2
                             },
                             new UserState // Gold
                             {
                                 OwnType = 0,
-                                Value = 9999,
+                                Value = 999999,
                                 StateName = "",
                                 StateType = 3
                             },

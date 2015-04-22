@@ -1,5 +1,4 @@
 ﻿using HaloOnline.Server.Core.Http.Model.Friends;
-using HaloOnline.Server.Model.Friends;
 
 namespace HaloOnline.Server.Core.Http.Interface.Services
 {

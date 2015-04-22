@@ -1,5 +1,4 @@
 ﻿using HaloOnline.Server.Core.Http.Model.Presence;
-using HaloOnline.Server.Model.Presence;
 
 namespace HaloOnline.Server.Core.Http.Interface.Services
 {

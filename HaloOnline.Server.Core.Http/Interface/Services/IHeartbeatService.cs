@@ -1,5 +1,4 @@
 ﻿using HaloOnline.Server.Core.Http.Model.Heartbeat;
-using HaloOnline.Server.Model.Heartbeat;
 
 namespace HaloOnline.Server.Core.Http.Interface.Services
 {

@@ -1,5 +1,4 @@
 ﻿using HaloOnline.Server.Core.Http.Model.Messaging;
-using HaloOnline.Server.Model.Messaging;
 
 namespace HaloOnline.Server.Core.Http.Interface.Services
 {

@@ -1,5 +1,4 @@
 using HaloOnline.Server.Core.Http.Model.User;
-using HaloOnline.Server.Model.User;
 
 namespace HaloOnline.Server.Core.Http.Interface.Services
 {

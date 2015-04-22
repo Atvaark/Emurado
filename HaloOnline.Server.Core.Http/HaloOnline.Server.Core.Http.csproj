@@ -341,9 +341,7 @@
     <Compile Include="Auth\HaloUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\HaloOnline.Server.Common\HaloOnline.Server.Common.csproj">
       <Project>{FAEB96CC-1BB2-4B49-B04B-32C6DED17A2C}</Project>

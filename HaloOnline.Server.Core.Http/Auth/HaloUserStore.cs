@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using HaloOnline.Server.Common.Repositories;
 
 namespace HaloOnline.Server.Core.Http.Auth
@@ -14,6 +15,16 @@ namespace HaloOnline.Server.Core.Http.Auth
 
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+
+            }
         }
 
         public Task CreateAsync(HaloUser user)

@@ -1,5 +1,4 @@
 ﻿using HaloOnline.Server.Core.Http.Model.SessionControl;
-using HaloOnline.Server.Model.SessionControl;
 
 namespace HaloOnline.Server.Core.Http.Interface.Services
 {
