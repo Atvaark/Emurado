@@ -8,6 +8,7 @@ namespace HaloOnline.Server.Model.Messaging
     public class ChannelMessage
     {
         public UserId From { get; set; }
+
         public string Text { get; set; }
 
         [JsonConverter(typeof (UnixEpochMillisecondsJsonConverter))]

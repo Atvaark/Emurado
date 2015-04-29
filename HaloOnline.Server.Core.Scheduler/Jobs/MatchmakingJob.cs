@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Model.Presence;
@@ -26,37 +27,45 @@ namespace HaloOnline.Server.Core.Scheduler.Jobs
         
         public void Execute(IJobExecutionContext context)
         {
-            // TOOD: Replace with an enum
-            const int inQueue = 2;
-            var parties = _partyRepository.FindByMatchmakeStateAsync(inQueue).Result;
-            List<PartyMember> partyMembers = new List<PartyMember>();
-            foreach (var party in parties)
+            try
             {
-                var foundPartyMembers = _partyMemberRepository.FindByPartyId(party.Id).Result;
-                partyMembers.AddRange(foundPartyMembers);
-            }
+                // TOOD: Replace with an enum
+                const int inQueue = 2;
+                var parties = _partyRepository.FindByMatchmakeStateAsync(inQueue).Result;
+                List<PartyMember> partyMembers = new List<PartyMember>();
+                foreach (var party in parties)
+                {
+                    var foundPartyMembers = _partyMemberRepository.FindByPartyId(party.Id).Result;
+                    partyMembers.AddRange(foundPartyMembers);
+                }
             
-            // TODO: Add some matchmaking logic
-            var matchedPartyMembers = partyMembers.ToList();
+                // TODO: Add some matchmaking logic
+                var matchedPartyMembers = partyMembers.ToList();
 
-            if (!matchedPartyMembers.Any())
-            {
-                return;
+                if (!matchedPartyMembers.Any())
+                {
+                    return;
+                }
+
+                var session = new Session
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    MapId = "guardian",
+                    ModeId = "slayer"
+                };
+                _sessionRepository.CreateAsync(session).Wait();
+
+                // TODO: Set party matchmake state to ingame
+                foreach (var partyMember in matchedPartyMembers)
+                {
+                    partyMember.SessionId = session.Id;
+                    _partyMemberRepository.UpdateAsync(partyMember).Wait();
+                }
             }
-
-            var session = new Session
+            catch (Exception e)
             {
-                Id = Guid.NewGuid().ToString(),
-                MapId = "guardian",
-                ModeId = "slayer"
-            };
-            _sessionRepository.CreateAsync(session).Wait();
-
-            // TODO: Set party matchmake state to ingame
-            foreach (var partyMember in matchedPartyMembers)
-            {
-                partyMember.SessionId = session.Id;
-                _partyMemberRepository.UpdateAsync(partyMember).Wait();
+                // TODO: Use a logging framework
+                Debug.WriteLine("An error occured during matchmaking", e);
             }
         }
     }

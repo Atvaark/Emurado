@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repositories\IChannelRepository.cs" />
     <Compile Include="Repositories\IClanMembershipRepository.cs" />
     <Compile Include="Repositories\IClanRepository.cs" />
     <Compile Include="Repositories\IPartyMemberRepository.cs" />

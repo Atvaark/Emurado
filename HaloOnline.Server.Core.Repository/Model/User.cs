@@ -28,6 +28,9 @@ namespace HaloOnline.Server.Core.Repository.Model
         public int Level { get; set; }
 
         [InverseProperty("User")]
+        public virtual ICollection<ChannelUser> ChannelUsers { get; set; }
+
+        [InverseProperty("User")]
         public virtual ICollection<ClanMembership> ClanMemberships { get; set; }
 
         [InverseProperty("User")]

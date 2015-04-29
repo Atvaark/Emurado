@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using HaloOnline.Server.Common;
 using HaloOnline.Server.Core.Http.Interface.Services;
@@ -35,8 +36,16 @@ namespace HaloOnline.Server.Core.Http.Controllers
         public GetAuthorizationEndpointsAndDateResult GetAuthorizationEndpointsAndDate(
             GetAuthorizationEndpointsAndDateRequest request)
         {
-            var endpointHostname = _serverOptions.EndpointHostname;
-            var endpointPort = _serverOptions.EndpointPort;
+            var endpoints = request.Versions.Select(s =>
+                new CompactEndpointInfo
+                {
+                    Ip = _serverOptions.EndpointHostname,
+                    IsDefault = true,
+                    Name = s.ServiceName,
+                    Port = _serverOptions.EndpointPort,
+                    Protocol = 4
+                }).ToList();
+
             var result = new GetAuthorizationEndpointsAndDateResult
             {
                 ServiceResult = new ServiceResult<AuthorizationEndpointsAndDate>
@@ -45,105 +54,7 @@ namespace HaloOnline.Server.Core.Http.Controllers
                     Data = new AuthorizationEndpointsAndDate
                     {
                         DateTime = DateTime.Now,
-                        Endpoints =
-                        {
-                            new CompactEndpointInfo
-                            {
-                                Name = "AuthorizationService",
-                                Ip = endpointHostname,
-                                Port = endpointPort, // TODO: Use the secure port for the authorization service
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "EndpointsDispatcherService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "FriendsService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "GameStatisticsService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "HeartbeatService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "MessagingService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "PresenceService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "SessionControlService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "TitleResourceService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "UserStorageService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "ClanService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            },
-                            new CompactEndpointInfo
-                            {
-                                Name = "ArbitraryStorageService",
-                                Ip = endpointHostname,
-                                Port = endpointPort,
-                                Protocol = 4,
-                                IsDefault = true
-                            }
-                        }
+                        Endpoints = endpoints
                     }
                 }
             };

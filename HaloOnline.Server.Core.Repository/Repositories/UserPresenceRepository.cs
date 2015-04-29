@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Model.Presence;
@@ -68,6 +69,22 @@ namespace HaloOnline.Server.Core.Repository.Repositories
             return Task.FromResult<UserPresence>(null);
         }
 
+        public Task<IEnumerable<UserPresence>> FindByState(int state)
+        {
+            var foundUserPresences = _context.UserPresences.Where(u => u.State == state)
+                .Select(u => new UserPresence
+                {
+                    User = new UserId(u.UserId),
+                    Data = new UserPresenceData
+                    {
+                        State = u.State,
+                        IsInvitable = u.IsInvitable
+                    }
+                })
+                .AsEnumerable();
+            return Task.FromResult(foundUserPresences);
+        }
+        
         public Task<UserPresenceStats> GetUserPresenceStats()
         {
             var usersOnline = _context.UserPresences.Count(u => u.State == 1);

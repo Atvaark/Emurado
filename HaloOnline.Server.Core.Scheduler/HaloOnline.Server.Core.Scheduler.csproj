@@ -55,7 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JobScheduler.cs" />
+    <Compile Include="Jobs\ChannelMemberCleanupJob.cs" />
     <Compile Include="Jobs\MatchmakingJob.cs" />
+    <Compile Include="Jobs\PresenceCleanupJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SchedulerModule.cs" />
   </ItemGroup>

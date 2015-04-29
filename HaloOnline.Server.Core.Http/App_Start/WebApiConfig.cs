@@ -19,7 +19,7 @@ namespace HaloOnline.Server.Core.Http
             config.Routes.MapHttpRoute("HaloServiceApi", "{controller}Service.svc/{action}/{request}",
                 new { action = RouteParameter.Optional, request = RouteParameter.Optional }
                 );
-
+            
             config.Formatters.Add(new HydraBinaryFormatter());
         }
     }

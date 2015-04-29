@@ -17,8 +17,12 @@ namespace HaloOnline.Server.Core.Repository
             Database.SetInitializer<HaloDbContext>(null);
         }
 
+
         public virtual DbSet<Challenge> Challenges { get; set; }
         public virtual DbSet<ChallengeReward> ChallengeRewards { get; set; }
+        public virtual DbSet<Channel> Channels { get; set; }
+        public virtual DbSet<ChannelMessage> ChannelMessages { get; set; }
+        public virtual DbSet<ChannelUser> ChannelsUsers { get; set; }
         public virtual DbSet<Clan> Clans { get; set; }
         public virtual DbSet<ClanMembership> ClanMemberships { get; set; }
         public virtual DbSet<Party> Parties { get; set; }

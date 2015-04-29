@@ -9,7 +9,7 @@ namespace HaloOnline.Server.Core.Repository.Model
         [Key, Column(Order = 0)]
         public int ChannelId { get; set; }
 
-        [Key, Column(Order = 0)]
+        [Key, Column(Order = 1)]
         public int UserId { get; set; }
 
         [ForeignKey("ChannelId")]

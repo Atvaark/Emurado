@@ -108,6 +108,7 @@
     <Compile Include="Model\UserTransactionExtendedInfoItem.cs" />
     <Compile Include="Model\UserTransactionItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ChannelRepository.cs" />
     <Compile Include="Repositories\ClanMembershipRepository.cs" />
     <Compile Include="Repositories\ClanRepository.cs" />
     <Compile Include="Repositories\PartyMemberRepository.cs" />
