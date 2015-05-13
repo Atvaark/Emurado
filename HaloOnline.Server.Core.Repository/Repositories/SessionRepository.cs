@@ -7,11 +7,11 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 {
     public class SessionRepository : ISessionRepository
     {
-        private readonly HaloDbContext _context;
+        private readonly IHaloDbContext _context;
 
-        public SessionRepository()
+        public SessionRepository(IHaloDbContext context)
         {
-            _context = new HaloDbContext();
+            _context = context;
         }
 
         public Task CreateAsync(Session session)

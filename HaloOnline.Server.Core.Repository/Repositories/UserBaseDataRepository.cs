@@ -9,11 +9,11 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 {
     public class UserBaseDataRepository : IUserBaseDataRepository
     {
-        private readonly HaloDbContext _context;
+        private readonly IHaloDbContext _context;
 
-        public UserBaseDataRepository()
+        public UserBaseDataRepository(IHaloDbContext context)
         {
-            _context = new HaloDbContext();
+            _context = context;
         }
 
         public Task<UserBaseData> GetByUserIdAsync(int userId)

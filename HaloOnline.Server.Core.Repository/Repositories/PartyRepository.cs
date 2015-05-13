@@ -8,13 +8,13 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 {
     public class PartyRepository : IPartyRepository
     {
-        private readonly HaloDbContext _context;
+        private readonly IHaloDbContext _context;
 
-        public PartyRepository()
+        public PartyRepository(IHaloDbContext context)
         {
-            _context = new HaloDbContext();
+            _context = context;
         }
-        
+
         public Task CreateAsync(Party party)
         {
             var newParty = new Model.Party

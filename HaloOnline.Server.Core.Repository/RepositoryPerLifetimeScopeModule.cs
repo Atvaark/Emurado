@@ -10,6 +10,10 @@ namespace HaloOnline.Server.Core.Repository
                 .Where(t => t.Name.EndsWith("Repository"))
                 .InstancePerLifetimeScope()
                 .AsImplementedInterfaces();
+
+            builder.RegisterType<HaloDbContext>()
+                .InstancePerLifetimeScope()
+                .AsImplementedInterfaces();
         }
     }
 }

@@ -8,5 +8,6 @@
         public int LogPort { get; set; }
         public int AppPort { get; set; }
         public int ClientPort { get; set; }
+        public string Secret { get; set; }
     }
 }

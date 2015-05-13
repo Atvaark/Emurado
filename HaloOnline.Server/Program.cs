@@ -22,7 +22,8 @@ namespace HaloOnline.Server
                 EndpointPort = Settings.Default.EndpointPort,
                 LogPort = Settings.Default.LogPort,
                 AppPort = Settings.Default.AppPort,
-                ClientPort = Settings.Default.ClientPort
+                ClientPort = Settings.Default.ClientPort,
+                Secret = Settings.Default.Secret
             };
             LogListener logHost = new LogListener(options.LogPort, options.ClientPort);
             ApiSelfHost apiHost = new ApiSelfHost(options);

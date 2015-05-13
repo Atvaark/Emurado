@@ -9,11 +9,11 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 {
     public class UserPresenceRepository : IUserPresenceRepository
     {
-        private readonly HaloDbContext _context;
+        private readonly IHaloDbContext _context;
 
-        public UserPresenceRepository()
+        public UserPresenceRepository(IHaloDbContext context)
         {
-            _context = new HaloDbContext();
+            _context = context;
         }
 
         public Task CreateAsync(UserPresence userPresence)

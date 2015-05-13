@@ -8,7 +8,6 @@ using HaloOnline.Server.Common;
 using HaloOnline.Server.Common.Repositories;
 using HaloOnline.Server.Core.Http.Auth;
 using HaloOnline.Server.Core.Repository;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Jwt;
 using Microsoft.Owin.Security.OAuth;
@@ -21,47 +20,36 @@ namespace HaloOnline.Server.Core.Http
         public static IContainer Register(IAppBuilder app, HttpConfiguration config, IServerOptions serverOptions)
         {
             ContainerBuilder containerBuilder = new ContainerBuilder();
-            ConfigureServerOptions(containerBuilder, serverOptions);
-            ConfigureRepositories(containerBuilder);
-            ConfigureDependencies(containerBuilder);
+            ConfigureDependencies(containerBuilder, serverOptions);
             var container = containerBuilder.Build();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
             app.UseAutofacMiddleware(container);
             app.UseAutofacWebApi(config);
             return container;
         }
-
-        private static void ConfigureServerOptions(ContainerBuilder containerBuilder, IServerOptions serverOptions)
+        
+        private static void ConfigureDependencies(ContainerBuilder builder, IServerOptions serverOptions)
         {
-            containerBuilder.RegisterInstance(serverOptions)
+            const string validIssuer = "HaloOnlineServer";
+            
+            builder.RegisterInstance(serverOptions)
                 .SingleInstance()
                 .As<IServerOptions>();
-        }
 
-        private static void ConfigureRepositories(ContainerBuilder builder)
-        {
             builder.RegisterModule<RepositoryPerRequestModule>();
             builder.Register(c => new HaloUserStore(c.Resolve<IUserRepository>()))
                 .InstancePerRequest()
                 .As<IHaloUserStore>();
-        }
-
-        private static void ConfigureDependencies(ContainerBuilder builder)
-        {
-            const string validIssuer = "HaloOnlineServer";
 
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-            builder.Register(
-                c => new HaloUserManager(
-                    new IdentityFactoryOptions<HaloUserManager>(),
-                    c.Resolve<IHaloUserStore>()))
+            builder.RegisterType<HaloUserManager>()
                 .InstancePerRequest()
-                .As<IHaloUserManager>();
+                .As<IHaloUserManager>();     
 
             builder.Register(c => new SymmetricKeyIssuerSecurityTokenProvider(
                 validIssuer,
-                "n9stoFfd/JN6JyVCxwEXYxNSXGDEGSoOcPtd7erDtE4=")) // TODO: Place the secret in a config file
+                serverOptions.Secret))
                 .SingleInstance()
                 .As<IIssuerSecurityTokenProvider>();
 
@@ -77,16 +65,15 @@ namespace HaloOnline.Server.Core.Http
                 .SingleInstance()
                 .AsSelf();
 
-            builder.Register(c => new JwtSecurityTokenHandler())
+            builder.RegisterType<JwtSecurityTokenHandler>()
                 .SingleInstance()
                 .AsSelf();
 
-            builder.Register(
-                c => new HaloTokenFormat(c.Resolve<JwtSecurityTokenHandler>(), c.Resolve<TokenValidationParameters>()))
+            builder.RegisterType<HaloTokenFormat>()
                 .SingleInstance()
                 .As<ISecureDataFormat<AuthenticationTicket>>();
 
-            builder.Register(c => new HaloAuthorizationServerProvider())
+            builder.RegisterType<HaloAuthorizationServerProvider>()
                 .SingleInstance()
                 .As<IOAuthAuthorizationServerProvider>();
         }

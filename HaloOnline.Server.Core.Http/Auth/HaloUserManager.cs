@@ -1,7 +1,6 @@
 ﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 
 namespace HaloOnline.Server.Core.Http.Auth
 {
@@ -9,9 +8,7 @@ namespace HaloOnline.Server.Core.Http.Auth
     {
         private readonly IHaloUserStore _store;
 
-        public HaloUserManager(
-            IdentityFactoryOptions<HaloUserManager> options,
-            IHaloUserStore haloUserStore)
+        public HaloUserManager(IHaloUserStore haloUserStore)
             : base(haloUserStore)
         {
             _store = haloUserStore;

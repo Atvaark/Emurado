@@ -28,5 +28,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=|DataDirectory|halodb.sqlite</Value>
     </Setting>
+    <Setting Name="Secret" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">n9stoFfd/JN6JyVCxwEXYxNSXGDEGSoOcPtd7erDtE4=</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

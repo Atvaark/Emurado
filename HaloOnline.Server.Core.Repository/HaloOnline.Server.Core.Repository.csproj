@@ -81,6 +81,7 @@
     <Compile Include="HaloDbConfiguration.cs" />
     <Compile Include="HaloDbConnectionFactory.cs" />
     <Compile Include="HaloDbContext.cs" />
+    <Compile Include="IHaloDbContext.cs" />
     <Compile Include="Model\Challenge.cs" />
     <Compile Include="Model\ChallengeReward.cs" />
     <Compile Include="Model\Channel.cs" />

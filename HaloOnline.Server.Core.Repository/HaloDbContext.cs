@@ -3,7 +3,7 @@ using HaloOnline.Server.Core.Repository.Model;
 
 namespace HaloOnline.Server.Core.Repository
 {
-    public class HaloDbContext : DbContext
+    public class HaloDbContext : DbContext, IHaloDbContext
     {
         public HaloDbContext()
             : this("HaloOnline.Server.Properties.Settings.HaloDbContext")
@@ -18,32 +18,32 @@ namespace HaloOnline.Server.Core.Repository
         }
 
 
-        public virtual DbSet<Challenge> Challenges { get; set; }
-        public virtual DbSet<ChallengeReward> ChallengeRewards { get; set; }
-        public virtual DbSet<Channel> Channels { get; set; }
-        public virtual DbSet<ChannelMessage> ChannelMessages { get; set; }
-        public virtual DbSet<ChannelUser> ChannelsUsers { get; set; }
-        public virtual DbSet<Clan> Clans { get; set; }
-        public virtual DbSet<ClanMembership> ClanMemberships { get; set; }
-        public virtual DbSet<Party> Parties { get; set; }
-        public virtual DbSet<PartyMember> PartyMembers { get; set; }
-        public virtual DbSet<Session> Sessions { get; set; }
-        public virtual DbSet<Shop> Shops { get; set; }
-        public virtual DbSet<ShopSection> ShopSections { get; set; }
-        public virtual DbSet<ShopSectionShelve> ShopSectionShelves { get; set; }
-        public virtual DbSet<ShopSectionShelveItem> ShopSectionShelveItems { get; set; }
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<UserChallenge> UserChallenges { get; set; }
-        public virtual DbSet<UserChallengeCounter> UserChallengeCounters { get; set; }
-        public virtual DbSet<UserData> UserDatas { get; set; }
-        public virtual DbSet<UserDataContainerType> UserDataContainerTypes { get; set; }
-        public virtual DbSet<UserPresence> UserPresences { get; set; } 
-        public virtual DbSet<UserPrimaryState> UserPrimaryState { get; set; }
-        public virtual DbSet<UserState> UserStates { get; set; }
-        public virtual DbSet<UserSubscription> UserSubscriptions { get; set; } 
-        public virtual DbSet<UserTransaction> UserTransactions { get; set; }
-        public virtual DbSet<UserTransactionExtendedInfoItem> UserTransactionExtendedInfoItems { get; set; }
-        public virtual DbSet<UserTransactionItem> UserTransactionItems { get; set; }
+        public virtual IDbSet<Challenge> Challenges { get; set; }
+        public virtual IDbSet<ChallengeReward> ChallengeRewards { get; set; }
+        public virtual IDbSet<Channel> Channels { get; set; }
+        public virtual IDbSet<ChannelMessage> ChannelMessages { get; set; }
+        public virtual IDbSet<ChannelUser> ChannelsUsers { get; set; }
+        public virtual IDbSet<Clan> Clans { get; set; }
+        public virtual IDbSet<ClanMembership> ClanMemberships { get; set; }
+        public virtual IDbSet<Party> Parties { get; set; }
+        public virtual IDbSet<PartyMember> PartyMembers { get; set; }
+        public virtual IDbSet<Session> Sessions { get; set; }
+        public virtual IDbSet<Shop> Shops { get; set; }
+        public virtual IDbSet<ShopSection> ShopSections { get; set; }
+        public virtual IDbSet<ShopSectionShelve> ShopSectionShelves { get; set; }
+        public virtual IDbSet<ShopSectionShelveItem> ShopSectionShelveItems { get; set; }
+        public virtual IDbSet<User> Users { get; set; }
+        public virtual IDbSet<UserChallenge> UserChallenges { get; set; }
+        public virtual IDbSet<UserChallengeCounter> UserChallengeCounters { get; set; }
+        public virtual IDbSet<UserData> UserDatas { get; set; }
+        public virtual IDbSet<UserDataContainerType> UserDataContainerTypes { get; set; }
+        public virtual IDbSet<UserPresence> UserPresences { get; set; } 
+        public virtual IDbSet<UserPrimaryState> UserPrimaryState { get; set; }
+        public virtual IDbSet<UserState> UserStates { get; set; }
+        public virtual IDbSet<UserSubscription> UserSubscriptions { get; set; } 
+        public virtual IDbSet<UserTransaction> UserTransactions { get; set; }
+        public virtual IDbSet<UserTransactionExtendedInfoItem> UserTransactionExtendedInfoItems { get; set; }
+        public virtual IDbSet<UserTransactionItem> UserTransactionItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

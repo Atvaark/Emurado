@@ -8,11 +8,11 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 {
     public class PartyMemberRepository : IPartyMemberRepository
     {
-        private readonly HaloDbContext _context;
+        private readonly IHaloDbContext _context;
 
-        public PartyMemberRepository()
+        public PartyMemberRepository(IHaloDbContext context)
         {
-            _context = new HaloDbContext();
+            _context = context;
         }
 
         public Task CreateAsync(PartyMember partyMember)

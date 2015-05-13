@@ -8,11 +8,11 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 {
     public class UserSubscriptionRepository : IUserSubscriptionRepository
     {
-        private readonly HaloDbContext _context;
+        private readonly IHaloDbContext _context;
 
-        public UserSubscriptionRepository()
+        public UserSubscriptionRepository(IHaloDbContext context)
         {
-            _context = new HaloDbContext();
+            _context = context;
         }
 
         public Task CreateAsync(UserSubscription userSubscription)

@@ -6,17 +6,16 @@ using HaloOnline.Server.Core.Repository.Model;
 using HaloOnline.Server.Model.User;
 using Channel = HaloOnline.Server.Model.Messaging.Channel;
 using ChannelMessage = HaloOnline.Server.Model.Messaging.ChannelMessage;
-using User = HaloOnline.Server.Core.Repository.Model.User;
 
 namespace HaloOnline.Server.Core.Repository.Repositories
 {
     public class ChannelRepository : IChannelRepository
     {
-        private readonly HaloDbContext _context;
+        private readonly IHaloDbContext _context;
 
-        public ChannelRepository()
+        public ChannelRepository(IHaloDbContext context)
         {
-            _context = new HaloDbContext();
+            _context = context;
         }
 
         public Task CreateAsync(Channel channel)

@@ -8,11 +8,11 @@ namespace HaloOnline.Server.Core.Repository.Repositories
 {
     public class ClanRepository : IClanRepository
     {
-        private readonly HaloDbContext _context;
+        private readonly IHaloDbContext _context;
 
-        public ClanRepository()
+        public ClanRepository(IHaloDbContext context)
         {
-            _context = new HaloDbContext();
+            _context = context;
         }
 
         public Task CreateAsync(Clan clan)
