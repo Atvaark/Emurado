@@ -15,36 +15,32 @@ namespace HaloOnline.Server.Core.Repository.Repositories
             _context = context;
         }
 
-        public Task CreateAsync(Clan clan)
+        public async Task CreateAsync(Clan clan)
         {
-            var newClan = new Model.Clan
-            {
-                Name = clan.Name,
-                Tag = clan.Tag,
-                Description = clan.Description
-            };
-            _context.Clans.Add(newClan);
-            _context.SaveChanges();
-            clan.ClanId = newClan.Id;
-            return Task.FromResult(0);
+            var newClan1 = _context.Clans.Create();
+            newClan1.Name = clan.Name;
+            newClan1.Tag = clan.Tag;
+            newClan1.Description = clan.Description;
+            await _context.SaveChangesAsync();
+            clan.ClanId = newClan1.Id;
         }
 
-        public Task UpdateAsync(Clan clan)
+        public async Task UpdateAsync(Clan clan)
         {
             var foundClan = _context.Clans.Find(clan.ClanId);
-            if (foundClan == null) return Task.FromResult(0);
+            if (foundClan == null) return;
             foundClan.Name = clan.Name;
             foundClan.Tag = clan.Tag;
             foundClan.Description = clan.Description;
-            return _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(Clan clan)
+        public async Task DeleteAsync(Clan clan)
         {
             var foundClan = _context.Clans.Find(clan.ClanId);
-            if (foundClan == null) return Task.FromResult(0);
+            if (foundClan == null) return;
             _context.Clans.Remove(foundClan);
-            return _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
 
         public Task<Clan> FindByIdAsync(int clanId)

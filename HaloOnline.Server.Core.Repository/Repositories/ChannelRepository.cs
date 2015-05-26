@@ -42,7 +42,7 @@ namespace HaloOnline.Server.Core.Repository.Repositories
                     ChannelId = foundChannel.Id,
                     UserId = user.Id
                 });
-                _context.SaveChanges();
+                return _context.SaveChangesAsync();
             }
             return Task.FromResult(0);
         }
@@ -58,7 +58,7 @@ namespace HaloOnline.Server.Core.Repository.Repositories
                     .Users
                     .FirstOrDefault(u => u.UserId == user.Id);
                 foundChannel.Users.Remove(foundChannelUser);
-                _context.SaveChanges();
+                return _context.SaveChangesAsync();
             }
             return Task.FromResult(0);
         }
@@ -79,7 +79,7 @@ namespace HaloOnline.Server.Core.Repository.Repositories
                     TimeStamp = channelMessage.Timestamp,
                     Version = foundChannel.Version
                 });
-                _context.SaveChanges();
+                return _context.SaveChangesAsync();
             }
             return Task.FromResult(0);
         }

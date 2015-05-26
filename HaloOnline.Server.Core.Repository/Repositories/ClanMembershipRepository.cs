@@ -23,9 +23,8 @@ namespace HaloOnline.Server.Core.Repository.Repositories
                 ClanId = clanMembership.ClanId,
                 Role = clanMembership.Role
             });
-            _context.SaveChanges();
+            return _context.SaveChangesAsync();
 
-            return Task.FromResult(0);
         }
 
         public Task UpdateAsync(ClanMembership clanMembership)
@@ -35,8 +34,7 @@ namespace HaloOnline.Server.Core.Repository.Repositories
             {
                 foundClanMembership.Role = clanMembership.Role;
             }
-            _context.SaveChanges();
-            return Task.FromResult(0);
+            return _context.SaveChangesAsync();
         }
 
         public Task DeleteAsync(ClanMembership clanMembership)
@@ -46,8 +44,7 @@ namespace HaloOnline.Server.Core.Repository.Repositories
             {
                 _context.ClanMemberships.Remove(foundClanMembership);
             }
-            _context.SaveChanges();
-            return Task.FromResult(0);
+            return _context.SaveChangesAsync();
         }
 
         public Task<IEnumerable<ClanMembership>> FindByClanId(int clanId)
